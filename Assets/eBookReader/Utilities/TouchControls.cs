@@ -7,8 +7,6 @@ public class TouchControls : MonoBehaviour
 
     private float panz = 0;
 
-    private float maxzoom = 1.5f;
-
     private float zoom = 0;
 
     private enum TouchState
@@ -45,6 +43,12 @@ public class TouchControls : MonoBehaviour
     public Collider PreviousPage = null;
 
     public MegaBookBuilder Book = null;
+
+    public float MaxPanOffsetX = 0.5f;
+
+    public float MaxPanOffsetZ = 0.5f;
+
+    public float MaxZoomOffset = 1.5f;
 
     // Use this for initialization
     void Start()
@@ -91,16 +95,16 @@ public class TouchControls : MonoBehaviour
 
         if (originalDistance > newDistance)
         {
-            zoom = Mathf.Clamp(zoom - 2 * Time.deltaTime, 0, maxzoom);
+            zoom = Mathf.Clamp(zoom - 2 * Time.deltaTime, 0, MaxZoomOffset);
         }
         else if (originalDistance < newDistance)
         {
-            zoom = Mathf.Clamp(zoom + 2 * Time.deltaTime, 0, maxzoom);
+            zoom = Mathf.Clamp(zoom + 2 * Time.deltaTime, 0, MaxZoomOffset);
         }
 
-        float zoompercent = zoom / maxzoom;
-        panx = Mathf.Clamp(panx, -0.5f * zoompercent, 0.5f * zoompercent);
-        panz = Mathf.Clamp(panz, -0.5f * zoompercent, 0.5f * zoompercent);
+        float zoompercent = zoom / MaxZoomOffset;
+        panx = Mathf.Clamp(panx, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
+        panz = Mathf.Clamp(panz, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
 
         firstOriginalPosition = firstTouch.position;
         secondOriginalPosition = secondTouch.position;
@@ -117,9 +121,9 @@ public class TouchControls : MonoBehaviour
 
         Touch touch = Input.GetTouch(firstTouchId);
 
-        float zoompercent = zoom / maxzoom;
-        panx = Mathf.Clamp(panx - touch.deltaPosition.x * Time.deltaTime * 0.25f, -0.5f * zoompercent, 0.5f * zoompercent);
-        panz = Mathf.Clamp(panz - touch.deltaPosition.y * Time.deltaTime * 0.25f, -0.5f * zoompercent, 0.5f * zoompercent);
+        float zoompercent = zoom / MaxZoomOffset;
+        panx = Mathf.Clamp(panx - touch.deltaPosition.x * Time.deltaTime * 0.25f, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
+        panz = Mathf.Clamp(panz - touch.deltaPosition.y * Time.deltaTime * 0.25f, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
     }
 
     private void DoNextPage()
