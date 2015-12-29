@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TouchControls : MonoBehaviour
 {
+    private float firstTouchBeganTime = 0;
+
     private float panx = 0;
 
     private float panz = 0;
@@ -34,9 +36,9 @@ public class TouchControls : MonoBehaviour
 
     private Vector3 originalCameraPosition = Vector3.zero;
 
-    private Vector3 firstOriginalPosition = Vector3.zero;
+    private Vector2 firstOriginalPosition = Vector2.zero;
 
-    private Vector3 secondOriginalPosition = Vector3.zero;
+    private Vector2 secondOriginalPosition = Vector2.zero;
 
     public Collider NextPage = null;
 
@@ -90,8 +92,8 @@ public class TouchControls : MonoBehaviour
         Touch firstTouch = Input.GetTouch(firstTouchId);
         Touch secondTouch = Input.GetTouch(secondTouchId);
 
-        float originalDistance = Vector3.Distance(firstOriginalPosition, secondOriginalPosition);
-        float newDistance = Vector3.Distance(firstTouch.position, secondTouch.position);
+        float originalDistance = Vector3.Distance(firstOriginalPosition - firstTouch.deltaPosition, secondOriginalPosition - secondTouch.deltaPosition);
+        float newDistance = Vector3.Distance(firstOriginalPosition, secondOriginalPosition);
 
         if (originalDistance > newDistance)
         {
@@ -105,9 +107,6 @@ public class TouchControls : MonoBehaviour
         float zoompercent = zoom / MaxZoomOffset;
         panx = Mathf.Clamp(panx, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
         panz = Mathf.Clamp(panz, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
-
-        firstOriginalPosition = firstTouch.position;
-        secondOriginalPosition = secondTouch.position;
     }
 
     private void DoPanCamera()
@@ -166,13 +165,13 @@ public class TouchControls : MonoBehaviour
                 Touch secondTouch = Input.touches[1];
                 secondTouchId = secondTouch.fingerId;
 
-                if (myTouchState != TouchState.ZoomCamera)
+                if (firstTouch.phase == TouchPhase.Began || secondTouch.phase == TouchPhase.Began)
                 {
+                    myTouchState = TouchState.ZoomCamera;
+
                     firstOriginalPosition = firstTouch.position;
                     secondOriginalPosition = secondTouch.position;
                 }
-
-                myTouchState = TouchState.ZoomCamera;
             }
             else
             {
@@ -183,6 +182,8 @@ public class TouchControls : MonoBehaviour
 
                 if (firstTouch.phase == TouchPhase.Began)
                 {
+                    firstTouchBeganTime = Time.timeSinceLevelLoad;
+
                     Ray ray = Camera.main.ScreenPointToRay(firstTouch.position);
                     RaycastHit hit;
 
@@ -190,20 +191,24 @@ public class TouchControls : MonoBehaviour
                     {
                         myTouchState = TouchState.NextPage;
                         currentPage = Mathf.Round(Book.page);
-                        targetPage = Mathf.Clamp(currentPage + 1, -1, Book.NumPages);
+                        targetPage = Mathf.Clamp(currentPage + 1, -1, Book.NumPages + 1);
                     }
                     else if (PreviousPage.Raycast(ray, out hit, 10000))
                     {
                         myTouchState = TouchState.PrevPage;
                         currentPage = Mathf.Round(Book.page);
-                        targetPage = Mathf.Clamp(currentPage - 1, -1, Book.NumPages);
+                        targetPage = Mathf.Clamp(currentPage - 1, -1, Book.NumPages + 1);
                     }
-                    else
+                }
+                else if (firstTouch.phase == TouchPhase.Moved && myTouchState != TouchState.PanCamera)
+                {
+                    if (Time.timeSinceLevelLoad - firstTouchBeganTime > 0.25f)
                     {
                         myTouchState = TouchState.PanCamera;
                     }
+                    firstTouchBeganTime = Time.timeSinceLevelLoad;
                 }
-                else if (myTouchState == TouchState.ZoomCamera)
+                else if (myTouchState != TouchState.NextPage && myTouchState != TouchState.PrevPage)
                 {
                     myTouchState = TouchState.PanCamera;
                 }
