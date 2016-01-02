@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using System;
 
 public class TouchControls : MonoBehaviour
 {
@@ -118,11 +120,18 @@ public class TouchControls : MonoBehaviour
             return;
         }
 
-        Touch touch = Input.GetTouch(firstTouchId);
+        try
+        {
+            Touch touch = Input.GetTouch(firstTouchId);
 
-        float zoompercent = zoom / MaxZoomOffset;
-        panx = Mathf.Clamp(panx - touch.deltaPosition.x * Time.deltaTime * 0.25f, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
-        panz = Mathf.Clamp(panz - touch.deltaPosition.y * Time.deltaTime * 0.25f, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
+            float zoompercent = zoom / MaxZoomOffset;
+            panx = Mathf.Clamp(panx - touch.deltaPosition.x * Time.deltaTime * 0.25f, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
+            panz = Mathf.Clamp(panz - touch.deltaPosition.y * Time.deltaTime * 0.25f, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
+        }
+        catch (ArgumentException)
+        {
+            Debug.Log("Touch does not exist " + firstTouchId);
+        }
     }
 
     private void DoNextPage()
@@ -155,7 +164,7 @@ public class TouchControls : MonoBehaviour
 
     private void UpdateTouchState()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && EventSystem.current.currentSelectedGameObject == null)
         {
             if (Input.touchCount == 2)
             {
