@@ -134,6 +134,12 @@ public class TouchControls : MonoBehaviour
         }
     }
 
+    [ContextMenu("Next Page")]
+    private void DoNextPageForce()
+    {
+        Book.NextPage();
+    }
+
     private void DoNextPage()
     {
         if (firstTouchId == -1)
@@ -146,6 +152,12 @@ public class TouchControls : MonoBehaviour
         Touch touch = Input.GetTouch(firstTouchId);
         float delta = touch.deltaPosition.x;
         Book.page = Mathf.Clamp(Book.page - delta * Time.deltaTime * 0.5f, currentPage, targetPage);
+    }
+
+    [ContextMenu("Previous Page")]
+    private void DoPrevPageForce()
+    {
+        Book.PrevPage();
     }
 
     private void DoPrevPage()

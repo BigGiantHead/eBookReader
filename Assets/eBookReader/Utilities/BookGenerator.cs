@@ -26,41 +26,41 @@ public class BookGenerator : MonoBehaviour
 
         AddTextToPage(
             1,
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse erat sapien, efficitur nec sem eget, finibus dictum elit.",
+            "text1",
             Color.white,
             55, 25,
             50, 60);
 
         AddButtonToPage(
             1,
-            "Clicky",
+            "button1",
             99, 33,
             50, 70, 30, () => Turn(5));
 
         AddTextToPage(
             2,
-            "Vestibulum et risus non erat luctus pretium. Fusce eget justo in orci facilisis volutpat et nec lorem. In sed sem vitae massa vehicula tristique quis eu turpis.",
+            "text2",
             Color.black,
             55, 25,
             50, 60);
 
         AddTextToPage(
             3,
-            "In hac habitasse platea dictumst.Phasellus vitae imperdiet sapien. Pellentesque bibendum pretium est eu sollicitudin. Phasellus quis arcu vel nibh ultrices blandit non a est.",
+            "text3",
             Color.white,
             55, 25,
             50, 60, 10);
 
         AddTextToPage(
             4,
-            "Nullam sed nisi eu mauris tincidunt pulvinar.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus felis enim, ornare non pretium eu, imperdiet ut ligula. Praesent efficitur ullamcorper ex vel molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque fermentum euismod turpis nec fermentum.",
+            "text4",
             Color.black,
             55, 25,
             50, 60, -10);
 
         AddButtonToPage(
             5,
-            "Click back",
+            "button2",
             99, 33,
             50, 70, 30, () => Turn(0));
 
@@ -96,7 +96,7 @@ public class BookGenerator : MonoBehaviour
         }
     }
 
-    public void AddTextToPage(int page, string text, Color textColor, float width, float fontSize, float x, float y, float rotation = 0)
+    public void AddTextToPage(int page, string textRef, Color textColor, float width, float fontSize, float x, float y, float rotation = 0)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -130,12 +130,14 @@ public class BookGenerator : MonoBehaviour
         tText.ColorTopRight = textColor;
         tText.WordWrap = width;
         tText.Size = fontSize;
-        tText.Text = tText.GetWrappedText(text);
+
+        LocalizedText localizedText = tText.gameObject.GetComponent<LocalizedText>();
+        localizedText.UpdateReference(textRef);
 
         myPage.objects.Add(textObject);
     }
 
-    public void AddButtonToPage(int page, string buttonText, float width, float height, float x, float y, float rotation = 0, UnityAction action = null)
+    public void AddButtonToPage(int page, string buttonTextRef, float width, float height, float x, float y, float rotation = 0, UnityAction action = null)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -163,9 +165,11 @@ public class BookGenerator : MonoBehaviour
         }
 
         PageButton button = textObject.obj.GetComponent<PageButton>();
-        button.Text.text = buttonText;
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+
+        LocalizedText localizedText = button.Text.gameObject.GetComponent<LocalizedText>();
+        localizedText.UpdateReference(buttonTextRef);
 
         if (action != null)
         {
