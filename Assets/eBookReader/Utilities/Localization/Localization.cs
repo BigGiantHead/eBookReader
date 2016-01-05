@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using LINQtoCSV;
+using System.IO;
+using System.Linq;
+using AssetBundles;
 
 public enum Language { Auto, English, Turkish, Arabic }
 
@@ -78,74 +82,118 @@ public class Localization : MonoBehaviour
 
     private void UpdateLocalization()
     {
-        TextAsset localizationText = Resources.Load(localizationFileResPath) as TextAsset;
+        currentLocalizationEntries.Clear();
 
+        LoadLocalizationFromResources(localizationFileResPath);
+        LoadLocalizationFromStreamingAssets("/Localization.csv");
+        LoadLocalizationFromWebUrl("http://letterpressgame.com/eBookReader/Localization.csv");
+        LoadLocalizationFromAssetBundle("http://letterpressgame.com/eBookReader/", "localizationtest", "Localization", true);
+    }
+
+    public void LoadLocalizationFromResources(string resFilePath)
+    {
+        TextAsset localizationText = Resources.Load(resFilePath) as TextAsset;
         if (localizationText)
         {
-            currentLocalizationEntries.Clear();
-
-            int currentLangIndex = -1;
-            string[] locLines = localizationText.text.Split('\n');
-            for (int i = 0; i < locLines.Length; i++)
-            {
-                locLines[i] = locLines[i].Trim();
-                if (!string.IsNullOrEmpty(locLines[i]))
-                {
-                    if (i == 0)
-                    {
-                        string[] locCol = locLines[i].Split(',');
-                        for (int k = 1; k < locCol.Length; k++)
-                        {
-                            if (locCol[k] == CurrentLanguage.ToString())
-                                currentLangIndex = k;
-                        }
-                    }
-                    else
-                    {
-                        string locKey = "";
-                        string locValue = "";
-
-                        string[] locCol = locLines[i].Split(',');
-                        string currentVal = "";
-                        int j = 0;
-                        int k = 0;
-                        while (k < locCol.Length)
-                        {
-                            currentVal = locCol[k];
-                            if (currentVal.StartsWith("\""))
-                            {
-                                bool isLast = currentVal.EndsWith("\"");
-                                while (!isLast)
-                                {
-                                    k++;
-                                    currentVal += "," + locCol[k];
-                                    isLast = locCol[k].EndsWith("\"");
-                                }
-                                currentVal = currentVal.Substring(1, currentVal.Length - 2);
-                            }
-                            currentVal = currentVal.Replace("\"\"", "\"");
-
-                            if (j == 0)
-                            {
-                                locKey = currentVal;
-                            }
-                            else if (j == currentLangIndex)
-                            {
-                                locValue = currentVal;
-                                break;
-                            }
-
-                            j++;
-                            k++;
-                        }
-
-                        currentLocalizationEntries.Add(locKey, locValue);
-                    }
-                }
-            }
-
+            LoadLocalization(localizationText.text);
             Resources.UnloadAsset(localizationText);
         }
+    }
+
+    public void LoadLocalizationFromStreamingAssets(string assetsFilePath)
+    {
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        StartCoroutine(GoLoadLocalizationFromUrl(Application.streamingAssetsPath + assetsFilePath));
+#else
+        StartCoroutine(GoLoadLocalizationFromUrl("file://" + Application.streamingAssetsPath + assetsFilePath));
+#endif
+    }
+
+    public void LoadLocalizationFromWebUrl(string csvUrl)
+    {
+        StartCoroutine(GoLoadLocalizationFromUrl(csvUrl));
+    }
+
+    private IEnumerator GoLoadLocalizationFromUrl(string csvUrl)
+    {
+        WWW www = new WWW(csvUrl);
+        yield return www;
+        if (www.error != null)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(www.text))
+            {
+                LoadLocalization(www.text);
+            }
+        }
+        www.Dispose();
+    }
+
+    public void LoadLocalizationFromAssetBundle(string absolutePath, string bundleName, string localizationAssetName, bool unloadBundle = false)
+    {
+        if (!string.IsNullOrEmpty(absolutePath) && !string.IsNullOrEmpty(bundleName) && !string.IsNullOrEmpty(localizationAssetName))
+            StartCoroutine(GoLoadLocalizationFromAssetBundle(absolutePath, bundleName, localizationAssetName, unloadBundle));
+    }
+
+    private IEnumerator GoLoadLocalizationFromAssetBundle(string absolutePath, string bundleName, string localizationAssetName, bool unloadBundle)
+    {
+        //AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
+        AssetBundleManager.SetDevelopmentAssetBundleServer();
+
+        var request = AssetBundleManager.Initialize();
+        if (request != null)
+            yield return StartCoroutine(request);
+
+        AssetBundleLoadAssetOperation obj = AssetBundleManager.LoadAssetAsync(bundleName, localizationAssetName, typeof(TextAsset));
+        if (obj == null)
+            yield break;
+        yield return StartCoroutine(obj);
+
+        TextAsset textObj = obj.GetAsset<TextAsset>();
+        if (textObj)
+        {
+            LoadLocalization(textObj.text);
+            Resources.UnloadAsset(textObj);
+        }
+
+        if (unloadBundle)
+            AssetBundleManager.UnloadAssetBundle(bundleName);
+    }
+
+    public void LoadLocalizationFromString(string csv)
+    {
+        if (!string.IsNullOrEmpty(csv))
+            LoadLocalization(csv);
+    }
+
+    private void LoadLocalization(string csv)
+    {
+        CsvFileDescription inputFileDescription = new CsvFileDescription();
+        CsvContext cc = new CsvContext();
+        IEnumerable<LocalizationEntry> locEntries = cc.Read<LocalizationEntry>(new StreamReader(Utils.GenerateStreamFromString(csv)), inputFileDescription);
+
+        foreach (LocalizationEntry lc in locEntries)
+        {
+            string locValue = "";
+            if (CurrentLanguage == Language.Arabic)
+                locValue = lc.Arabic;
+            if (CurrentLanguage == Language.English)
+                locValue = lc.English;
+            if (CurrentLanguage == Language.Turkish)
+                locValue = lc.Turkish;
+
+            if (currentLocalizationEntries.ContainsKey(lc.Reference))
+                currentLocalizationEntries[lc.Reference] = locValue;
+            else
+                currentLocalizationEntries.Add(lc.Reference, locValue);
+        }
+
+        locEntries = null;
+        cc = null;
+        inputFileDescription = null;
     }
 
     public string GetEntryRaw(string reference)
