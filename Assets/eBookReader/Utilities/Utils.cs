@@ -40,4 +40,21 @@ public static class Utils
         stream.Position = 0;
         return stream;
     }
+
+    public static Color ToColorFromRGBA(this string colorString)
+    {
+        colorString = colorString.Replace("RGBA(", "").Replace(")", "").Replace(" ", "");
+        string[] values = colorString.Split(new string[] { "," }, System.StringSplitOptions.RemoveEmptyEntries);
+
+        return new Color(float.Parse(values[0]) / 255f, float.Parse(values[1]) / 255f, float.Parse(values[2]) / 255f, float.Parse(values[3]) / 255f);
+    }
+
+    public static Color ToColorFromHEX(this string hex)
+    {
+        byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+        byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+        byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+        byte a = byte.Parse(hex.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
+        return new Color32(r, g, b, a);
+    }
 }

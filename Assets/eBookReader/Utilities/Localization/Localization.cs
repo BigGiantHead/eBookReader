@@ -40,7 +40,12 @@ public class Localization : MonoBehaviour
 
     private Dictionary<string, string> currentLocalizationEntries = new Dictionary<string,string>();
 
-    public string localizationFileResPath = "Localization";
+    private List<string> localizationsInResources = new List<string>();
+    private List<string> localizationsInStreamingAssets = new List<string>();
+    private List<string> localizationsOnWeb = new List<string>();
+    private List<string> localizationsOnAssetBundle = new List<string>();
+
+    public bool loadingFromBundle = false;
 
     private void Awake()
     {
@@ -84,34 +89,85 @@ public class Localization : MonoBehaviour
     {
         currentLocalizationEntries.Clear();
 
-        LoadLocalizationFromResources(localizationFileResPath);
-        LoadLocalizationFromStreamingAssets("/Localization.csv");
-        LoadLocalizationFromWebUrl("http://letterpressgame.com/eBookReader/Localization.csv");
-        LoadLocalizationFromAssetBundle("http://letterpressgame.com/eBookReader/", "localizationtest", "Localization", true);
+        for (int i = 0; i < localizationsInResources.Count; i++)
+        {
+            LoadLocalizationFromResources(localizationsInResources[i]);
+        }
+
+        for (int i = 0; i < localizationsInStreamingAssets.Count; i++)
+        {
+            LoadLocalizationFromStreamingAssets(localizationsInStreamingAssets[i]);
+        }
+
+        for (int i = 0; i < localizationsOnWeb.Count; i++)
+        {
+            LoadLocalizationFromWebUrl(localizationsOnWeb[i]);
+        }
+
+        for (int i = 0; i < localizationsOnAssetBundle.Count; i += 4)
+        {
+            LoadLocalizationFromAssetBundle(localizationsOnAssetBundle[i], localizationsOnAssetBundle[i + 1], localizationsOnAssetBundle[i + 2], bool.Parse(localizationsOnAssetBundle[i + 3]));
+        }
     }
 
     public void LoadLocalizationFromResources(string resFilePath)
     {
+        if (string.IsNullOrEmpty(resFilePath))
+            return;
+
         TextAsset localizationText = Resources.Load(resFilePath) as TextAsset;
-        if (localizationText)
+        if (localizationText && !string.IsNullOrEmpty(localizationText.text))
         {
             LoadLocalization(localizationText.text);
             Resources.UnloadAsset(localizationText);
+
+            if (!localizationsInResources.Contains(resFilePath))
+                localizationsInResources.Add(resFilePath);
         }
+    }
+
+    public void UnloadFromResources(string resFilePath)
+    {
+        if (localizationsInResources.Contains(resFilePath))
+            localizationsInResources.Remove(resFilePath);
     }
 
     public void LoadLocalizationFromStreamingAssets(string assetsFilePath)
     {
+        if (string.IsNullOrEmpty(assetsFilePath))
+            return;
+
 #if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
         StartCoroutine(GoLoadLocalizationFromUrl(Application.streamingAssetsPath + assetsFilePath));
 #else
         StartCoroutine(GoLoadLocalizationFromUrl("file://" + Application.streamingAssetsPath + assetsFilePath));
 #endif
+
+        if (!localizationsInStreamingAssets.Contains(assetsFilePath))
+            localizationsInStreamingAssets.Add(assetsFilePath);
+    }
+
+    public void UnloadFromStreamingAssets(string assetsFilePath)
+    {
+        if (localizationsInStreamingAssets.Contains(assetsFilePath))
+            localizationsInStreamingAssets.Remove(assetsFilePath);
     }
 
     public void LoadLocalizationFromWebUrl(string csvUrl)
     {
+        if (string.IsNullOrEmpty(csvUrl))
+            return;
+
         StartCoroutine(GoLoadLocalizationFromUrl(csvUrl));
+
+        if (!localizationsOnWeb.Contains(csvUrl))
+            localizationsOnWeb.Add(csvUrl);
+    }
+
+    public void UnloadFromWebUrl(string csvUrl)
+    {
+        if (localizationsOnWeb.Contains(csvUrl))
+            localizationsOnWeb.Remove(csvUrl);
     }
 
     private IEnumerator GoLoadLocalizationFromUrl(string csvUrl)
@@ -140,8 +196,9 @@ public class Localization : MonoBehaviour
 
     private IEnumerator GoLoadLocalizationFromAssetBundle(string absolutePath, string bundleName, string localizationAssetName, bool unloadBundle)
     {
-        //AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
-        AssetBundleManager.SetDevelopmentAssetBundleServer();
+        loadingFromBundle = true;
+
+        AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
 
         var request = AssetBundleManager.Initialize();
         if (request != null)
@@ -149,18 +206,52 @@ public class Localization : MonoBehaviour
 
         AssetBundleLoadAssetOperation obj = AssetBundleManager.LoadAssetAsync(bundleName, localizationAssetName, typeof(TextAsset));
         if (obj == null)
+        {
+            loadingFromBundle = false;
             yield break;
+        }
         yield return StartCoroutine(obj);
 
         TextAsset textObj = obj.GetAsset<TextAsset>();
-        if (textObj)
+        if (textObj && !string.IsNullOrEmpty(textObj.text))
         {
             LoadLocalization(textObj.text);
             Resources.UnloadAsset(textObj);
+
+            if (!localizationsOnAssetBundle.Contains(bundleName) || !localizationsOnAssetBundle.Contains(localizationAssetName))
+            {
+                localizationsOnAssetBundle.Add(absolutePath);
+                localizationsOnAssetBundle.Add(bundleName);
+                localizationsOnAssetBundle.Add(localizationAssetName);
+                localizationsOnAssetBundle.Add(unloadBundle.ToString());
+            }
         }
 
         if (unloadBundle)
             AssetBundleManager.UnloadAssetBundle(bundleName);
+
+        loadingFromBundle = false;
+    }
+
+    public void UnloadFromAssetBundle(string bundleName, string localizationAssetName)
+    {
+        if (localizationsOnAssetBundle.Contains(bundleName) && localizationsOnAssetBundle.Contains(localizationAssetName))
+        {
+            int bundleNameIndex = localizationsOnAssetBundle.IndexOf(bundleName);
+            int maxTimes = 10;
+            while (bundleNameIndex > 0 && maxTimes > 0 && localizationsOnAssetBundle[bundleNameIndex + 1] != localizationAssetName)
+            {
+                bundleNameIndex = localizationsOnAssetBundle.IndexOf(bundleName, bundleNameIndex + 1);
+                maxTimes--;
+            }
+            if (bundleNameIndex > 0 && localizationsOnAssetBundle[bundleNameIndex + 1] == localizationAssetName)
+            {
+                localizationsOnAssetBundle.RemoveAt(bundleNameIndex + 2);
+                localizationsOnAssetBundle.RemoveAt(bundleNameIndex + 1);
+                localizationsOnAssetBundle.RemoveAt(bundleNameIndex);
+                localizationsOnAssetBundle.RemoveAt(bundleNameIndex - 1);
+            }
+        }
     }
 
     public void LoadLocalizationFromString(string csv)
