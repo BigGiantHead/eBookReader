@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 4133107763
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fbd29e471473a94fe3bf31f7626c6fd4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb6b06b1b3e2dbe026521de7a467fcd7
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/eBookReader/Resources/Book1/images/Page2.png
+- Assets/eBookReader/Resources/Book1/images/Page3.png
+- Assets/eBookReader/Resources/Book1/Localization.csv
+- Assets/eBookReader/Resources/Book1/Book.xml
+Dependencies: []

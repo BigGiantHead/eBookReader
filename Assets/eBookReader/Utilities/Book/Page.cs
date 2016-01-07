@@ -13,7 +13,7 @@ namespace BookData
         public string audio;
         public AudioClip audioClip;
         public string video;
-        public MovieTexture videoMovie;
+        public Texture2D videoMovie;
         public List<Text> texts;
         public List<Button> buttons;
 

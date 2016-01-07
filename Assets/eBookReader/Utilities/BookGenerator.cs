@@ -18,7 +18,7 @@ public class BookGenerator : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadBook(" ", "book1"));
+        StartCoroutine(LoadBook(Application.streamingAssetsPath + "/", "book1"));
     }
 
     private IEnumerator LoadBook(string absolutePath, string bundleName)

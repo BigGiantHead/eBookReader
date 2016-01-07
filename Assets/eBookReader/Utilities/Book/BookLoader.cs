@@ -181,12 +181,12 @@ namespace BookData
 
         private IEnumerator LoadVideoFromBundle(string bundleName, Page page)
         {
-            AssetBundleLoadAssetOperation videoLoad = AssetBundleManager.LoadAssetAsync(bundleName, page.video, typeof(MovieTexture));
+            AssetBundleLoadAssetOperation videoLoad = AssetBundleManager.LoadAssetAsync(bundleName, page.video, typeof(Texture2D));
             if (videoLoad == null)
                 yield break;
             yield return StartCoroutine(videoLoad);
 
-            page.videoMovie = videoLoad.GetAsset<MovieTexture>();
+            page.videoMovie = videoLoad.GetAsset<Texture2D>();
         }
 
         private void LoadText(XmlNode textNode, Page page)
