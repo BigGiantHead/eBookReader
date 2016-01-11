@@ -16,6 +16,14 @@ public class ModalPanel : MonoBehaviour
 
     public Action OnShowEnd = null;
 
+    void Awake()
+    {
+        if (Content != null)
+        {
+            Content.SetActive(false);
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
