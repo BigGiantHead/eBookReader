@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System;
 
 public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -10,7 +11,10 @@ public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private Transform startParent;
 
+    [HideInInspector]
     public int Index = -1;
+
+    public FruitType Type = FruitType.None;
 
     #region IBeginDragHandler implementation
     public void OnBeginDrag(PointerEventData eventData)
@@ -44,4 +48,36 @@ public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
     #endregion
+
+    [Flags]
+    public enum FruitType
+    {
+        None = 0,
+
+        One = 1,
+
+        Two = 2,
+
+        Three = 4,
+
+        Four = 8,
+
+        Five = 16,
+
+        Six = 32,
+
+        Seven = 64,
+
+        Eight = 128,
+
+        Nine = 256,
+
+        Ten = 512,
+
+        Eleven = 1024,
+
+        Twelve = 2048,
+
+        Empty = 4096
+    }
 }

@@ -14,6 +14,7 @@ public class AvatarElement : MonoBehaviour
 
     public void OnClick()
     {
-        CreateProfilePanel.instance.SelectedAvatarImage.overrideSprite = MyImage.sprite;
+        CreateProfilePanel.Instance.SelectedAvatarImage.overrideSprite = MyImage.sprite;
+        CreateProfilePanel.Instance.NewProfile.Avatar = MyImage.sprite.name;
     }
 }

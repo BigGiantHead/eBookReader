@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System;
 
 public class PasswordFruitPosition : MonoBehaviour, IDropHandler
 {
@@ -27,4 +28,15 @@ public class PasswordFruitPosition : MonoBehaviour, IDropHandler
         MyItem = PasswordFruit.ItemBeingDragged;
     }
     #endregion
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+    }
+
+    public void ResetItem()
+    {
+        MyItem.Index = -1;
+        MyItem.OnEndDrag(null);
+        MyItem = null;
+    }
 }
