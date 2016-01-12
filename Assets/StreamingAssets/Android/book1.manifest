@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4133107763
+CRC: 2972493442
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fbd29e471473a94fe3bf31f7626c6fd4
+    Hash: bb34b652cf40cf8e0111acc88f75d73c
   TypeTreeHash:
     serializedVersion: 2
     Hash: eb6b06b1b3e2dbe026521de7a467fcd7
@@ -14,6 +14,7 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 Assets:
+- Assets/eBookReader/Resources/Book1/images/Cover.jpg
 - Assets/eBookReader/Resources/Book1/images/Page2.png
 - Assets/eBookReader/Resources/Book1/images/Page3.png
 - Assets/eBookReader/Resources/Book1/Localization.csv

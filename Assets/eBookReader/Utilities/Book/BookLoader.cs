@@ -236,6 +236,9 @@ namespace BookData
 
         private void LoadText(XmlNode textNode, Page page)
         {
+            if (textNode.Attributes["language"] != null && !textNode.Attributes["language"].Value.Contains(Localization.Instance.CurrentLanguage.ToString()))
+                return;
+
             Text text = new Text();
 
             if (textNode.Attributes["reference"] != null)
@@ -277,6 +280,9 @@ namespace BookData
 
         private void LoadButton(XmlNode buttonNode, Page page)
         {
+            if (buttonNode.Attributes["language"] != null && !buttonNode.Attributes["language"].Value.Contains(Localization.Instance.CurrentLanguage.ToString()))
+                return;
+
             Button button = new Button();
 
             if (buttonNode.Attributes["reference"] != null && !string.IsNullOrEmpty(buttonNode.Attributes["reference"].Value))
