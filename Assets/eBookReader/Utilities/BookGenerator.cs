@@ -9,12 +9,7 @@ public class BookGenerator : MonoBehaviour
     public MegaBookBuilder Book = null;
 
     public GameObject TextObject = null;
-
     public GameObject ButtonObject = null;
-
-    public Texture2D TestTexture1 = null;
-
-    public Texture2D TestTexture2 = null;
 
     void Start()
     {
@@ -54,7 +49,6 @@ public class BookGenerator : MonoBehaviour
                               book.pages[i].texts[j].colorC,
                               book.pages[i].texts[j].width, book.pages[i].texts[j].fontSize,
                               book.pages[i].texts[j].posX, book.pages[i].texts[j].posY, book.pages[i].texts[j].rotation);
-                Book.rebuild = true;
             }
 
             for (int j = 0; j < book.pages[i].buttons.Count; j++)
@@ -66,14 +60,43 @@ public class BookGenerator : MonoBehaviour
                                 book.pages[i].buttons[j].width, book.pages[i].buttons[j].height,
                                 book.pages[i].buttons[j].posX, book.pages[i].buttons[j].posY, book.pages[i].buttons[j].rotation,
                                 () => DoAction(actionName, actionParameter));
-                Book.rebuild = true;
             }
 
             if (book.pages[i].imageTex != null)
             {
                 SetPageTexture(book.pages[i].nr, book.pages[i].imageTex);
-                Book.rebuild = true;
             }
+        }
+
+        Book.basematerial.color = book.pageColorC;
+        Book.basematerial1.color = book.pageColorC;
+        Book.basematerial2.color = book.pageColorC;
+
+        Book.rebuild = true;
+
+        Material mat;
+        if (Book.frontcover)
+        {
+            if (Book.frontcover.childCount > 0)
+            {
+                mat = Book.frontcover.GetChild(0).GetComponent<MeshRenderer>().material;
+                mat.color = book.coverColorC;
+                mat.mainTexture = book.frontCoverImageTex;
+            }
+        }
+        if (Book.backcover)
+        {
+            if (Book.backcover.childCount > 0)
+            {
+                mat = Book.backcover.GetChild(0).GetComponent<MeshRenderer>().material;
+                mat.color = book.coverColorC;
+                mat.mainTexture = book.backCoverImageTex;
+            }
+        }
+        if (Book.transform.FindChild("Spine"))
+        {
+            mat = Book.transform.FindChild("Spine").GetComponent<MeshRenderer>().material;
+            mat.color = book.coverColorC;
         }
     }
 

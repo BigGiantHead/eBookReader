@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<book numPages="16">
+<book numPages="7" coverColor="RGBA(0, 244, 159, 255)" frontCoverImage="Cover" backCoverImage="" pageColor="RGBA(255, 255, 255, 255)">
 	<page nr="1" image="Page3" audio="" video="">
 		<text reference="text1" color="#ffffffff" width="55" fontSize="25" posX="50" posY="60" />
 		<button reference="button1" width="99" height="33" posX="50" posY="70" rotation="30" actionName="Turn" actionParameter="5" />
@@ -24,4 +24,5 @@
 	<page nr="11" image="Page3" audio="" video="" />
 	<page nr="12" image="Page2" audio="" video="" />
 	<page nr="13" image="Page3" audio="" video="" />
+  <page nr="14" image="Page2" audio="" video="" />
 </book>

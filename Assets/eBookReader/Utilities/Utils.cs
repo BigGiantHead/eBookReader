@@ -57,4 +57,38 @@ public static class Utils
         byte a = byte.Parse(hex.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
         return new Color32(r, g, b, a);
     }
+
+    public static Color ToColor(this string colorString)
+    {
+        Color col = Color.white;
+        if (colorString.ToLower().Contains("rgba"))
+        {
+            try
+            {
+                col = colorString.ToColorFromRGBA();
+            }
+            catch (Exception exc)
+            {
+                Debug.LogException(exc);
+            }
+        }
+        else
+        {
+            string color = colorString.Replace("#", "").Replace("0x", "");
+            if (color.Length == 6)
+                color += "ff";
+            if (color.Length == 8)
+            {
+                try
+                {
+                    col = color.ToColorFromHEX();
+                }
+                catch (Exception exc)
+                {
+                    Debug.LogException(exc);
+                }
+            }
+        }
+        return col;
+    }
 }

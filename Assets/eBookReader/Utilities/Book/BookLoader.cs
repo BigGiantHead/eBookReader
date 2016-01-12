@@ -82,11 +82,7 @@ namespace BookData
                     if (xmlBookNode.Name.ToLower() == "book")
                     {
                         book = new Book();
-
-                        int bookNumPages = 0;
-                        if (xmlBookNode.Attributes["numPages"] != null)
-                            int.TryParse(xmlBookNode.Attributes["numPages"].Value, out bookNumPages);
-                        book.numPages = bookNumPages;
+                        yield return StartCoroutine(LoadBookAttributes(bundleName, xmlBookNode, book));
 
                         XmlNodeList xmlPages = xmlBookNode.SelectNodes("page");
                         for (int i = 0; i < xmlPages.Count; i++)
@@ -134,8 +130,8 @@ namespace BookData
                         }
                         xmlPages = null;
 
-                        if (book.pages.Count > book.numPages)
-                            book.numPages = book.pages.Count;
+                        if (Mathf.FloorToInt(book.pages.Count / 2f) > book.numPages)
+                            book.numPages = Mathf.FloorToInt(book.pages.Count / 2f);
                     }
 
                     xmlBookNode = null;
@@ -157,6 +153,55 @@ namespace BookData
             var request = AssetBundleManager.Initialize();
             if (request != null)
                 yield return StartCoroutine(request);
+        }
+
+        private IEnumerator LoadBookAttributes(string bundleName, XmlNode bookNode, Book book)
+        {
+            int bookNumPages = 0;
+            if (bookNode.Attributes["numPages"] != null)
+                int.TryParse(bookNode.Attributes["numPages"].Value, out bookNumPages);
+            book.numPages = bookNumPages;
+
+            if (bookNode.Attributes["coverColor"] != null && !string.IsNullOrEmpty(bookNode.Attributes["coverColor"].Value))
+            {
+                book.coverColor = bookNode.Attributes["coverColor"].Value;
+                book.coverColorC = book.coverColor.ToColor();
+            }
+
+            if (bookNode.Attributes["pageColor"] != null && !string.IsNullOrEmpty(bookNode.Attributes["pageColor"].Value))
+            {
+                book.pageColor = bookNode.Attributes["pageColor"].Value;
+                book.pageColorC = book.pageColor.ToColor();
+            }
+
+            if (bookNode.Attributes["frontCoverImage"] != null && !string.IsNullOrEmpty(bookNode.Attributes["frontCoverImage"].Value))
+            {
+                book.frontCoverImage = bookNode.Attributes["frontCoverImage"].Value;
+                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, true));
+            }
+
+            if (bookNode.Attributes["backCoverImage"] != null && !string.IsNullOrEmpty(bookNode.Attributes["backCoverImage"].Value))
+            {
+                book.backCoverImage = bookNode.Attributes["backCoverImage"].Value;
+                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, false));
+            }
+        }
+
+        private IEnumerator LoadImageFromBundle(string bundleName, Book book, bool isFrontPage)
+        {
+            AssetBundleLoadAssetOperation imageLoad;
+            if (isFrontPage)
+                imageLoad = AssetBundleManager.LoadAssetAsync(bundleName, book.frontCoverImage, typeof(Texture2D));
+            else
+                imageLoad = AssetBundleManager.LoadAssetAsync(bundleName, book.backCoverImage, typeof(Texture2D));
+            if (imageLoad == null)
+                yield break;
+            yield return StartCoroutine(imageLoad);
+
+            if (isFrontPage)
+                book.frontCoverImageTex = imageLoad.GetAsset<Texture2D>();
+            else
+                book.backCoverImageTex = imageLoad.GetAsset<Texture2D>();
         }
 
         private IEnumerator LoadImageFromBundle(string bundleName, Page page)
@@ -199,18 +244,7 @@ namespace BookData
             if (textNode.Attributes["color"] != null && !string.IsNullOrEmpty(textNode.Attributes["color"].Value))
             {
                 text.color = textNode.Attributes["color"].Value;
-                if (text.color.ToLower().Contains("rgba"))
-                {
-                    text.colorC = text.color.ToColorFromRGBA();
-                }
-                else
-                {
-                    string color = text.color.Replace("#", "").Replace("0x", "");
-                    if(color.Length == 6)
-                        color += "ff";
-                    if(color.Length == 8)
-                        text.colorC = color.ToColorFromHEX();
-                }
+                text.colorC = text.color.ToColor();
             }
 
             float width = 0;
