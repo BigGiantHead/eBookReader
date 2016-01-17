@@ -19,6 +19,9 @@ public class AvatarList : MonoBehaviour
         {
             GameObject avatarElement = Instantiate(AvatarSample);
             avatarElement.transform.SetParent(MyList);
+            avatarElement.transform.localRotation = Quaternion.identity;
+            avatarElement.transform.localPosition = Vector3.zero;
+            avatarElement.transform.localScale = Vector3.one;
 
             Image avatarImage = avatarElement.GetComponent<Image>();
             avatarImage.sprite = avatar;

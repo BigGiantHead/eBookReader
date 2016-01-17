@@ -7,6 +7,14 @@ using System.IO;
 
 public static class Utils
 {
+    public static void ClearChildren(this Transform transform)
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+
     public static string ReverseLines(string text)
     {
         StringBuilder sb = new StringBuilder();
@@ -90,5 +98,27 @@ public static class Utils
             }
         }
         return col;
+    }
+
+    public static T GetComponentFromHierarchy<T>(this GameObject gameObject) where T : Component
+    {
+        T component = gameObject.GetComponent<T>();
+        if (component == null && gameObject.transform.parent != null)
+        {
+            component = gameObject.transform.parent.gameObject.GetComponentFromHierarchy<T>();
+        }
+
+        return component;
+    }
+
+    public static T GetComponentFromHierarchy<T>(this Transform transform) where T : Component
+    {
+        T component = transform.GetComponent<T>();
+        if (component == null && transform.parent != null)
+        {
+            component = transform.parent.gameObject.GetComponentFromHierarchy<T>();
+        }
+
+        return component;
     }
 }

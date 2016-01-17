@@ -43,6 +43,11 @@ public class ProfilesManager : MonoBehaviour
                 currentProfileId = value.ID;
             }
 
+            if (value != null && !Profiles.Contains(value))
+            {
+                AddProfile(value);
+            }
+
             PlayerPrefsSerializer.Save("CurrentProfile", currentProfileId);
         }
     }
@@ -56,6 +61,8 @@ public class ProfilesManager : MonoBehaviour
         {
             Profiles = new List<ProfileData>(0);
         }
+
+        ClearProfiles();
     }
 
     // Use this for initialization
@@ -91,5 +98,14 @@ public class ProfilesManager : MonoBehaviour
     public void UpdateProfiles()
     {
         PlayerPrefsSerializer.Save("Profiles", Profiles);
+    }
+
+    public void ClearProfiles()
+    {
+        PlayerPrefs.DeleteKey("Profiles");
+        PlayerPrefs.DeleteKey("CurrentProfile");
+
+        Profiles.Clear();
+        currentProfileId = null;
     }
 }

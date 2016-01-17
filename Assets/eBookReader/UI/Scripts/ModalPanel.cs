@@ -59,6 +59,7 @@ public class ModalPanel : MonoBehaviour
         {
             Content.SetActive(false);
         }
+        gameObject.SetActive(false);
     }
 
     public void Hide()
@@ -95,9 +96,9 @@ public class ModalPanel : MonoBehaviour
             Content.SetActive(true);
         }
 
-        if (OnHideEnd != null)
+        if (OnShowEnd != null)
         {
-            OnHideEnd();
+            OnShowEnd();
         }
     }
 }

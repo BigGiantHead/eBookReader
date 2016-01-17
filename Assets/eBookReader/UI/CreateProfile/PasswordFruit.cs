@@ -29,7 +29,7 @@ public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     #region IDragHandler implementation
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0);
     }
     #endregion
 
@@ -48,36 +48,4 @@ public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
     #endregion
-
-    [Flags]
-    public enum FruitType
-    {
-        None = 0,
-
-        One = 1,
-
-        Two = 2,
-
-        Three = 4,
-
-        Four = 8,
-
-        Five = 16,
-
-        Six = 32,
-
-        Seven = 64,
-
-        Eight = 128,
-
-        Nine = 256,
-
-        Ten = 512,
-
-        Eleven = 1024,
-
-        Twelve = 2048,
-
-        Empty = 4096
-    }
 }

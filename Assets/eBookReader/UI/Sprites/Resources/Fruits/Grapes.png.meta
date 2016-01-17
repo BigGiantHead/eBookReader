@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 93e8863b2b67240499d43ea77dbc60b4
+guid: 4c80575cbf7fef8469c204324184c22e
 timeCreated: 1452539186
 licenseType: Pro
 TextureImporter:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteSheet:
     sprites: []
     outline: []
-  spritePackingTag: BaseUI
+  spritePackingTag: Fruits
   userData: 
   assetBundleName: 
   assetBundleVariant: 

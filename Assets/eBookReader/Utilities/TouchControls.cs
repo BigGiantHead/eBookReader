@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 public class TouchControls : MonoBehaviour
 {
@@ -63,22 +64,29 @@ public class TouchControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTouchState();
-
-        switch (myTouchState)
+        if (EventSystem.current.IsPointerOverGameObject(firstTouchId))
         {
-            case TouchState.PanCamera:
-                DoPanCamera();
-                break;
-            case TouchState.NextPage:
-                DoNextPage();
-                break;
-            case TouchState.PrevPage:
-                DoPrevPage();
-                break;
-            case TouchState.ZoomCamera:
-                DoZoomCamera();
-                break;
+            myTouchState = TouchState.None;
+        }
+        else
+        {
+            UpdateTouchState();
+
+            switch (myTouchState)
+            {
+                case TouchState.PanCamera:
+                    DoPanCamera();
+                    break;
+                case TouchState.NextPage:
+                    DoNextPage();
+                    break;
+                case TouchState.PrevPage:
+                    DoPrevPage();
+                    break;
+                case TouchState.ZoomCamera:
+                    DoZoomCamera();
+                    break;
+            }
         }
 
         if (myTouchState != TouchState.NextPage && myTouchState != TouchState.PrevPage)

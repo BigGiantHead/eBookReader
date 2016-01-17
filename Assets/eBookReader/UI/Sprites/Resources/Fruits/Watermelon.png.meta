@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ceebe0caeb72ad44190262f9850bb7d8
-timeCreated: 1452539188
+guid: 93e8863b2b67240499d43ea77dbc60b4
+timeCreated: 1452539186
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -51,7 +51,7 @@ TextureImporter:
   spriteSheet:
     sprites: []
     outline: []
-  spritePackingTag: BaseUI
+  spritePackingTag: Fruits
   userData: 
   assetBundleName: 
   assetBundleVariant: 

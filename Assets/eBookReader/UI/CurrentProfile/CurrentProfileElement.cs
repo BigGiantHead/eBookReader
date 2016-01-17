@@ -4,11 +4,17 @@ using UnityEngine.UI;
 
 public class CurrentProfileElement : MonoBehaviour
 {
-    private ProfileData currentProfile = null;
+    private static CurrentProfileElement instance = null;
+
+    public static CurrentProfileElement Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
 
     public Image Avatar = null;
-
-    public Text UserName = null;
 
     public ModalPanel MyPanel = null;
 
@@ -18,6 +24,7 @@ public class CurrentProfileElement : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         MyPanel.OnShowStart = OnShowStart;
     }
 
@@ -29,31 +36,34 @@ public class CurrentProfileElement : MonoBehaviour
 
     void OnShowStart()
     {
-        currentProfile = ProfilesManager.Instance.CurrentProfile;
-        if (currentProfile == null)
+        if (ProfilesManager.Instance.CurrentProfile == null)
         {
             Avatar.sprite = Resources.Load<Sprite>("Guest_Avatar");
-            UserName.text = "New Profile +";
         }
         else
         {
-            Avatar.sprite = Resources.Load<Sprite>("Avatars/" + currentProfile.Avatar);
-            UserName.text = currentProfile.UserName;
+            Avatar.sprite = Resources.Load<Sprite>("Avatars/" + ProfilesManager.Instance.CurrentProfile.Avatar);
         }
     }
 
-    public void OnClick()
+    public void OnProfileClick()
     {
         MyPanel.Hide();
-        ProfilesPanel.Show();
 
-        if (currentProfile == null)
+        if (ProfilesManager.Instance.Profiles.Count == 0)
         {
-            //Show new profile panel
+            NewProfilePanel.Show();
         }
         else
         {
-            //Show change profile panel or profile settings panel
+            ProfilesPanel.Show();
         }
+    }
+
+    public void OnPickBookClick()
+    {
+        MyPanel.Hide();
+
+        PickBook.Instance.MyPanel.Show();
     }
 }

@@ -43,6 +43,8 @@ public class CreateProfilePanel : MonoBehaviour
 
     public PasswordFruitPosition[] Password = null;
 
+    public ConfirmProfilePanel ConfirmProfilePanel = null;
+
     void Awake()
     {
         instance = this;
@@ -57,7 +59,6 @@ public class CreateProfilePanel : MonoBehaviour
 
     void OnEnable()
     {
-        LeftArrow.SetActive(false);
     }
 
     void Update()
@@ -67,11 +68,16 @@ public class CreateProfilePanel : MonoBehaviour
 
     private void OnShowStart()
     {
+        ResetPassword();
         NewProfile = new ProfileData();
         Avatar = null;
         SelectedAvatarImage.overrideSprite = null;
         Name = "";
         currentWindow = CreateProfilePanelWindow.PickAvatar;
+        targetScroll = 0;
+        ContentScroll.horizontalNormalizedPosition = 0;
+        LeftArrow.SetActive(false);
+        RightArrow.SetActive(true);
     }
 
     private void OnShowEnd()
@@ -84,15 +90,29 @@ public class CreateProfilePanel : MonoBehaviour
 
         switch (currentWindow)
         {
-            case CreateProfilePanelWindow.PickPassword:
-                PasswordFruit.FruitType passType = Password[0].MyItem != null ? Password[0].MyItem.Type : PasswordFruit.FruitType.Empty;
+            case CreateProfilePanelWindow.PickAvatar:
+                gotonext = !string.IsNullOrEmpty(NewProfile.Avatar);
 
-                for (int i = 1; i < Password.Length; ++i)
+                break;
+
+            case CreateProfilePanelWindow.PickPassword:
+                
+                for (int i = 0; i < Password.Length; ++i)
                 {
-                    passType |= Password[i].MyItem != null ? Password[i].MyItem.Type : PasswordFruit.FruitType.Empty;
+                    if (Password[i].MyItem == null)
+                    {
+                        gotonext = false;
+                        break;
+                    }
                 }
 
-                gotonext = (passType & PasswordFruit.FruitType.Empty) == 0;
+                if (gotonext)
+                {
+                    NewProfile.Password.FirstFruit = Password[0].MyItem.Type;
+                    NewProfile.Password.SecondFruit = Password[1].MyItem.Type;
+                    NewProfile.Password.ThirdFruit = Password[2].MyItem.Type;
+                    NewProfile.Password.FourthFruit = Password[3].MyItem.Type;
+                }
 
                 break;
         }
@@ -101,6 +121,16 @@ public class CreateProfilePanel : MonoBehaviour
         {
             targetScroll = Mathf.Clamp01(targetScroll + ContentScrolStep);
             currentWindow = (CreateProfilePanelWindow)Mathf.Clamp((int)currentWindow + 1, 0, 2);
+        }
+
+        if (currentWindow == CreateProfilePanelWindow.ConfirmProfile)
+        {
+            RightArrow.SetActive(false);
+            ConfirmProfilePanel.Bind();
+        }
+        else
+        {
+            RightArrow.SetActive(true);
         }
 
         if (targetScroll > 0)
@@ -117,6 +147,11 @@ public class CreateProfilePanel : MonoBehaviour
     {
         targetScroll = Mathf.Clamp01(targetScroll - ContentScrolStep);
         currentWindow = (CreateProfilePanelWindow)Mathf.Clamp((int)currentWindow - 1, 0, 2);
+                
+        if (!RightArrow.activeSelf)
+        {
+            RightArrow.SetActive(true);
+        }
 
         if (targetScroll == 0)
         {
@@ -146,5 +181,13 @@ public class CreateProfilePanel : MonoBehaviour
                 Password[i].ResetItem();
             }
         }
+    }
+
+    public void CreateNewProfile()
+    {
+        ProfilesManager.Instance.AddProfile(NewProfile);
+        ProfilesManager.Instance.CurrentProfile = NewProfile;
+        MyPanel.Hide();
+        CurrentProfileElement.Instance.MyPanel.Show();
     }
 }
