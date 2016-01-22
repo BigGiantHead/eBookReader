@@ -110,6 +110,7 @@ public class Localization : MonoBehaviour
         }
     }
 
+
     public void LoadLocalizationFromResources(string resFilePath)
     {
         if (string.IsNullOrEmpty(resFilePath))
@@ -118,7 +119,7 @@ public class Localization : MonoBehaviour
         TextAsset localizationText = Resources.Load(resFilePath) as TextAsset;
         if (localizationText && !string.IsNullOrEmpty(localizationText.text))
         {
-            LoadLocalization(localizationText.text);
+            LoadLocalization(localizationText.text, Path.GetFileNameWithoutExtension(resFilePath));
             Resources.UnloadAsset(localizationText);
 
             if (!localizationsInResources.Contains(resFilePath))
@@ -131,6 +132,7 @@ public class Localization : MonoBehaviour
         if (localizationsInResources.Contains(resFilePath))
             localizationsInResources.Remove(resFilePath);
     }
+
 
     public void LoadLocalizationFromStreamingAssets(string assetsFilePath)
     {
@@ -182,11 +184,12 @@ public class Localization : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(www.text))
             {
-                LoadLocalization(www.text);
+                LoadLocalization(www.text, Path.GetFileNameWithoutExtension(csvUrl));
             }
         }
         www.Dispose();
     }
+
 
     public void LoadLocalizationFromAssetBundle(string absolutePath, string bundleName, string localizationAssetName, bool unloadBundle = false)
     {
@@ -215,7 +218,7 @@ public class Localization : MonoBehaviour
         TextAsset textObj = obj.GetAsset<TextAsset>();
         if (textObj && !string.IsNullOrEmpty(textObj.text))
         {
-            LoadLocalization(textObj.text);
+            LoadLocalization(textObj.text, bundleName);
             Resources.UnloadAsset(textObj);
 
             if (!localizationsOnAssetBundle.Contains(bundleName) || !localizationsOnAssetBundle.Contains(localizationAssetName))
@@ -229,6 +232,9 @@ public class Localization : MonoBehaviour
 
         if (unloadBundle)
             AssetBundleManager.UnloadAssetBundle(bundleName);
+
+        if (GameObject.Find("AssetBundleManager"))
+            Destroy(GameObject.Find("AssetBundleManager"));
 
         loadingFromBundle = false;
     }
@@ -257,14 +263,18 @@ public class Localization : MonoBehaviour
     public void LoadLocalizationFromString(string csv)
     {
         if (!string.IsNullOrEmpty(csv))
-            LoadLocalization(csv);
+            LoadLocalization(csv, "");
     }
 
-    private void LoadLocalization(string csv)
+
+    private void LoadLocalization(string csv, string bookName)
     {
         CsvFileDescription inputFileDescription = new CsvFileDescription();
         CsvContext cc = new CsvContext();
         IEnumerable<LocalizationEntry> locEntries = cc.Read<LocalizationEntry>(new StreamReader(Utils.GenerateStreamFromString(csv)), inputFileDescription);
+
+        if (!string.IsNullOrEmpty(bookName))
+            bookName = bookName + "_";
 
         foreach (LocalizationEntry lc in locEntries)
         {
@@ -276,16 +286,25 @@ public class Localization : MonoBehaviour
             if (CurrentLanguage == Language.Turkish)
                 locValue = lc.Turkish;
 
-            if (currentLocalizationEntries.ContainsKey(lc.Reference))
-                currentLocalizationEntries[lc.Reference] = locValue;
+            if (currentLocalizationEntries.ContainsKey(bookName + lc.Reference))
+                currentLocalizationEntries[bookName + lc.Reference] = locValue;
             else
-                currentLocalizationEntries.Add(lc.Reference, locValue);
+                currentLocalizationEntries.Add(bookName + lc.Reference, locValue);
         }
 
         locEntries = null;
         cc = null;
         inputFileDescription = null;
+
+        LocalizedText[] localizedTexts = GameObject.FindObjectsOfType<LocalizedText>();
+        for (int i = 0; i < localizedTexts.Length; i++)
+        {
+            localizedTexts[i].UpdateValue();
+        }
     }
+
+
+    #region GET ENTRY
 
     public string GetEntryRaw(string reference)
     {
@@ -304,6 +323,13 @@ public class Localization : MonoBehaviour
         }
 
         return "";
+    }
+
+    public string GetEntryRaw(string reference, string bookName)
+    {
+        if (string.IsNullOrEmpty(bookName))
+            return GetEntryRaw(reference);
+        return GetEntryRaw(bookName + "_" + reference);
     }
 
     public string GetEntry(string reference)
@@ -329,6 +355,18 @@ public class Localization : MonoBehaviour
 
         return "";
     }
+
+    public string GetEntry(string reference, string bookName)
+    {
+        if (string.IsNullOrEmpty(bookName))
+            return GetEntry(reference);
+        return GetEntry(bookName + "_" + reference);
+    }
+
+    #endregion
+
+
+    #region FIX ARABIC LINE BREAK
 
     public void FixArabicLineBreak(string text, Text label)
     {
@@ -400,6 +438,8 @@ public class Localization : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }
 
 public static class LanguageExtensions

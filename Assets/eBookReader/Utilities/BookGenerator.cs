@@ -44,7 +44,8 @@ public class BookGenerator : MonoBehaviour
         {
             for (int j = 0; j < book.pages[i].texts.Count; j++)
             {
-                AddTextToPage(book.pages[i].nr, 
+                AddTextToPage(book.bookName,
+                              book.pages[i].nr, 
                               book.pages[i].texts[j].reference,
                               book.pages[i].texts[j].colorC,
                               book.pages[i].texts[j].width, book.pages[i].texts[j].fontSize,
@@ -55,7 +56,8 @@ public class BookGenerator : MonoBehaviour
             {
                 string actionName = book.pages[i].buttons[j].actionName;
                 string actionParameter = book.pages[i].buttons[j].actionParameter;
-                AddButtonToPage(book.pages[i].nr,
+                AddButtonToPage(book.bookName, 
+                                book.pages[i].nr,
                                 book.pages[i].buttons[j].reference,
                                 book.pages[i].buttons[j].width, book.pages[i].buttons[j].height,
                                 book.pages[i].buttons[j].posX, book.pages[i].buttons[j].posY, book.pages[i].buttons[j].rotation,
@@ -117,7 +119,7 @@ public class BookGenerator : MonoBehaviour
         }
     }
 
-    public void AddTextToPage(int page, string textRef, Color textColor, float width, float fontSize, float x, float y, float rotation = 0)
+    public void AddTextToPage(string bookName, int page, string textRef, Color textColor, float width, float fontSize, float x, float y, float rotation = 0)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -153,12 +155,13 @@ public class BookGenerator : MonoBehaviour
         tText.Size = fontSize;
 
         LocalizedText localizedText = tText.gameObject.GetComponent<LocalizedText>();
+        localizedText.BookName = bookName;
         localizedText.UpdateReference(textRef);
 
         myPage.objects.Add(textObject);
     }
 
-    public void AddButtonToPage(int page, string buttonTextRef, float width, float height, float x, float y, float rotation = 0, UnityAction action = null)
+    public void AddButtonToPage(string bookName, int page, string buttonTextRef, float width, float height, float x, float y, float rotation = 0, UnityAction action = null)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -190,6 +193,7 @@ public class BookGenerator : MonoBehaviour
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
 
         LocalizedText localizedText = button.Text.gameObject.GetComponent<LocalizedText>();
+        localizedText.BookName = bookName;
         localizedText.UpdateReference(buttonTextRef);
 
         if (action != null)

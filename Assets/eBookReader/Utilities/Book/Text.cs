@@ -6,6 +6,7 @@ namespace BookData
     [System.Serializable]
     public class Text
     {
+        public string bookName;
         public string reference;
         public string color;
         public Color colorC;
@@ -17,6 +18,7 @@ namespace BookData
 
         public Text()
         {
+            bookName = null;
             reference = null;
             color = null;
             colorC = Color.white;
@@ -31,7 +33,7 @@ namespace BookData
         {
             get
             {
-                return Localization.Instance.GetEntry(reference);
+                return Localization.Instance.GetEntry(reference, bookName);
             }
         }
     }
