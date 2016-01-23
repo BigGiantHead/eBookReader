@@ -86,6 +86,7 @@ namespace BookData
                     if (xmlBookNode.Name.ToLower() == "book")
                     {
                         book = new Book();
+                        book.bookName = bundleName;
                         yield return StartCoroutine(LoadBookAttributes(bundleName, xmlBookNode, book));
 
                         XmlNodeList xmlPages = xmlBookNode.SelectNodes("page");
@@ -118,14 +119,14 @@ namespace BookData
                                 XmlNodeList xmlTexts = xmlPages[i].SelectNodes("text");
                                 for (int j = 0; j < xmlTexts.Count; j++)
                                 {
-                                    LoadText(xmlTexts[j], page);
+                                    LoadText(xmlTexts[j], page, bundleName);
                                 }
                                 xmlTexts = null;
 
                                 XmlNodeList xmlButtons = xmlPages[i].SelectNodes("button");
                                 for (int j = 0; j < xmlButtons.Count; j++)
                                 {
-                                    LoadButton(xmlButtons[j], page);
+                                    LoadButton(xmlButtons[j], page, bundleName);
                                 }
                                 xmlButtons = null;
 
@@ -280,12 +281,13 @@ namespace BookData
             page.videoMovie = videoLoad.GetAsset<Texture2D>();
         }
 
-        private void LoadText(XmlNode textNode, Page page)
+        private void LoadText(XmlNode textNode, Page page, string bookName)
         {
             if (textNode.Attributes["language"] != null && !textNode.Attributes["language"].Value.Contains(Localization.Instance.CurrentLanguage.ToString()))
                 return;
 
             Text text = new Text();
+            text.bookName = bookName;
 
             if (textNode.Attributes["reference"] != null)
                 text.reference = textNode.Attributes["reference"].Value;
@@ -329,12 +331,13 @@ namespace BookData
             page.texts.Add(text);
         }
 
-        private void LoadButton(XmlNode buttonNode, Page page)
+        private void LoadButton(XmlNode buttonNode, Page page, string bookName)
         {
             if (buttonNode.Attributes["language"] != null && !buttonNode.Attributes["language"].Value.Contains(Localization.Instance.CurrentLanguage.ToString()))
                 return;
 
             Button button = new Button();
+            button.bookName = bookName;
 
             if (buttonNode.Attributes["reference"] != null && !string.IsNullOrEmpty(buttonNode.Attributes["reference"].Value))
                 button.reference = buttonNode.Attributes["reference"].Value;

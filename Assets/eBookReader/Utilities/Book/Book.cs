@@ -7,6 +7,7 @@ namespace BookData
     [System.Serializable]
     public class Book
     {
+        public string bookName;
         public int numPages;
 
         public List<Page> pages;
@@ -49,6 +50,7 @@ namespace BookData
 
         public Book()
         {
+            bookName = null;
             numPages = 0;
             pages = new List<Page>();
             coverColor = null;

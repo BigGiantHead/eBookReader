@@ -6,6 +6,7 @@ namespace BookData
     [System.Serializable]
     public class Button
     {
+        public string bookName;
         public string reference;
         public float width;
         public float height;
@@ -17,6 +18,7 @@ namespace BookData
 
         public Button()
         {
+            bookName = null;
             reference = null;
             width = 0;
             height = 0;
@@ -31,7 +33,7 @@ namespace BookData
         {
             get
             {
-                return Localization.Instance.GetEntry(reference);
+                return Localization.Instance.GetEntry(reference, bookName);
             }
         }
     }

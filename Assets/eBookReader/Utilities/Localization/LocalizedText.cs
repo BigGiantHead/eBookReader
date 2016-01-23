@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class LocalizedText : MonoBehaviour {
 
     public string Reference = "";
+    public string BookName = "";
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class LocalizedText : MonoBehaviour {
         if (string.IsNullOrEmpty(Reference))
             return;
 
-        string text = Localization.Instance.GetEntry(Reference);
+        string text = Localization.Instance.GetEntry(Reference, BookName);
 
         Text labelText = GetComponent<Text>();
         if (labelText)
@@ -34,9 +35,7 @@ public class LocalizedText : MonoBehaviour {
 
     private void OnEnable()
     {
-        Text labelText = GetComponent<Text>();
-        if (labelText)
-            UpdateValue();
+        UpdateValue();
     }
 
     public void UpdateReference(string value)
