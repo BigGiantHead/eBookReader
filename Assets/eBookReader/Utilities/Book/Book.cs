@@ -8,6 +8,7 @@ namespace BookData
     public class Book
     {
         public string bookName;
+
         public int numPages;
 
         public List<Page> pages;
@@ -77,7 +78,7 @@ namespace BookData
         {
             get
             {
-                return Localization.Instance.GetEntry(titleReference);
+                return Localization.Instance.GetEntry(titleReference, bookName);
             }
         }
 
@@ -85,7 +86,7 @@ namespace BookData
         {
             get
             {
-                return Localization.Instance.GetEntry(descriptionReference);
+                return Localization.Instance.GetEntry(descriptionReference, bookName);
             }
         }
     }

@@ -38,6 +38,13 @@ public class LocalizedText : MonoBehaviour {
         UpdateValue();
     }
 
+    public void UpdateReference(string value, string bookName)
+    {
+        Reference = value;
+        BookName = bookName;
+        UpdateValue();
+    }
+
     public void UpdateReference(string value)
     {
         Reference = value;

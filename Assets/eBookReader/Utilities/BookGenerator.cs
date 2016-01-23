@@ -24,6 +24,8 @@ public class BookGenerator : MonoBehaviour
 
     public GameObject ButtonObject = null;
 
+    public GameObject PlayVideoButtonObject = null;
+
     public Transform PageObjectsRoot = null;
 
     public GameObject BookDummy = null;
@@ -35,10 +37,6 @@ public class BookGenerator : MonoBehaviour
 
     void Start()
     {
-//#if UNITY_EDITOR
-//        currentBook = "book2";
-//        LoadBookFromBundle(currentBook);
-//#endif
     }
 
 #if UNITY_EDITOR
@@ -90,7 +88,8 @@ public class BookGenerator : MonoBehaviour
         {
             for (int j = 0; j < book.pages[i].texts.Count; j++)
             {
-                AddTextToPage(book.pages[i].nr, 
+                AddTextToPage(book.pages[i].nr,
+                              book.bookName,
                               book.pages[i].texts[j].reference,
                               book.pages[i].texts[j].colorC,
                               book.pages[i].texts[j].width, book.pages[i].texts[j].fontSize,
@@ -114,6 +113,9 @@ public class BookGenerator : MonoBehaviour
             {
                 SetPageTexture(book.pages[i].nr, book.pages[i].imageTex);
             }
+            
+            AddPlayVideoButtonToPage(book.pages[i].nr, 95, 100);
+            AddPlayVideoButtonToPage(book.pages[i].nr, 86f, 100);
         }
 
         Book.basematerial.color = book.pageColorC;
@@ -122,6 +124,7 @@ public class BookGenerator : MonoBehaviour
 
         Book.rebuild = true;
 
+        //Set covers
         Material mat;
         if (Book.frontcover != null)
         {
@@ -164,7 +167,9 @@ public class BookGenerator : MonoBehaviour
             mat = Book.transform.FindChild("Spine").GetComponent<MeshRenderer>().material;
             mat.color = book.spineColorC;
         }
+
         float booksizeaspect = (float)book.height / book.width;
+
         Book.transform.parent.localScale = new Vector3(1, 1, booksizeaspect);
         Book.ChangeBookThickness(0.0009375f * book.numPages, true);
     }
@@ -186,7 +191,7 @@ public class BookGenerator : MonoBehaviour
         }
     }
 
-    public void AddTextToPage(int page, string textRef, Color textColor, float width, float fontSize, float x, float y, TTextAlignment alignment, float rotation)
+    public void AddTextToPage(int page, string bookName, string textRef, Color textColor, float width, float fontSize, float x, float y, TTextAlignment alignment, float rotation)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -226,9 +231,46 @@ public class BookGenerator : MonoBehaviour
         tText.Alignment = alignment;
 
         LocalizedText localizedText = tText.gameObject.GetComponent<LocalizedText>();
-        localizedText.UpdateReference(textRef);
+        localizedText.UpdateReference(textRef, bookName);
 
         myPage.objects.Add(textObject);
+    }
+
+    public void AddPlayVideoButtonToPage(int page, float x, float y)
+    {
+        page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
+        page -= 1;
+
+        MegaBookPageParams myPage = Book.pageparams[page / 2];
+
+        MegaBookPageObject buttonObject = new MegaBookPageObject();
+        buttonObject.obj = Instantiate(PlayVideoButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
+        buttonObject.rot = new Vector3(90, 0, 0);
+        buttonObject.overridevisi = true;
+        buttonObject.attachforward = Vector3.zero;
+        buttonObject.attached = true;
+        if (page % 2 == 0)
+        {
+            buttonObject.pos = new Vector3(x, 0, y);
+            buttonObject.visilow = -0.5f;
+            buttonObject.visihigh = 0.01f;
+            buttonObject.offset = -0.01f;
+        }
+        else
+        {
+            buttonObject.pos = new Vector3(x, 0, y);
+            buttonObject.visilow = 0.99f;
+            buttonObject.visihigh = 1.99f;
+            buttonObject.offset = 0.01f;
+        }
+
+        PageButton button = buttonObject.obj.GetComponentInChildren<PageButton>();
+        button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
+        button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
+
+        button.Button.onClick.AddListener(() => { });
+
+        myPage.objects.Add(buttonObject);
     }
 
     public void AddButtonToPage(int page, string buttonTextRef, float width, float height, float x, float y, float rotation = 0, UnityAction action = null)
