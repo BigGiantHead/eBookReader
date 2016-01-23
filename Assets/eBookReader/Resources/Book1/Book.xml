@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<book numPages="7" coverColor="RGBA(255, 244, 159, 255)" frontCoverImage="Cover" backCoverImage="" pageColor="RGBA(255, 255, 255, 255)">
+<book numPages="7" coverColor="RGBA(255, 255, 255, 255)" frontCoverImage="Cover" backCoverImage="" pageColor="RGBA(255, 255, 255, 255)">
 	<page nr="1" image="Page3" audio="" video="">
 		<text reference="text1" color="#ffffffff" width="55" fontSize="25" posX="50" posY="60" language="Arabic" />
     <text reference="text1" color="#ffffffff" width="55" fontSize="25" posX="50" posY="60" language="English|Turkish" />

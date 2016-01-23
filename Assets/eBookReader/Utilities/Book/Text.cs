@@ -7,14 +7,30 @@ namespace BookData
     public class Text
     {
         public string reference;
+
         public string color;
+
         public Color colorC;
+
         public float width;
+
         public float fontSize;
+
         public float posX;
+
         public float posY;
+
         public float rotation;
 
+        public string alignment;
+
+        public TTextAlignment Alignment
+        {
+            get
+            {
+                return (TTextAlignment)System.Enum.Parse(typeof(TTextAlignment), alignment);
+            }
+        }
         public Text()
         {
             reference = null;
@@ -25,6 +41,7 @@ namespace BookData
             posX = 0;
             posY = 0;
             rotation = 0;
+            alignment = "Center";
         }
 
         public string Title

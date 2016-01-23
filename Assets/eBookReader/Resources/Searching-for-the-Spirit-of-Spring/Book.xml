@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<book numPages="7" width="2048" height="1024" coverColor="RGBA(255, 255, 255, 255)" frontCoverImage1="Cover_1" frontCoverImage2="Cover_2" backCoverImage1="Back_1" backCoverImage2="Back_2" pageColor="RGBA(255, 255, 255, 255)" spineColor="RGBA(255, 255, 0, 255)" titleReference="title" descriptionReference="description">
+  <page nr="1" image="Page1" audio="" video="">
+  </page>
+  <page nr="2" image="Page2" audio="" video="">
+  </page>
+  <page nr="3" image="Page3" audio="" video="">
+    <text reference="text_page3" color="#000000ff" width="45" fontSize="26" posX="5" posY="55" language="English" alignment="Left" />
+  </page>
+  <page nr="4" image="Page4" audio="" video="">
+    <text reference="text_page4" color="#000000ff" width="45" fontSize="26" posX="95" posY="80" language="English" alignment="Left" />
+  </page>
+  <page nr="5" image="Page5" audio="" video="">
+    <text reference="text_page5" color="#000000ff" width="45" fontSize="26" posX="50" posY="90" language="English" alignment="Left" />
+  </page>
+  <page nr="6" image="Page6" audio="" video="" >
+    <text reference="text_page6" color="#000000ff" width="40" fontSize="26" posX="95" posY="70" language="English" alignment="Left" />
+  </page>
+  <page nr="7" image="Page7" audio="" video="" >
+    <text reference="text_page7" color="#000000ff" width="50" fontSize="26" posX="50" posY="68" language="English" alignment="Left" />
+  </page>
+  <page nr="8" image="Page8" audio="" video="" >
+    <text reference="text_page8" color="#000000ff" width="45" fontSize="22" posX="95" posY="93" language="English" alignment="Left" />
+  </page>
+  <page nr="9" image="Page9" audio="" video="" >
+    <text reference="text_page9" color="#000000ff" width="47" fontSize="26" posX="50" posY="68" language="English" alignment="Left" />
+  </page>
+  <page nr="10" image="Page10" audio="" video="">
+    <text reference="text_page10" color="#000000ff" width="45" fontSize="26" posX="95" posY="78" language="English" alignment="Left" />
+  </page>
+  <page nr="11" image="Page11" audio="" video="">
+    <text reference="text_page11" color="#000000ff" width="43" fontSize="26" posX="50" posY="78" language="English" alignment="Left" />
+  </page>
+  <page nr="12" image="Page12" audio="" video="">
+    <text reference="text_page12" color="#000000ff" width="46" fontSize="26" posX="95" posY="88" language="English" alignment="Left" />
+  </page>
+  <page nr="13" image="Page13" audio="" video="">
+    <text reference="text_page13" color="#000000ff" width="45" fontSize="26" posX="50" posY="94" language="English" alignment="Left" />
+  </page>
+  <page nr="14" image="Page14" audio="" video="">
+    <text reference="text_page14" color="#000000ff" width="36" fontSize="22" posX="95" posY="80" language="English" alignment="Left" />
+  </page>
+</book>

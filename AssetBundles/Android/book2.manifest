@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 190433571
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a97b6f30d130373295f2e4964373f9f8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb6b06b1b3e2dbe026521de7a467fcd7
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page13.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page4.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Cover_2.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page3.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page11.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page2.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/Book.xml
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Back_1.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page14.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page9.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Back_2.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page1.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page7.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page8.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/Localization.csv
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Cover_1.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page6.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page5.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page12.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page10.jpg
+Dependencies: []

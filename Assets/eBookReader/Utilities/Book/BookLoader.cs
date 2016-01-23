@@ -31,9 +31,13 @@ namespace BookData
             }
         }
 
+        [HideInInspector]
         public Book book = null;
+
         public bool loadingBook = false;
+
         public string localizationAssetName = "Localization";
+
         public string bookAssetName = "Book";
 
         public void LoadFromAssetBundle(string absolutePath, string bundleName)
@@ -168,40 +172,82 @@ namespace BookData
                 book.coverColorC = book.coverColor.ToColor();
             }
 
+            if (bookNode.Attributes["spineColor"] != null && !string.IsNullOrEmpty(bookNode.Attributes["spineColor"].Value))
+            {
+                book.spineColor = bookNode.Attributes["spineColor"].Value;
+                book.spineColorC = book.spineColor.ToColor();
+            }
+
             if (bookNode.Attributes["pageColor"] != null && !string.IsNullOrEmpty(bookNode.Attributes["pageColor"].Value))
             {
                 book.pageColor = bookNode.Attributes["pageColor"].Value;
                 book.pageColorC = book.pageColor.ToColor();
             }
 
-            if (bookNode.Attributes["frontCoverImage"] != null && !string.IsNullOrEmpty(bookNode.Attributes["frontCoverImage"].Value))
+            if (bookNode.Attributes["frontCoverImage1"] != null && !string.IsNullOrEmpty(bookNode.Attributes["frontCoverImage1"].Value))
             {
-                book.frontCoverImage = bookNode.Attributes["frontCoverImage"].Value;
-                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, true));
+                book.frontCoverImage1 = bookNode.Attributes["frontCoverImage1"].Value;
+                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, book.frontCoverImage1, (Texture2D image) => { book.frontCoverImage1Tex = image; }));
             }
 
-            if (bookNode.Attributes["backCoverImage"] != null && !string.IsNullOrEmpty(bookNode.Attributes["backCoverImage"].Value))
+            if (bookNode.Attributes["frontCoverImage2"] != null && !string.IsNullOrEmpty(bookNode.Attributes["frontCoverImage2"].Value))
             {
-                book.backCoverImage = bookNode.Attributes["backCoverImage"].Value;
-                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, false));
+                book.frontCoverImage2 = bookNode.Attributes["frontCoverImage2"].Value;
+                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, book.frontCoverImage2, (Texture2D image) => { book.frontCoverImage2Tex = image; }));
             }
+
+            if (bookNode.Attributes["backCoverImage1"] != null && !string.IsNullOrEmpty(bookNode.Attributes["backCoverImage1"].Value))
+            {
+                book.backCoverImage1 = bookNode.Attributes["backCoverImage1"].Value;
+                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, book.backCoverImage1, (Texture2D image) => { book.backCoverImage1Tex = image; }));
+            }
+
+            if (bookNode.Attributes["backCoverImage2"] != null && !string.IsNullOrEmpty(bookNode.Attributes["backCoverImage2"].Value))
+            {
+                book.backCoverImage2 = bookNode.Attributes["backCoverImage2"].Value;
+                yield return StartCoroutine(LoadImageFromBundle(bundleName, book, book.backCoverImage2, (Texture2D image) => { book.backCoverImage2Tex = image; }));
+            }
+
+            if (bookNode.Attributes["titleReference"] != null)
+            {
+                book.titleReference = bookNode.Attributes["titleReference"].Value;
+            }
+
+            if (bookNode.Attributes["descriptionReference"] != null)
+            {
+                book.descriptionReference = bookNode.Attributes["descriptionReference"].Value;
+            }
+
+            int width = 2048;
+            if (bookNode.Attributes["width"] != null)
+            {
+                int.TryParse(bookNode.Attributes["width"].Value, out width);
+            }
+            book.width = width;
+
+            int height = 2048;
+            if (bookNode.Attributes["height"] != null)
+            {
+                int.TryParse(bookNode.Attributes["height"].Value, out height);
+            }
+            book.height = height;
         }
 
-        private IEnumerator LoadImageFromBundle(string bundleName, Book book, bool isFrontPage)
+        private IEnumerator LoadImageFromBundle(string bundleName, Book book, string image, Action<Texture2D> onLoadFinish)
         {
+            if (onLoadFinish == null)
+                yield break;
+
             AssetBundleLoadAssetOperation imageLoad;
-            if (isFrontPage)
-                imageLoad = AssetBundleManager.LoadAssetAsync(bundleName, book.frontCoverImage, typeof(Texture2D));
-            else
-                imageLoad = AssetBundleManager.LoadAssetAsync(bundleName, book.backCoverImage, typeof(Texture2D));
+
+            imageLoad = AssetBundleManager.LoadAssetAsync(bundleName, image, typeof(Texture2D));
+
             if (imageLoad == null)
                 yield break;
+
             yield return StartCoroutine(imageLoad);
 
-            if (isFrontPage)
-                book.frontCoverImageTex = imageLoad.GetAsset<Texture2D>();
-            else
-                book.backCoverImageTex = imageLoad.GetAsset<Texture2D>();
+            onLoadFinish(imageLoad.GetAsset<Texture2D>());
         }
 
         private IEnumerator LoadImageFromBundle(string bundleName, Page page)
@@ -274,6 +320,11 @@ namespace BookData
             if (textNode.Attributes["rotation"] != null)
                 float.TryParse(textNode.Attributes["rotation"].Value, out rotation);
             text.rotation = rotation;
+
+            if (textNode.Attributes["alignment"] != null)
+            {
+                text.alignment = textNode.Attributes["alignment"].Value;
+            }
 
             page.texts.Add(text);
         }

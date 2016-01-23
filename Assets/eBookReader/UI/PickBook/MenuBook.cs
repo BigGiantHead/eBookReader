@@ -13,6 +13,8 @@ public class MenuBook : MonoBehaviour
 
     public Texture2D FrontCover = null;
 
+    public Texture2D BackCover = null;
+
     public Color BookColor = Color.white;
 
     public UIMesh Cover = null;
@@ -27,21 +29,33 @@ public class MenuBook : MonoBehaviour
 
     public Text Description = null;
 
-    void Awake()
-    {
-        Cover.Texture = FrontCover;
-        Side.color = BookColor;
-        Back.color = BookColor;
-    }
+    public string BookBundle = null;
 
     // Use this for initialization
     void Start()
     {
+        Cover.Texture = FrontCover;
+        Cover.color = Color.white;
+
+        Back.Texture = BackCover;
+        Back.color = Color.white;
+
+        Side.color = BookColor;
+
         startRot = targetRot = Quaternion.Euler(Random.Range(-20f, 20f), Random.Range(-20f, 20f), 0);
     }
 
     void Update()
     {
-        BookModel.localRotation = Quaternion.Lerp(BookModel.localRotation, targetRot, Time.deltaTime * 20);
+        //BookModel.localRotation = Quaternion.Lerp(BookModel.localRotation, targetRot, Time.deltaTime * 20);
+        BookModel.Rotate(Vector3.up, Time.deltaTime * 20f);
+    }
+
+    public void ReadBook()
+    {
+        BookGenerator.Instance.LoadBookFromBundle(BookBundle);
+
+        PickBook.Instance.MyPanel.Hide();
+        CurrentProfileElement.Instance.MyPanel.Show();
     }
 }

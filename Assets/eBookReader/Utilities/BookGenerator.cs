@@ -6,14 +6,55 @@ using BookData;
 
 public class BookGenerator : MonoBehaviour
 {
+    private static BookGenerator instance = null;
+
+    public static BookGenerator Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
+    private string currentBook = "";
+
     public MegaBookBuilder Book = null;
 
     public GameObject TextObject = null;
+
     public GameObject ButtonObject = null;
+
+    public Transform PageObjectsRoot = null;
+
+    public GameObject BookDummy = null;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
-        StartCoroutine(LoadBook(Application.streamingAssetsPath + "/", "book1"));
+//#if UNITY_EDITOR
+//        currentBook = "book2";
+//        LoadBookFromBundle(currentBook);
+//#endif
+    }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(LoadBook(Application.streamingAssetsPath + "/", currentBook));
+        }
+    }
+#endif
+
+    public void LoadBookFromBundle(string bundle)
+    {
+        currentBook = bundle;
+        StartCoroutine(LoadBook(Application.streamingAssetsPath + "/", currentBook));
     }
 
     private IEnumerator LoadBook(string absolutePath, string bundleName)
@@ -30,8 +71,13 @@ public class BookGenerator : MonoBehaviour
 
     public void GenerateBook(Book book)
     {
+        BookDummy.SetActive(true);
+
+        PageObjectsRoot.ClearChildren();
+
         int i = 0;
-        
+
+        Book.page = -1;
         Book.NumPages = book.numPages;
 
         Book.pageparams = new System.Collections.Generic.List<MegaBookPageParams>(book.numPages);
@@ -48,7 +94,9 @@ public class BookGenerator : MonoBehaviour
                               book.pages[i].texts[j].reference,
                               book.pages[i].texts[j].colorC,
                               book.pages[i].texts[j].width, book.pages[i].texts[j].fontSize,
-                              book.pages[i].texts[j].posX, book.pages[i].texts[j].posY, book.pages[i].texts[j].rotation);
+                              book.pages[i].texts[j].posX, book.pages[i].texts[j].posY,
+                              book.pages[i].texts[j].Alignment,
+                              book.pages[i].texts[j].rotation);
             }
 
             for (int j = 0; j < book.pages[i].buttons.Count; j++)
@@ -75,29 +123,50 @@ public class BookGenerator : MonoBehaviour
         Book.rebuild = true;
 
         Material mat;
-        if (Book.frontcover)
+        if (Book.frontcover != null)
         {
             if (Book.frontcover.childCount > 0)
             {
-                mat = Book.frontcover.GetChild(0).GetComponent<MeshRenderer>().material;
+                MeshRenderer frontCover = Book.frontcover.GetChild(0).GetComponent<MeshRenderer>();
+
+                mat = frontCover.materials[0];
                 mat.color = book.coverColorC;
-                mat.mainTexture = book.frontCoverImageTex;
+
+                mat = frontCover.materials[1];
+                mat.color = book.coverColorC;
+                mat.mainTexture = book.frontCoverImage1Tex;
+
+                mat = frontCover.materials[2];
+                mat.color = book.coverColorC;
+                mat.mainTexture = book.frontCoverImage2Tex;
             }
         }
-        if (Book.backcover)
+        if (Book.backcover != null)
         {
             if (Book.backcover.childCount > 0)
             {
-                mat = Book.backcover.GetChild(0).GetComponent<MeshRenderer>().material;
+                MeshRenderer backCover = Book.backcover.GetChild(0).GetComponent<MeshRenderer>();
+
+                mat = backCover.materials[0];
                 mat.color = book.coverColorC;
-                mat.mainTexture = book.backCoverImageTex;
+
+                mat = backCover.materials[1];
+                mat.color = book.coverColorC;
+                mat.mainTexture = book.backCoverImage1Tex;
+
+                mat = backCover.materials[2];
+                mat.color = book.coverColorC;
+                mat.mainTexture = book.backCoverImage2Tex;
             }
         }
-        if (Book.transform.FindChild("Spine"))
+        if (Book.transform.FindChild("Spine") != null)
         {
             mat = Book.transform.FindChild("Spine").GetComponent<MeshRenderer>().material;
-            mat.color = book.coverColorC;
+            mat.color = book.spineColorC;
         }
+        float booksizeaspect = (float)book.height / book.width;
+        Book.transform.parent.localScale = new Vector3(1, 1, booksizeaspect);
+        Book.ChangeBookThickness(0.0009375f * book.numPages, true);
     }
 
     public void SetPageTexture(int page, Texture2D texture)
@@ -117,7 +186,7 @@ public class BookGenerator : MonoBehaviour
         }
     }
 
-    public void AddTextToPage(int page, string textRef, Color textColor, float width, float fontSize, float x, float y, float rotation = 0)
+    public void AddTextToPage(int page, string textRef, Color textColor, float width, float fontSize, float x, float y, TTextAlignment alignment, float rotation)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -125,7 +194,10 @@ public class BookGenerator : MonoBehaviour
         MegaBookPageParams myPage = Book.pageparams[page / 2];
 
         MegaBookPageObject textObject = new MegaBookPageObject();
+
         textObject.obj = Instantiate(TextObject, Vector3.zero, Quaternion.identity) as GameObject;
+        textObject.obj.transform.parent = PageObjectsRoot;
+
         textObject.pos = new Vector3(x, 0, y);
         textObject.rot = new Vector3(90, rotation, 0);
         textObject.overridevisi = true;
@@ -151,6 +223,7 @@ public class BookGenerator : MonoBehaviour
         tText.ColorTopRight = textColor;
         tText.WordWrap = width;
         tText.Size = fontSize;
+        tText.Alignment = alignment;
 
         LocalizedText localizedText = tText.gameObject.GetComponent<LocalizedText>();
         localizedText.UpdateReference(textRef);
