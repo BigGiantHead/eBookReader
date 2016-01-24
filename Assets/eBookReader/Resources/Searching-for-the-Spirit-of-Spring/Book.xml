@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <book bookName ="book2" numPages="7" width="2048" height="1024" coverColor="RGBA(255, 255, 255, 255)" frontCoverImage1="Cover_1" frontCoverImage2="Cover_2" backCoverImage1="Back_1" backCoverImage2="Back_2" pageColor="RGBA(255, 255, 255, 255)" spineColor="RGBA(255, 255, 0, 255)" titleReference="title" descriptionReference="description">
-  <page nr="1" image="Page1" audio="" video="">
+  <page nr="1" image="Page1" audio="test" video="test.mp4">
   </page>
   <page nr="2" image="Page2" audio="" video="">
   </page>

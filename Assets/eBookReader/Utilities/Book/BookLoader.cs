@@ -113,7 +113,7 @@ namespace BookData
                                 if (xmlPages[i].Attributes["video"] != null && !string.IsNullOrEmpty(xmlPages[i].Attributes["video"].Value))
                                 {
                                     page.video = xmlPages[i].Attributes["video"].Value;
-                                    yield return StartCoroutine(LoadVideoFromBundle(bundleName, page));
+                                    //yield return StartCoroutine(LoadVideoFromBundle(bundleName, page));
                                 }
 
                                 XmlNodeList xmlTexts = xmlPages[i].SelectNodes("text");
@@ -278,7 +278,8 @@ namespace BookData
                 yield break;
             yield return StartCoroutine(videoLoad);
 
-            page.videoMovie = videoLoad.GetAsset<Texture2D>();
+            //TODO: add video streaming
+            //page.videoMovie = videoLoad.GetAsset<Texture2D>();
         }
 
         private void LoadText(XmlNode textNode, Page page, string bookName)

@@ -6,7 +6,17 @@ using UnityEngine.UI;
 
 public class TouchControls : MonoBehaviour
 {
-    private float firstTouchBeganTime = 0;
+    private static TouchControls instance = null;
+
+    public static TouchControls Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
+    private float percentTillPan = 0;
 
     private float panx = 0;
 
@@ -14,7 +24,7 @@ public class TouchControls : MonoBehaviour
 
     private float zoom = 0;
 
-    private enum TouchState
+    public enum TouchState
     {
         None,
 
@@ -24,7 +34,11 @@ public class TouchControls : MonoBehaviour
 
         PrevPage,
 
-        ZoomCamera
+        ZoomCamera,
+
+        WaitingNextPage,
+
+        WaitingPrevPage
     }
 
     private float currentPage = -1;
@@ -53,7 +67,42 @@ public class TouchControls : MonoBehaviour
 
     public float MaxPanOffsetZ = 0.5f;
 
+    public float PanSpeed = 0.25f;
+
     public float MaxZoomOffset = 1.5f;
+
+    public float ZoomSpeed = 1;
+
+    public float DelayToPan = 0.25f;
+
+    public float PercentTillPan
+    {
+        get
+        {
+            return percentTillPan;
+        }
+    }
+
+    public TouchState MyTouchState
+    {
+        get
+        {
+            return myTouchState;
+        }
+    }
+
+    public int FirstTouchId
+    {
+        get
+        {
+            return firstTouchId;
+        }
+    }
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -78,9 +127,11 @@ public class TouchControls : MonoBehaviour
                     DoPanCamera();
                     break;
                 case TouchState.NextPage:
+                case TouchState.WaitingNextPage:
                     DoNextPage();
                     break;
                 case TouchState.PrevPage:
+                case TouchState.WaitingPrevPage:
                     DoPrevPage();
                     break;
                 case TouchState.ZoomCamera:
@@ -107,11 +158,11 @@ public class TouchControls : MonoBehaviour
 
         if (originalDistance > newDistance)
         {
-            zoom = Mathf.Clamp(zoom - 2 * Time.deltaTime, 0, MaxZoomOffset);
+            zoom = Mathf.Clamp(zoom - ZoomSpeed * Time.deltaTime, 0, MaxZoomOffset);
         }
         else if (originalDistance < newDistance)
         {
-            zoom = Mathf.Clamp(zoom + 2 * Time.deltaTime, 0, MaxZoomOffset);
+            zoom = Mathf.Clamp(zoom + ZoomSpeed * Time.deltaTime, 0, MaxZoomOffset);
         }
 
         float zoompercent = zoom / MaxZoomOffset;
@@ -133,8 +184,8 @@ public class TouchControls : MonoBehaviour
             Touch touch = Input.GetTouch(firstTouchId);
 
             float zoompercent = zoom / MaxZoomOffset;
-            panx = Mathf.Clamp(panx - touch.deltaPosition.x * Time.deltaTime * 0.25f, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
-            panz = Mathf.Clamp(panz - touch.deltaPosition.y * Time.deltaTime * 0.25f, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
+            panx = Mathf.Clamp(panx - touch.deltaPosition.x * Time.deltaTime * PanSpeed, -MaxPanOffsetX * zoompercent, MaxPanOffsetX * zoompercent);
+            panz = Mathf.Clamp(panz - touch.deltaPosition.y * Time.deltaTime * PanSpeed, -MaxPanOffsetZ * zoompercent, MaxPanOffsetZ * zoompercent);
         }
         catch (ArgumentException)
         {
@@ -201,6 +252,9 @@ public class TouchControls : MonoBehaviour
                     firstOriginalPosition = firstTouch.position;
                     secondOriginalPosition = secondTouch.position;
                 }
+
+                StopCoroutine("WaitForPan");
+                percentTillPan = 0;
             }
             else
             {
@@ -211,35 +265,44 @@ public class TouchControls : MonoBehaviour
 
                 if (firstTouch.phase == TouchPhase.Began)
                 {
-                    firstTouchBeganTime = Time.timeSinceLevelLoad;
-
                     Ray ray = Camera.main.ScreenPointToRay(firstTouch.position);
                     RaycastHit hit;
 
                     if (NextPage.Raycast(ray, out hit, 10000))
                     {
-                        myTouchState = TouchState.NextPage;
+                        myTouchState = TouchState.WaitingNextPage;
                         currentPage = Mathf.Round(Book.page);
                         targetPage = Mathf.Clamp(currentPage + 1, -1, Book.NumPages + 1);
                     }
                     else if (PreviousPage.Raycast(ray, out hit, 10000))
                     {
-                        myTouchState = TouchState.PrevPage;
+                        myTouchState = TouchState.WaitingPrevPage;
                         currentPage = Mathf.Round(Book.page);
                         targetPage = Mathf.Clamp(currentPage - 1, -1, Book.NumPages + 1);
                     }
+
+                    StartCoroutine("WaitForPan");
                 }
                 else if (firstTouch.phase == TouchPhase.Moved && myTouchState != TouchState.PanCamera)
                 {
-                    if (Time.timeSinceLevelLoad - firstTouchBeganTime > 0.25f)
+                    if (myTouchState == TouchState.WaitingNextPage)
                     {
-                        myTouchState = TouchState.PanCamera;
+                        myTouchState = TouchState.NextPage;
                     }
-                    firstTouchBeganTime = Time.timeSinceLevelLoad;
+                    else if (myTouchState == TouchState.WaitingPrevPage)
+                    {
+                        myTouchState = TouchState.PrevPage;
+                    }
+
+                    StopCoroutine("WaitForPan");
+                    percentTillPan = 0;
                 }
-                else if (myTouchState != TouchState.NextPage && myTouchState != TouchState.PrevPage)
+                else if (myTouchState != TouchState.NextPage && myTouchState != TouchState.WaitingNextPage && myTouchState != TouchState.PrevPage && myTouchState != TouchState.WaitingPrevPage)
                 {
                     myTouchState = TouchState.PanCamera;
+
+                    StopCoroutine("WaitForPan");
+                    percentTillPan = 0;
                 }
             }
         }
@@ -248,6 +311,26 @@ public class TouchControls : MonoBehaviour
             myTouchState = TouchState.None;
             firstTouchId = -1;
             secondTouchId = -1;
+
+            StopCoroutine("WaitForPan");
+            percentTillPan = 0;
         }
+    }
+
+    private IEnumerator WaitForPan()
+    {
+        float time = Time.timeSinceLevelLoad;
+
+        while (Time.timeSinceLevelLoad - time < DelayToPan)
+        {
+            percentTillPan = (Time.timeSinceLevelLoad - time) / DelayToPan;
+
+            yield return null;
+        }
+
+        myTouchState = TouchState.PanCamera;
+        percentTillPan = 0;
+
+        yield break;
     }
 }

@@ -26,6 +26,8 @@ public class BookGenerator : MonoBehaviour
 
     public GameObject PlayVideoButtonObject = null;
 
+    public GameObject PlayAudioButtonObject = null;
+
     public Transform PageObjectsRoot = null;
 
     public GameObject BookDummy = null;
@@ -113,9 +115,15 @@ public class BookGenerator : MonoBehaviour
             {
                 SetPageTexture(book.pages[i].nr, book.pages[i].imageTex);
             }
-            
-            AddPlayVideoButtonToPage(book.pages[i].nr, 95, 100);
-            AddPlayVideoButtonToPage(book.pages[i].nr, 86f, 100);
+
+            if (!string.IsNullOrEmpty(book.pages[i].video))
+            {
+                AddPlayVideoButtonToPage(book.pages[i].nr, book.pages[i].video, 95, 100);
+            }
+            if (!string.IsNullOrEmpty(book.pages[i].audio))
+            {
+                AddPlayAudioButtonToPage(book.pages[i].nr, book.pages[i].audioClip, 86f, 100);
+            }
         }
 
         Book.basematerial.color = book.pageColorC;
@@ -169,7 +177,7 @@ public class BookGenerator : MonoBehaviour
         }
 
         float booksizeaspect = (float)book.height / book.width;
-
+        
         Book.transform.parent.localScale = new Vector3(1, 1, booksizeaspect);
         Book.ChangeBookThickness(0.0009375f * book.numPages, true);
     }
@@ -236,7 +244,45 @@ public class BookGenerator : MonoBehaviour
         myPage.objects.Add(textObject);
     }
 
-    public void AddPlayVideoButtonToPage(int page, float x, float y)
+    public void AddPlayAudioButtonToPage(int page, AudioClip file, float x, float y)
+    {
+        page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
+        page -= 1;
+
+        MegaBookPageParams myPage = Book.pageparams[page / 2];
+
+        MegaBookPageObject buttonObject = new MegaBookPageObject();
+        buttonObject.obj = Instantiate(PlayAudioButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
+        buttonObject.obj.transform.parent = PageObjectsRoot;
+
+        buttonObject.rot = new Vector3(90, 0, 0);
+        buttonObject.overridevisi = true;
+        buttonObject.attachforward = Vector3.zero;
+        buttonObject.attached = true;
+        if (page % 2 == 0)
+        {
+            buttonObject.pos = new Vector3(x, 0, y);
+            buttonObject.visilow = -0.5f;
+            buttonObject.visihigh = 0.01f;
+            buttonObject.offset = -0.01f;
+        }
+        else
+        {
+            buttonObject.pos = new Vector3(x, 0, y);
+            buttonObject.visilow = 0.99f;
+            buttonObject.visihigh = 1.99f;
+            buttonObject.offset = 0.01f;
+        }
+
+        AudioPlayButton button = buttonObject.obj.GetComponentInChildren<AudioPlayButton>();
+        button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
+        button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
+        button.Audio.clip = file;
+
+        myPage.objects.Add(buttonObject);
+    }
+
+    public void AddPlayVideoButtonToPage(int page, string file, float x, float y)
     {
         page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
         page -= 1;
@@ -245,6 +291,8 @@ public class BookGenerator : MonoBehaviour
 
         MegaBookPageObject buttonObject = new MegaBookPageObject();
         buttonObject.obj = Instantiate(PlayVideoButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
+        buttonObject.obj.transform.parent = PageObjectsRoot;
+
         buttonObject.rot = new Vector3(90, 0, 0);
         buttonObject.overridevisi = true;
         buttonObject.attachforward = Vector3.zero;
@@ -268,7 +316,7 @@ public class BookGenerator : MonoBehaviour
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
 
-        button.Button.onClick.AddListener(() => { });
+        button.Button.onClick.AddListener(() => { Handheld.PlayFullScreenMovie(file, Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit); });
 
         myPage.objects.Add(buttonObject);
     }
@@ -282,6 +330,8 @@ public class BookGenerator : MonoBehaviour
 
         MegaBookPageObject buttonObject = new MegaBookPageObject();
         buttonObject.obj = Instantiate(ButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
+        buttonObject.obj.transform.parent = PageObjectsRoot;
+
         buttonObject.pos = new Vector3(x, 0, y);
         buttonObject.rot = new Vector3(90, rotation, 0);
         buttonObject.overridevisi = true;

@@ -1,17 +1,19 @@
 ManifestFileVersion: 0
-CRC: 190433571
+CRC: 1066650260
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a97b6f30d130373295f2e4964373f9f8
+    Hash: 4a86f85a7c99291b120c1b8147c78702
   TypeTreeHash:
     serializedVersion: 2
-    Hash: eb6b06b1b3e2dbe026521de7a467fcd7
+    Hash: 2650dbcbef2ab65098dfdb96fe44f975
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 49
+  Script: {instanceID: 0}
+- Class: 83
   Script: {instanceID: 0}
 Assets:
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page13.jpg
@@ -30,6 +32,7 @@ Assets:
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page8.jpg
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/Localization.csv
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Cover_1.jpg
+- Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/test.mp3
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page6.jpg
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page5.jpg
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page12.jpg
