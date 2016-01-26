@@ -66,13 +66,8 @@ public class ProfileList : MonoBehaviour
             profileButton.onClick.AddListener(() =>
             {
                 MyPanel.Hide();
-                if (profileElem.MyData != null)
-                {
-                    profileElem.MyData.LastUsed = System.DateTime.Now.Ticks;
-                }
-                ProfilesManager.Instance.UpdateProfiles();
-                ProfilesManager.Instance.CurrentProfile = profileElem.MyData;
-                CurrentProfileElement.Instance.MyPanel.Show();
+                EnterPassword.Instance.TargetData = profileElem.MyData;
+                EnterPassword.Instance.MyPanel.Show();
             });
 
             profile.transform.SetParent(Layout);

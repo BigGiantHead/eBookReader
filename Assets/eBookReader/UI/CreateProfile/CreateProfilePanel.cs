@@ -55,6 +55,12 @@ public class CreateProfilePanel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (ProfilesManager.Instance.CurrentProfile != null)
+        {
+            MyPanel.Hide();
+            EnterPassword.Instance.TargetData = ProfilesManager.Instance.CurrentProfile;
+            EnterPassword.Instance.MyPanel.Show();
+        }
     }
 
     void OnEnable()

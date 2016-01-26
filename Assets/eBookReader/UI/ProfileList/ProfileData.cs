@@ -32,6 +32,47 @@ public class Fruitword
     public FruitType ThirdFruit;
 
     public FruitType FourthFruit;
+
+    public FruitType this[int i]
+    {
+        get
+        {
+            switch(i)
+            {
+                case 0:
+                    return FirstFruit;
+                case 1:
+                    return SecondFruit;
+                case 2:
+                    return ThirdFruit;
+                case 3:
+                    return FourthFruit;
+            }
+
+            return FruitType.None;
+        }
+        set
+        {
+            switch (i)
+            {
+                case 0:
+                    FirstFruit = value;
+                    break;
+
+                case 1:
+                    SecondFruit = value;
+                    break;
+
+                case 2:
+                    ThirdFruit = value;
+                    break;
+
+                case 3:
+                    FourthFruit = value;
+                    break;
+            }
+        }
+    }
 }
 
 

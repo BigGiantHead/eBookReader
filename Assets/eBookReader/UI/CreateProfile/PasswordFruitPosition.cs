@@ -10,6 +10,8 @@ public class PasswordFruitPosition : MonoBehaviour, IDropHandler
 
     public int Index = -1;
 
+    public Action PasswordFruitPositionChanged = null;
+
     #region IDropHandler implementation
     public void OnDrop(PointerEventData eventData)
     {
@@ -26,12 +28,13 @@ public class PasswordFruitPosition : MonoBehaviour, IDropHandler
         }
 
         MyItem = PasswordFruit.ItemBeingDragged;
+
+        if (PasswordFruitPositionChanged != null)
+        {
+            PasswordFruitPositionChanged();
+        }
     }
     #endregion
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-    }
 
     public void ResetItem()
     {

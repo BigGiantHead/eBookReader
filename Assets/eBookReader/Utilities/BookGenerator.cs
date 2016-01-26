@@ -32,6 +32,14 @@ public class BookGenerator : MonoBehaviour
 
     public GameObject BookDummy = null;
 
+    public string CurrentBook
+    {
+        get
+        {
+            return currentBook;
+        }
+    }
+
     void Awake()
     {
         instance = this;
