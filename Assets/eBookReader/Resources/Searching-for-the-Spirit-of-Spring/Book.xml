@@ -5,39 +5,39 @@
   <page nr="2" image="Page2" audio="" video="">
   </page>
   <page nr="3" image="Page3" audio="" video="">
-    <text reference="text_page3" color="#000000ff" width="45" fontSize="26" posX="5" posY="55" language="English" alignment="Left" />
+    <text reference="text_page3" color="#000000ff" width="55" fontSize="24" posX="5" posY="55" language="English" alignment="Left" />
   </page>
   <page nr="4" image="Page4" audio="" video="">
-    <text reference="text_page4" color="#000000ff" width="45" fontSize="26" posX="95" posY="80" language="English" alignment="Left" />
+    <text reference="text_page4" color="#000000ff" width="45" fontSize="24" posX="95" posY="90" language="English" alignment="Left" />
   </page>
   <page nr="5" image="Page5" audio="" video="">
-    <text reference="text_page5" color="#000000ff" width="45" fontSize="26" posX="50" posY="90" language="English" alignment="Left" />
+    <text reference="text_page5" color="#000000ff" width="48" fontSize="22" posX="50" posY="92" language="English" alignment="Left" />
   </page>
   <page nr="6" image="Page6" audio="" video="" >
-    <text reference="text_page6" color="#000000ff" width="40" fontSize="26" posX="95" posY="70" language="English" alignment="Left" />
+    <text reference="text_page6" color="#000000ff" width="40" fontSize="26" posX="95" posY="80" language="English" alignment="Left" />
   </page>
   <page nr="7" image="Page7" audio="" video="" >
-    <text reference="text_page7" color="#000000ff" width="50" fontSize="26" posX="50" posY="68" language="English" alignment="Left" />
+    <text reference="text_page7" color="#000000ff" width="50" fontSize="26" posX="50" posY="75" language="English" alignment="Left" />
   </page>
   <page nr="8" image="Page8" audio="" video="" >
-    <text reference="text_page8" color="#000000ff" width="45" fontSize="22" posX="95" posY="93" language="English" alignment="Left" />
+    <text reference="text_page8" color="#000000ff" width="54" fontSize="20" posX="98" posY="97" language="English" alignment="Left" />
   </page>
   <page nr="9" image="Page9" audio="" video="" >
-    <text reference="text_page9" color="#000000ff" width="47" fontSize="26" posX="50" posY="68" language="English" alignment="Left" />
+    <text reference="text_page9" color="#000000ff" width="47" fontSize="26" posX="50" posY="80" language="English" alignment="Left" />
   </page>
   <page nr="10" image="Page10" audio="" video="">
-    <text reference="text_page10" color="#000000ff" width="45" fontSize="26" posX="95" posY="78" language="English" alignment="Left" />
+    <text reference="text_page10" color="#000000ff" width="45" fontSize="24" posX="95" posY="90" language="English" alignment="Left" />
   </page>
   <page nr="11" image="Page11" audio="" video="">
-    <text reference="text_page11" color="#000000ff" width="43" fontSize="26" posX="50" posY="78" language="English" alignment="Left" />
+    <text reference="text_page11" color="#000000ff" width="45" fontSize="25" posX="50" posY="90" language="English" alignment="Left" />
   </page>
   <page nr="12" image="Page12" audio="" video="">
-    <text reference="text_page12" color="#000000ff" width="46" fontSize="26" posX="95" posY="88" language="English" alignment="Left" />
+    <text reference="text_page12" color="#000000ff" width="46" fontSize="22" posX="95" posY="95" language="English" alignment="Left" />
   </page>
   <page nr="13" image="Page13" audio="" video="">
-    <text reference="text_page13" color="#000000ff" width="45" fontSize="26" posX="50" posY="94" language="English" alignment="Left" />
+    <text reference="text_page13" color="#000000ff" width="45" fontSize="22" posX="50" posY="94" language="English" alignment="Left" />
   </page>
   <page nr="14" image="Page14" audio="" video="">
-    <text reference="text_page14" color="#000000ff" width="36" fontSize="22" posX="95" posY="80" language="English" alignment="Left" />
+    <text reference="text_page14" color="#000000ff" width="36" fontSize="17" posX="97" posY="75" language="English" alignment="Left" />
   </page>
 </book>

@@ -23,23 +23,25 @@ public class AudioPlayButton : MonoBehaviour
     {
         if (Audio.isPlaying)
         {
-            Stop();
+            StopAudio();
         }
         else
         {
-            Play();
+            PlayAudio();
         }
     }
 
-    public void Play()
+    public void PlayAudio()
     {
+        BookGenerator.Instance.PageObjectsRoot.BroadcastMessage("StopAudio");
+
         ButtonImage.overrideSprite = StopAudioSprite;
         Audio.Play();
         StartCoroutine("DoWaitTillEnd");
 
     }
 
-    public void Stop()
+    public void StopAudio()
     {
         ButtonImage.overrideSprite = null;
         Audio.Stop();
@@ -54,13 +56,13 @@ public class AudioPlayButton : MonoBehaviour
             yield return null;
         }
 
-        Stop();
+        StopAudio();
 
         yield break;
     }
 
     private void OnEnable()
     {
-        Stop();
+        StopAudio();
     }
 }
