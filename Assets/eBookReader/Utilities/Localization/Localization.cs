@@ -47,6 +47,11 @@ public class Localization : MonoBehaviour
 
     public bool loadingFromBundle = false;
 
+    public FontReferences DefaultFont;
+    public FontReferences ArabicFont;
+    public FontReferences EnglishFont;
+    public FontReferences TurkishFont;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -201,11 +206,7 @@ public class Localization : MonoBehaviour
     {
         loadingFromBundle = true;
 
-        AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
-
-        var request = AssetBundleManager.Initialize();
-        if (request != null)
-            yield return StartCoroutine(request);
+        yield return StartCoroutine(InitAssetBundleManager(absolutePath));
 
         AssetBundleLoadAssetOperation obj = AssetBundleManager.LoadAssetAsync(bundleName, localizationAssetName, typeof(TextAsset));
         if (obj == null)
@@ -233,10 +234,25 @@ public class Localization : MonoBehaviour
         if (unloadBundle)
             AssetBundleManager.UnloadAssetBundle(bundleName);
 
-        if (GameObject.Find("AssetBundleManager"))
-            Destroy(GameObject.Find("AssetBundleManager"));
-
         loadingFromBundle = false;
+    }
+
+    private IEnumerator InitAssetBundleManager(string absolutePath)
+    {
+        AssetBundleManager abm = GameObject.FindObjectOfType<AssetBundleManager>();
+        if (abm && AssetBundleManager.BaseDownloadingURL != absolutePath + Utility.GetPlatformName() + "/")
+        {
+            Destroy(abm.gameObject);
+            yield return null;
+        }
+        if (!abm)
+        {
+            AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
+
+            var request = AssetBundleManager.Initialize();
+            if (request != null)
+                yield return StartCoroutine(request);
+        }
     }
 
     public void UnloadFromAssetBundle(string bundleName, string localizationAssetName)
@@ -295,6 +311,12 @@ public class Localization : MonoBehaviour
         locEntries = null;
         cc = null;
         inputFileDescription = null;
+
+        LocalizedFont[] localizedFonts = GameObject.FindObjectsOfType<LocalizedFont>();
+        for (int i = 0; i < localizedFonts.Length; i++)
+        {
+            localizedFonts[i].UpdateFont();
+        }
 
         LocalizedText[] localizedTexts = GameObject.FindObjectsOfType<LocalizedText>();
         for (int i = 0; i < localizedTexts.Length; i++)
@@ -440,6 +462,69 @@ public class Localization : MonoBehaviour
     }
 
     #endregion
+
+
+    #region LOAD FONTS
+
+    public void LoadFontFromAssetBundle(string absolutePath, string bundleName, string fontAssetName, Language lang, bool unloadBundle = false)
+    {
+        if (!string.IsNullOrEmpty(absolutePath) && !string.IsNullOrEmpty(bundleName) && !string.IsNullOrEmpty(fontAssetName))
+            StartCoroutine(GoLoadFontFromAssetBundle(absolutePath, bundleName, fontAssetName, lang, unloadBundle));
+    }
+
+    private IEnumerator GoLoadFontFromAssetBundle(string absolutePath, string bundleName, string fontAssetName, Language lang, bool unloadBundle)
+    {
+        loadingFromBundle = true;
+
+        yield return StartCoroutine(InitAssetBundleManager(absolutePath));
+
+        AssetBundleManager.ActiveVariants = new string[1] { lang.ToString().ToLower() };
+#if UNITY_EDITOR
+        bundleName = bundleName + "." + lang.ToString().ToLower();
+#endif
+
+        AssetBundleLoadAssetOperation objFont = AssetBundleManager.LoadAssetAsync(bundleName, fontAssetName + "-font", typeof(Font));
+        if (objFont == null)
+        {
+            loadingFromBundle = false;
+            yield break;
+        }
+        yield return StartCoroutine(objFont);
+        Font newFont = objFont.GetAsset<Font>();
+        Debug.Log(newFont);
+
+        AssetBundleLoadAssetOperation objFontMat = AssetBundleManager.LoadAssetAsync(bundleName, fontAssetName + "-mat", typeof(Material));
+        if (objFontMat == null)
+        {
+            loadingFromBundle = false;
+            yield break;
+        }
+        yield return StartCoroutine(objFontMat);
+        Material newFontMat = objFontMat.GetAsset<Material>();
+        Debug.Log(newFontMat);
+
+        AssetBundleLoadAssetOperation objFontTypo = AssetBundleManager.LoadAssetAsync(bundleName, fontAssetName + "-typo", typeof(TypogenicFont));
+        if (objFontTypo == null)
+        {
+            loadingFromBundle = false;
+            yield break;
+        }
+        yield return StartCoroutine(objFontTypo);
+        TypogenicFont newFontTypo = objFontTypo.GetAsset<TypogenicFont>();
+        Debug.Log(newFontTypo);
+
+        if (newFont && newFontMat && newFontTypo)
+        {
+            lang.SetFontReferences(newFont, newFontMat, newFontTypo);
+        }
+
+        if (unloadBundle)
+            AssetBundleManager.UnloadAssetBundle(bundleName);
+
+        loadingFromBundle = false;
+    }
+
+    #endregion
 }
 
 public static class LanguageExtensions
@@ -448,4 +533,54 @@ public static class LanguageExtensions
     {
         return lang == Language.Arabic;
     }
+
+    public static FontReferences FontReferences(this Language lang)
+    {
+        switch (lang)
+        {
+            case Language.Arabic:
+                return Localization.Instance.ArabicFont;
+            case Language.English:
+                return Localization.Instance.EnglishFont;
+            case Language.Turkish:
+                return Localization.Instance.TurkishFont;
+            default:
+                return Localization.Instance.DefaultFont;
+        }
+    }
+
+    public static void SetFontReferences(this Language lang, Font newFont, Material newFontMat, TypogenicFont newFontTypo)
+    {
+        switch (lang)
+        {
+            case Language.Arabic:
+                Localization.Instance.ArabicFont.font = newFont;
+                Localization.Instance.ArabicFont.fontMat = newFontMat;
+                Localization.Instance.ArabicFont.fontTypo = newFontTypo;
+                break;
+            case Language.English:
+                Localization.Instance.EnglishFont.font = newFont;
+                Localization.Instance.EnglishFont.fontMat = newFontMat;
+                Localization.Instance.EnglishFont.fontTypo = newFontTypo;
+                break;
+            case Language.Turkish:
+                Localization.Instance.TurkishFont.font = newFont;
+                Localization.Instance.TurkishFont.fontMat = newFontMat;
+                Localization.Instance.TurkishFont.fontTypo = newFontTypo;
+                break;
+            default:
+                Localization.Instance.DefaultFont.font = newFont;
+                Localization.Instance.DefaultFont.fontMat = newFontMat;
+                Localization.Instance.DefaultFont.fontTypo = newFontTypo;
+                break;
+        }
+    }
+}
+
+[System.Serializable]
+public class FontReferences
+{
+    public Font font;
+    public Material fontMat;
+    public TypogenicFont fontTypo;
 }

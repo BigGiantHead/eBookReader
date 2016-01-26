@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 3857671962
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cd449a011c0f88e61e2d82c0caf4fb53
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c1f7fed1a6773d492f51b91487b8f4b2
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5b8aff295ee5da048a4e94ecb7e9ca34, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+Assets:
+- Assets/eBookReader/Resources/FontArabic/Adobe-Regular-Arabic-typo.asset
+- Assets/eBookReader/Resources/FontArabic/Adobe-Regular-Arabic.png
+- Assets/eBookReader/Resources/FontArabic/Adobe-Regular-Arabic-mat.mat
+- Assets/eBookReader/Resources/FontArabic/Adobe-Regular-Arabic-font.OTF
+Dependencies: []

@@ -153,11 +153,20 @@ namespace BookData
 
         private IEnumerator InitAssetBundleManager(string absolutePath)
         {
-            AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
+            AssetBundleManager abm = GameObject.FindObjectOfType<AssetBundleManager>();
+            if (abm && AssetBundleManager.BaseDownloadingURL != absolutePath + Utility.GetPlatformName() + "/")
+            {
+                Destroy(abm.gameObject);
+                yield return null;
+            }
+            if (!abm)
+            {
+                AssetBundleManager.SetSourceAssetBundleURL(absolutePath);
 
-            var request = AssetBundleManager.Initialize();
-            if (request != null)
-                yield return StartCoroutine(request);
+                var request = AssetBundleManager.Initialize();
+                if (request != null)
+                    yield return StartCoroutine(request);
+            }
         }
 
         private IEnumerator LoadBookAttributes(string bundleName, XmlNode bookNode, Book book)
