@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: 274bdf5683d18674e85089c76f846042
+timeCreated: 1461084112
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Hair
+    100002: Hair1_base
+    100004: Hair1_bone1
+    100006: Hair1_bone2
+    100008: Hair1_bone3
+    100010: Hair1_bone4
+    100012: Hair2_base
+    100014: Hair2_bone1
+    100016: Hair2_bone2
+    100018: Hair2_bone3
+    100020: Hair2_bone4
+    100022: Hair3_base
+    100024: Hair3_bone1
+    100026: Hair3_bone2
+    100028: Hair3_bone3
+    100030: Hair3_bone4
+    100032: Hair4_base
+    100034: Hair4_bone1
+    100036: Hair4_bone2
+    100038: Hair4_bone3
+    100040: Hair4_bone4
+    100042: Hair_1
+    100044: Hair_2
+    100046: Hair_3
+    100048: Hair_4
+    100050: //RootNode
+    400000: Hair
+    400002: Hair1_base
+    400004: Hair1_bone1
+    400006: Hair1_bone2
+    400008: Hair1_bone3
+    400010: Hair1_bone4
+    400012: Hair2_base
+    400014: Hair2_bone1
+    400016: Hair2_bone2
+    400018: Hair2_bone3
+    400020: Hair2_bone4
+    400022: Hair3_base
+    400024: Hair3_bone1
+    400026: Hair3_bone2
+    400028: Hair3_bone3
+    400030: Hair3_bone4
+    400032: Hair4_base
+    400034: Hair4_bone1
+    400036: Hair4_bone2
+    400038: Hair4_bone3
+    400040: Hair4_bone4
+    400042: Hair_1
+    400044: Hair_2
+    400046: Hair_3
+    400048: Hair_4
+    400050: //RootNode
+    4300000: Hair_1
+    4300002: Hair_2
+    4300004: Hair_4
+    4300006: Hair_3
+    9500000: //RootNode
+    13700000: Hair_1
+    13700002: Hair_2
+    13700004: Hair_3
+    13700006: Hair_4
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

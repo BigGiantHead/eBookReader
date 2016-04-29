@@ -134,9 +134,9 @@ public class TouchControls : MonoBehaviour
                 case TouchState.WaitingPrevPage:
                     DoPrevPage();
                     break;
-                case TouchState.ZoomCamera:
-                    DoZoomCamera();
-                    break;
+                //case TouchState.ZoomCamera:
+                //    DoZoomCamera();
+                //    break;
             }
         }
 

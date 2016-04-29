@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 using System.Collections;
 using BookData;
 
@@ -262,8 +261,7 @@ public class BookGenerator : MonoBehaviour
         MegaBookPageObject buttonObject = new MegaBookPageObject();
         buttonObject.obj = Instantiate(PlayAudioButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
         buttonObject.obj.transform.parent = PageObjectsRoot;
-
-        buttonObject.rot = new Vector3(90, 0, 0);
+        
         buttonObject.overridevisi = true;
         buttonObject.attachforward = Vector3.zero;
         buttonObject.attached = true;
@@ -300,8 +298,7 @@ public class BookGenerator : MonoBehaviour
         MegaBookPageObject buttonObject = new MegaBookPageObject();
         buttonObject.obj = Instantiate(PlayVideoButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
         buttonObject.obj.transform.parent = PageObjectsRoot;
-
-        buttonObject.rot = new Vector3(90, 0, 0);
+        
         buttonObject.overridevisi = true;
         buttonObject.attachforward = Vector3.zero;
         buttonObject.attached = true;
@@ -324,7 +321,9 @@ public class BookGenerator : MonoBehaviour
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
         button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
 
+#if ANDROID
         button.Button.onClick.AddListener(() => { Handheld.PlayFullScreenMovie(file, Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit); });
+#endif
 
         myPage.objects.Add(buttonObject);
     }

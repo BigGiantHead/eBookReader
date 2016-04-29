@@ -8,8 +8,8 @@ AssetBundleManifest:
       Name: book2
       Dependencies: {}
     Info_2:
-      Name: font1.arabic
+      Name: font1.english
       Dependencies: {}
     Info_3:
-      Name: font1.english
+      Name: font1.arabic
       Dependencies: {}

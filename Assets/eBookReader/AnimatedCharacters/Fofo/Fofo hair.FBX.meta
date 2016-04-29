@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: 264390a0d6f044c4583fa173095363e8
+timeCreated: 1461084112
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Hair
+    100004: Hair 3
+    100006: Hair 4
+    100008: Hair1_base
+    100010: Hair2_base
+    100012: Hair3_base
+    100014: Hair4_base
+    100016: Hair5_base
+    100018: Hair_1
+    100020: Hair_1_bone1
+    100022: Hair_1_bone2
+    100024: Hair_1_bone3
+    100026: Hair_1_bone4
+    100028: Hair_2
+    100030: Hair_2_bone1
+    100032: Hair_2_bone2
+    100034: Hair_2_bone3
+    100036: Hair_3_bone1
+    100038: Hair_3_bone2
+    100040: Hair_3_bone3
+    100042: Hair_4_bone1
+    100044: Hair_4_bone2
+    100046: Hair_4_bone3
+    100048: Hair_5
+    100050: Hair_5_bone1
+    100052: Hair_5_bone2
+    400000: //RootNode
+    400002: Hair
+    400004: Hair 3
+    400006: Hair 4
+    400008: Hair1_base
+    400010: Hair2_base
+    400012: Hair3_base
+    400014: Hair4_base
+    400016: Hair5_base
+    400018: Hair_1
+    400020: Hair_1_bone1
+    400022: Hair_1_bone2
+    400024: Hair_1_bone3
+    400026: Hair_1_bone4
+    400028: Hair_2
+    400030: Hair_2_bone1
+    400032: Hair_2_bone2
+    400034: Hair_2_bone3
+    400036: Hair_3_bone1
+    400038: Hair_3_bone2
+    400040: Hair_3_bone3
+    400042: Hair_4_bone1
+    400044: Hair_4_bone2
+    400046: Hair_4_bone3
+    400048: Hair_5
+    400050: Hair_5_bone1
+    400052: Hair_5_bone2
+    4300000: Hair_1
+    4300002: Hair_2
+    4300004: Hair 3
+    4300006: Hair 4
+    4300008: Hair_5
+    9500000: //RootNode
+    13700000: Hair 3
+    13700002: Hair 4
+    13700004: Hair_1
+    13700006: Hair_2
+    13700008: Hair_5
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

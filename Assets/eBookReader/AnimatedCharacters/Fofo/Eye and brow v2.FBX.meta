@@ -1,0 +1,662 @@
+fileFormatVersion: 2
+guid: 48d9bef621c9bb549938ea8a9652ff33
+timeCreated: 1460810478
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Brow
+    100002: Brow_01
+    100004: Brow_02
+    100006: Brow_03
+    100008: EYE
+    100010: //RootNode
+    100012: Eye_Ball
+    100014: Eye_Socket
+    100016: EyeMain
+    100018: LowerLid
+    100020: UpperLid
+    400000: Brow
+    400002: Brow_01
+    400004: Brow_02
+    400006: Brow_03
+    400008: EYE
+    400010: //RootNode
+    400012: Eye_Ball
+    400014: Eye_Socket
+    400016: EyeMain
+    400018: LowerLid
+    400020: UpperLid
+    2300000: Eye_Ball
+    3300000: Eye_Ball
+    4300000: Brow
+    4300002: Eye_Socket
+    4300004: Eye_Ball
+    7400000: EyeBlink
+    7400002: EyeSlowClose
+    7400004: EyeSlowOpen
+    7400006: EyeLowerLidClose
+    7400008: EyeUpperLidClose
+    7400010: EyeLowerLidShake
+    7400012: BrowNeutral
+    7400014: BrowAngry
+    7400016: BrowSad
+    7400018: BrowNormal
+    7400020: BrowExited
+    9500000: //RootNode
+    13700000: Brow
+    13700002: Eye_Socket
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: EyeBlink
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: EyeSlowClose
+      takeName: Take 001
+      firstFrame: 11
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: EyeSlowOpen
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: EyeLowerLidClose
+      takeName: Take 001
+      firstFrame: 31
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: EyeUpperLidClose
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: EyeLowerLidShake
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BrowNeutral
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 8
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BrowAngry
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BrowSad
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BrowNormal
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BrowExited
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Brow
+        weight: 1
+      - path: EYE
+        weight: 1
+      - path: EYE/Brow_01
+        weight: 1
+      - path: EYE/Brow_01/Brow_02
+        weight: 1
+      - path: EYE/Brow_01/Brow_02/Brow_03
+        weight: 1
+      - path: EYE/EyeMain
+        weight: 1
+      - path: EYE/EyeMain/Eye_Ball
+        weight: 1
+      - path: EYE/EyeMain/LowerLid
+        weight: 1
+      - path: EYE/EyeMain/UpperLid
+        weight: 1
+      - path: Eye_Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
