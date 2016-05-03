@@ -113,7 +113,12 @@ namespace BookData
                                 if (xmlPages[i].Attributes["video"] != null && !string.IsNullOrEmpty(xmlPages[i].Attributes["video"].Value))
                                 {
                                     page.video = xmlPages[i].Attributes["video"].Value;
-                                    //yield return StartCoroutine(LoadVideoFromBundle(bundleName, page));
+                                }
+
+                                if (xmlPages[i].Attributes["ar"] != null && !string.IsNullOrEmpty(xmlPages[i].Attributes["ar"].Value))
+                                {
+                                    page.arObject = xmlPages[i].Attributes["ar"].Value;
+                                    yield return StartCoroutine(LoadAudioFromBundle(bundleName, page));
                                 }
 
                                 XmlNodeList xmlTexts = xmlPages[i].SelectNodes("text");
@@ -278,6 +283,16 @@ namespace BookData
             yield return StartCoroutine(audioLoad);
 
             page.audioClip = audioLoad.GetAsset<AudioClip>();
+        }
+
+        private IEnumerator LoadARObjectFromBundle(string bundleName, Page page)
+        {
+            AssetBundleLoadAssetOperation prefabLoad = AssetBundleManager.LoadAssetAsync(bundleName, page.arObject, typeof(GameObject));
+            if (prefabLoad == null)
+                yield break;
+            yield return StartCoroutine(prefabLoad);
+
+            page.arObjectPrefab = prefabLoad.GetAsset<GameObject>();
         }
 
         private IEnumerator LoadVideoFromBundle(string bundleName, Page page)

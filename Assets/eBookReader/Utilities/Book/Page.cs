@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace BookData
@@ -23,6 +22,10 @@ namespace BookData
 
         public List<Button> buttons;
 
+        public string arObject = null;
+
+        public GameObject arObjectPrefab = null;
+
         public Page(int pageNr)
         {
             nr = pageNr;
@@ -31,6 +34,8 @@ namespace BookData
             audio = null;
             audioClip = null;
             video = null;
+            arObject = null;
+            arObjectPrefab = null;
             texts = new List<Text>();
             buttons = new List<Button>();
         }

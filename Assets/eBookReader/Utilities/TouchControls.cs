@@ -123,9 +123,9 @@ public class TouchControls : MonoBehaviour
 
             switch (myTouchState)
             {
-                case TouchState.PanCamera:
-                    DoPanCamera();
-                    break;
+                //case TouchState.PanCamera:
+                //    DoPanCamera();
+                //    break;
                 case TouchState.NextPage:
                 case TouchState.WaitingNextPage:
                     DoNextPage();
@@ -134,9 +134,6 @@ public class TouchControls : MonoBehaviour
                 case TouchState.WaitingPrevPage:
                     DoPrevPage();
                     break;
-                //case TouchState.ZoomCamera:
-                //    DoZoomCamera();
-                //    break;
             }
         }
 
@@ -145,7 +142,7 @@ public class TouchControls : MonoBehaviour
             Book.page = Mathf.Lerp(Book.page, Mathf.Round(Book.page), Time.deltaTime * 10);
         }
 
-        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, originalCameraPosition + Camera.main.transform.forward * zoom + new Vector3(panx, 0, panz), Time.deltaTime * 10);
+        //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, originalCameraPosition + Camera.main.transform.forward * zoom + new Vector3(panx, 0, panz), Time.deltaTime * 10);
     }
 
     private void DoZoomCamera()

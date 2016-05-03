@@ -27,6 +27,8 @@ public class BookGenerator : MonoBehaviour
 
     public GameObject PlayAudioButtonObject = null;
 
+    public GameObject ARButtonObject = null;
+
     public Transform PageObjectsRoot = null;
 
     public GameObject BookDummy = null;
@@ -130,6 +132,10 @@ public class BookGenerator : MonoBehaviour
             if (!string.IsNullOrEmpty(book.pages[i].audio))
             {
                 AddPlayAudioButtonToPage(book.pages[i].nr, book.pages[i].audioClip, 86f, 100);
+            }
+            if (!string.IsNullOrEmpty(book.pages[i].arObject))
+            {
+                AddARButtonToPage(book.pages[i].nr, book.pages[i].arObjectPrefab, 77f, 100);
             }
         }
 
@@ -324,6 +330,43 @@ public class BookGenerator : MonoBehaviour
 #if ANDROID
         button.Button.onClick.AddListener(() => { Handheld.PlayFullScreenMovie(file, Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit); });
 #endif
+
+        myPage.objects.Add(buttonObject);
+    }
+
+    public void AddARButtonToPage(int page, GameObject prefab, float x, float y)
+    {
+        page = Mathf.Clamp(page, 1, Book.GetPageCount() * 2);
+        page -= 1;
+
+        MegaBookPageParams myPage = Book.pageparams[page / 2];
+
+        MegaBookPageObject buttonObject = new MegaBookPageObject();
+        buttonObject.obj = Instantiate(ARButtonObject, Vector3.zero, Quaternion.identity) as GameObject;
+        buttonObject.obj.transform.parent = PageObjectsRoot;
+
+        buttonObject.overridevisi = true;
+        buttonObject.attachforward = Vector3.zero;
+        buttonObject.attached = true;
+        if (page % 2 == 0)
+        {
+            buttonObject.pos = new Vector3(x, 0, y);
+            buttonObject.visilow = -0.5f;
+            buttonObject.visihigh = 0.01f;
+            buttonObject.offset = -0.01f;
+        }
+        else
+        {
+            buttonObject.pos = new Vector3(x, 0, y);
+            buttonObject.visilow = 0.99f;
+            buttonObject.visihigh = 1.99f;
+            buttonObject.offset = 0.01f;
+        }
+
+        ARButton button = buttonObject.obj.GetComponentInChildren<ARButton>();
+        button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
+        button.CanvasRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
+        button.ARPrefab = prefab;
 
         myPage.objects.Add(buttonObject);
     }
