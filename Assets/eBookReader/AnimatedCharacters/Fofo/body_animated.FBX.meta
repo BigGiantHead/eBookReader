@@ -14,6 +14,7 @@ ModelImporter:
     100012: Body_Back
     100014: Body_Front
     100016: Character
+    100018: Fofo
     400000: Body
     400002: Body_1
     400004: Body_2
@@ -23,9 +24,13 @@ ModelImporter:
     400012: Body_Back
     400014: Body_Front
     400016: Character
+    400018: Fofo
     4300000: Body
-    7400000: Default
+    7400000: Body
+    7400002: Default
+    7400004: Take 001
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Body
   materials:
     importMaterials: 0
@@ -41,7 +46,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -49,10 +54,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Default
+      name: Body
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 100
+      lastFrame: 350
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -77,19 +82,19 @@ ModelImporter:
         weight: 1
       - path: Body
         weight: 1
-      - path: Character
+      - path: Fofo
         weight: 1
-      - path: Character/Body_1
+      - path: Fofo/Body_1
         weight: 1
-      - path: Character/Body_1/Body_2
+      - path: Fofo/Body_1/Body_2
         weight: 1
-      - path: Character/Body_1/Body_2/Body_3
+      - path: Fofo/Body_1/Body_2/Body_3
         weight: 1
-      - path: Character/Body_1/Body_2/Body_3/Body_4
+      - path: Fofo/Body_1/Body_2/Body_3/Body_4
         weight: 1
-      - path: Character/Body_1/Body_2/Body_Back
+      - path: Fofo/Body_1/Body_2/Body_Back
         weight: 1
-      - path: Character/Body_1/Body_2/Body_Front
+      - path: Fofo/Body_1/Body_2/Body_Front
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -100,7 +105,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
