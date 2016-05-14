@@ -246,6 +246,15 @@ namespace BookData
                 int.TryParse(bookNode.Attributes["height"].Value, out height);
             }
             book.height = height;
+
+            if (bookNode.Attributes["startFromEnd"] != null)
+            {
+                bool startFromEnd = false;
+                if (bool.TryParse(bookNode.Attributes["startFromEnd"].Value, out startFromEnd))
+                {
+                    book.startFromEnd = startFromEnd;
+                }
+            }
         }
 
         private IEnumerator LoadImageFromBundle(string bundleName, Book book, string image, Action<Texture2D> onLoadFinish)

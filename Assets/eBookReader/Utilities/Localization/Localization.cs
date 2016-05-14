@@ -367,12 +367,18 @@ public class Localization : MonoBehaviour
             if (currentLocalizationEntries.ContainsKey(reference))
             {
                 string value = currentLocalizationEntries[reference];
+
                 if (CurrentLanguage.IsRightToLeft())
+                {
                     value = ArabicSupport.ArabicFixer.Fix(value, true, true);
+                }
+
                 return value;
             }
             else
+            {
                 Debug.LogError("There is no localization for `" + reference + "` language `" + CurrentLanguage + "`");
+            }
         }
 
         return "";
@@ -380,8 +386,16 @@ public class Localization : MonoBehaviour
 
     public string GetEntry(string reference, string bookName)
     {
+        if (string.IsNullOrEmpty(reference))
+        {
+            return "";
+        }
+
         if (string.IsNullOrEmpty(bookName))
+        {
             return GetEntry(reference);
+        }
+
         return GetEntry(bookName + "_" + reference);
     }
 

@@ -49,6 +49,8 @@ namespace BookData
 
         public string descriptionReference;
 
+        public bool startFromEnd;
+
         public Book()
         {
             bookName = null;
@@ -72,6 +74,7 @@ namespace BookData
             height = 1024;
             titleReference = "";
             descriptionReference = "";
+            startFromEnd = false;
         }
 
         public string Title

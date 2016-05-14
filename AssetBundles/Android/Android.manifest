@@ -13,3 +13,6 @@ AssetBundleManifest:
     Info_3:
       Name: font1.arabic
       Dependencies: {}
+    Info_4:
+      Name: maher-book
+      Dependencies: {}

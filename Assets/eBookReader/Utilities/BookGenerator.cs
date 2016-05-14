@@ -80,13 +80,12 @@ public class BookGenerator : MonoBehaviour
 
     public void GenerateBook(Book book)
     {
-        BookDummy.SetActive(true);
+        BookDummy.SetActive(false);
 
         PageObjectsRoot.ClearChildren();
 
         int i = 0;
 
-        Book.page = -1;
         Book.NumPages = book.numPages;
 
         Book.pageparams = new System.Collections.Generic.List<MegaBookPageParams>(book.numPages);
@@ -127,23 +126,21 @@ public class BookGenerator : MonoBehaviour
 
             if (!string.IsNullOrEmpty(book.pages[i].video))
             {
-                AddPlayVideoButtonToPage(book.pages[i].nr, book.pages[i].video, 95, 100);
+                AddPlayVideoButtonToPage(book.pages[i].nr, book.pages[i].video, 95, 0);
             }
             if (!string.IsNullOrEmpty(book.pages[i].audio))
             {
-                AddPlayAudioButtonToPage(book.pages[i].nr, book.pages[i].audioClip, 86f, 100);
+                AddPlayAudioButtonToPage(book.pages[i].nr, book.pages[i].audioClip, 86f, 0);
             }
             if (!string.IsNullOrEmpty(book.pages[i].arObject))
             {
-                AddARButtonToPage(book.pages[i].nr, book.pages[i].arObjectPrefab, 77f, 100);
+                AddARButtonToPage(book.pages[i].nr, book.pages[i].arObjectPrefab, 77f, 0);
             }
         }
 
         Book.basematerial.color = book.pageColorC;
         Book.basematerial1.color = book.pageColorC;
         Book.basematerial2.color = book.pageColorC;
-
-        Book.rebuild = true;
 
         //Set covers
         Material mat;
@@ -190,9 +187,21 @@ public class BookGenerator : MonoBehaviour
         }
 
         float booksizeaspect = (float)book.height / book.width;
-        
+
         Book.transform.parent.localScale = new Vector3(1, 1, booksizeaspect);
         Book.ChangeBookThickness(0.0009375f * book.numPages, true);
+
+        if (book.startFromEnd)
+        {
+            Book.SetPage(Book.NumPages + 1, true);
+        }
+        else
+        {
+            Book.SetPage(-1, true);
+        }
+
+        BookDummy.SetActive(true);
+        Book.rebuild = true;
     }
 
     public void SetPageTexture(int page, Texture2D texture)

@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 4236993890
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7f41f4e33b2607b2d1346e4228d12ad2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2650dbcbef2ab65098dfdb96fe44f975
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/eBookReader/Resources/Maher-Book/Localization.csv
+- Assets/eBookReader/Resources/Maher-Book/test.mp3
+- Assets/eBookReader/Resources/Maher-Book/Images/Cover-Front.jpg
+- Assets/eBookReader/Resources/Maher-Book/Images/Page-6.jpg
+- Assets/eBookReader/Resources/Maher-Book/Images/Page-5.jpg
+- Assets/eBookReader/Resources/Maher-Book/Images/Cover-Back.jpg
+- Assets/eBookReader/Resources/Maher-Book/Images/Page-7.jpg
+- Assets/eBookReader/Resources/Maher-Book/Book.xml
+- Assets/eBookReader/Resources/Maher-Book/Images/Page-4.jpg
+Dependencies: []

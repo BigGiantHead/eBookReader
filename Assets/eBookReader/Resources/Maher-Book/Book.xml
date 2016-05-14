@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<book bookName="maher-book" 
+      numPages="7" 
+      width="2048" 
+      height="2048" 
+      coverColor="RGBA(255, 255, 255, 255)" 
+      frontCoverImage1="Cover-Back" 
+      frontCoverImage2="Cover-Back" 
+      backCoverImage1="Cover-Front" 
+      backCoverImage2="Cover-Front" 
+      pageColor="RGBA(255, 255, 255, 255)" 
+      spineColor="RGBA(75, 117, 177, 255)" 
+      titleReference="" 
+      descriptionReference=""
+      startFromEnd="True">
+  <page nr="10" image="Page-7" audio="" video="">
+  </page>
+  <page nr="11" image="Page-6" audio="test" video="test.mp4" ar="TestARPrefab">
+  </page>
+  <page nr="12" image="Page-5" audio="" video="">
+  </page>
+  <page nr="13" image="Page-4" audio="" video="">
+  </page>
+</book>
