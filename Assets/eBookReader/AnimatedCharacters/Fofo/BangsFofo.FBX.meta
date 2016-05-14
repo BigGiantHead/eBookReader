@@ -14,6 +14,15 @@ ModelImporter:
     100012: Bone005
     100014: Bone006
     100016: Bone007
+    100018: Bang001
+    100020: Bang_Fofo
+    100022: Bone008
+    100024: Bone009
+    100026: Bone010
+    100028: Bone011
+    100030: Bone012
+    100032: Bone013
+    100034: Bone014
     400000: Bang
     400002: //RootNode
     400004: Bone001
@@ -23,9 +32,20 @@ ModelImporter:
     400012: Bone005
     400014: Bone006
     400016: Bone007
+    400018: Bang001
+    400020: Bang_Fofo
+    400022: Bone008
+    400024: Bone009
+    400026: Bone010
+    400028: Bone011
+    400030: Bone012
+    400032: Bone013
+    400034: Bone014
     4300000: Bang
+    4300002: Bang001
     9500000: //RootNode
     13700000: Bang
+    13700002: Bang001
   materials:
     importMaterials: 0
     materialName: 0
@@ -67,9 +87,9 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 180
-    normalImportMode: 1
-    tangentImportMode: 3
-  importAnimation: 1
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
