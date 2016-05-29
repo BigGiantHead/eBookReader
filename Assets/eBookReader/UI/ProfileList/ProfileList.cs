@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class ProfileList : MonoBehaviour
@@ -21,70 +19,91 @@ public class ProfileList : MonoBehaviour
 
     public ModalPanel MyPanel = null;
 
+    public HorizontalLayoutGroup List = null;
+
+    public Sprite CurrentBackground = null;
+
     void Awake()
     {
         instance = this;
         MyPanel.OnShowEnd = PopulateList;
     }
 
-    void PopulateList()
-    {
+    private void PopulateList()
+    {        
         Layout.ClearChildren();
 
-        {
-            GameObject profile = Instantiate(ProfileSample) as GameObject;
-            ProfileElement profileElem = profile.GetComponent<ProfileElement>();
-            profileElem.Avatar.sprite = Resources.Load<Sprite>("Guest_Avatar");
-            profileElem.UserName.text = "New Profile +";
-            profileElem.MyData = null;
-            
-            Button profileButton = profile.GetComponent<Button>();
-            profileButton.onClick.AddListener(() => 
-            {
-                MyPanel.Hide();
-                CreateProfilePanel.Instance.MyPanel.Show();
-            });
+        //Create Current Profile Button
+        ProfileElement pe = CreateProfileElement(ProfilesManager.Instance.CurrentProfile);
+        pe.Background.sprite = CurrentBackground;
 
-            profile.transform.SetParent(Layout);
-
-            profile.transform.localScale = Vector3.one;
-            profile.transform.localPosition = Vector3.zero;
-            profile.transform.localRotation = Quaternion.identity;
-
-            profile.SetActive(true);
-        }
+        //Create New Pfofile Button
+        CreateProfileElement(null, "New Profile +");
 
         foreach (ProfileData data in ProfilesManager.Instance.Profiles)
         {
-            GameObject profile = Instantiate(ProfileSample) as GameObject;
-            ProfileElement profileElem = profile.GetComponent<ProfileElement>();
-            profileElem.Avatar.sprite = Resources.Load<Sprite>("Avatars/" + data.Avatar);
-            profileElem.UserName.text = data.UserName;
-            profileElem.MyData = data;
-
-            Button profileButton = profile.GetComponent<Button>();
-            profileButton.onClick.AddListener(() =>
+            if (data != ProfilesManager.Instance.CurrentProfile)
             {
-                MyPanel.Hide();
-                EnterPassword.Instance.TargetData = profileElem.MyData;
-                EnterPassword.Instance.MyPanel.Show();
-            });
-
-            profile.transform.SetParent(Layout);
-
-            profile.transform.localScale = Vector3.one;
-            profile.transform.localPosition = Vector3.zero;
-            profile.transform.localRotation = Quaternion.identity;
-
-            profile.SetActive(true);
+                CreateProfileElement(data);
+            }
         }
 
+        LayoutElement profileSampleLayoutElement = ProfileSample.GetComponent<LayoutElement>();
         Vector2 size = Layout.sizeDelta;
-        size.x = (ProfilesManager.Instance.Profiles.Count + 1) * 325 + (ProfilesManager.Instance.Profiles.Count) * 50;
+        size.x = (ProfilesManager.Instance.Profiles.Count + 1) * profileSampleLayoutElement.preferredWidth + (ProfilesManager.Instance.Profiles.Count) * List.spacing;
         Layout.sizeDelta = size;
 
         Vector3 position = Layout.localPosition;
         position.x = size.x / 2f;
         Layout.localPosition = position;
+    }
+
+    private ProfileElement CreateProfileElement(ProfileData data, string overrideUserName = null)
+    {
+        //TODO: refactor avatar
+        GameObject profile = Instantiate(ProfileSample) as GameObject;
+        ProfileElement profileElement = profile.GetComponent<ProfileElement>();
+
+        if (data != null)
+        {
+            profileElement.Avatar.sprite = Resources.Load<Sprite>("Avatars/" + data.Avatar);
+            profileElement.Avatar.enabled = true;
+            profileElement.UserName.text = data.UserName;
+        }
+        if (string.IsNullOrEmpty(overrideUserName))
+        {
+            profileElement.UserName.text = overrideUserName;
+        }
+
+        profileElement.MyData = data;
+
+        Button profileButton = profile.GetComponent<Button>();
+        profileButton.onClick.AddListener(() =>
+        {
+            MyPanel.Hide();
+            if (profileElement.MyData == null)
+            {
+                CreateProfilePanel.Instance.MyPanel.Show();
+            }
+            else if (profileElement.MyData == ProfilesManager.Instance.CurrentProfile)
+            {
+                CurrentProfileElement.Instance.MyPanel.Show();
+            }
+            else
+            {
+                EnterPassword.Instance.TargetData = profileElement.MyData;
+                EnterPassword.Instance.MyPanel.Show();
+            }
+        });
+
+        profile.transform.SetParent(Layout);
+
+        profile.transform.localScale = Vector3.one;
+        profile.transform.localPosition = Vector3.zero;
+        profile.transform.localRotation = Quaternion.identity;
+
+        profile.SetActive(true);
+
+        return profileElement;
     }
 }

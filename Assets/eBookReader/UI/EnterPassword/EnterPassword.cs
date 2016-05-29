@@ -27,6 +27,7 @@ public class EnterPassword : MonoBehaviour
     void Awake()
     {
         instance = this;
+        MyPanel.OnShowStart = ResetPassword;
     }
 
     // Use this for initialization

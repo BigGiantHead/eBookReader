@@ -3,24 +3,21 @@
 // - no lightmap support
 // - no per-material color
 
-Shader "Unlit/Transparent_CullOff" {
+Shader "Unlit/Normal_CullOff" {
 Properties {
 	_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
 }
 
 SubShader {
-	Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
-	LOD 100
-	
-	ZWrite Off
-	Blend SrcAlpha OneMinusSrcAlpha 
+	Tags { "RenderType" = "Opaque" }
+	LOD 200
+
 	Cull Off
 
 	Pass {  
 		CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma multi_compile_fog
 			
 			#include "UnityCG.cginc"
 
@@ -32,7 +29,6 @@ SubShader {
 			struct v2f {
 				float4 vertex : SV_POSITION;
 				half2 texcoord : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
 			};
 
 			sampler2D _MainTex;
@@ -43,14 +39,12 @@ SubShader {
 				v2f o;
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
-				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.texcoord);
-				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
 			}
 		ENDCG

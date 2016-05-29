@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MainCameraManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class MainCameraManager : MonoBehaviour
 
     public Transform InitialARCameraPosition = null;
 
+    public Transform SelfiePosition = null;
+
+    public RawImage CameraQuad = null;
+
     void Awake()
     {
         instance = this;
@@ -31,14 +36,26 @@ public class MainCameraManager : MonoBehaviour
 
     public void MoveCameraToInitialPostion()
     {
+        TouchControls.Instance.AcceptInput = true;
+
         StopAllCoroutines();
         StartCoroutine(DoMoveCamera(InitialCameraPosition.position, InitialCameraPosition.rotation));
     }
 
     public void MoveCameraToInitialARPostion()
     {
+        TouchControls.Instance.AcceptInput = false;
+
         StopAllCoroutines();
         StartCoroutine(DoMoveCamera(InitialARCameraPosition.position, InitialARCameraPosition.rotation));
+    }
+
+    public void MoveCameraToSelfiePosition()
+    {
+        TouchControls.Instance.AcceptInput = false;
+
+        StopAllCoroutines();
+        StartCoroutine(DoMoveCamera(SelfiePosition.position, SelfiePosition.rotation));
     }
 
     private IEnumerator DoMoveCamera(Vector3 targetPosition, Quaternion targetRotation)

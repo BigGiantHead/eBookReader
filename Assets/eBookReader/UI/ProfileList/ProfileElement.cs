@@ -8,6 +8,8 @@ public class ProfileElement : MonoBehaviour
     [HideInInspector]
     public ProfileData MyData = null;
 
+    public Image Background = null;
+
     public Image Avatar = null;
 
     public Text UserName = null;

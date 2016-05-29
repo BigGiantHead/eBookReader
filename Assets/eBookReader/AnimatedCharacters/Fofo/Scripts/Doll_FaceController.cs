@@ -12,8 +12,8 @@ public class Doll_FaceController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(DoChangeLookDirection());
-        StartCoroutine(DoChangeFace());
+        //StartCoroutine(DoChangeLookDirection());
+        //StartCoroutine(DoChangeFace());
     }
 
     public void ChangeFace(int index)
@@ -30,16 +30,22 @@ public class Doll_FaceController : MonoBehaviour
                 break;
             //happy
             case 1:
+                LeftEye.SetTrigger("returnToNormal");
+                RightEye.SetTrigger("returnToNormal");
                 LeftEye.SetTrigger("browExcited");
                 RightEye.SetTrigger("browExcited");
                 Mouth.ChangeMouth(19);
                 break;
             //silly
             case 2:
+                LeftEye.SetTrigger("returnToNormal");
+                RightEye.SetTrigger("returnToNormal");
                 LeftEye.SetTrigger("browExcited");
                 RightEye.SetTrigger("browExcited");
                 Mouth.ChangeMouth(4);
                 break;
+
+            default:
             //crying
             case 3:
                 LeftEye.SetTrigger("lowerLidShake");
@@ -49,34 +55,20 @@ public class Doll_FaceController : MonoBehaviour
                 Mouth.ChangeMouth(5);
                 break;
         }
+
+        CancelInvoke("ChangeToNormal");
+        Invoke("ChangeToNormal", 30);
     }
 
-    private IEnumerator DoChangeFace()
+    public void ChangeRandomFace()
     {
-        while (true)
-        {
-            ChangeFace(Random.Range(0, 4));
-
-            yield return new WaitForSeconds(5);
-
-            LeftEye.SetTrigger("returnToNormal");
-            RightEye.SetTrigger("returnToNormal");
-            Mouth.ChangeMouth(16);
-
-            yield return new WaitForSeconds(20);
-        }
-
-        yield break;
+        ChangeFace(Random.Range(0, 4));
     }
 
-    private IEnumerator DoChangeLookDirection()
+    private void ChangeToNormal()
     {
-        while (true)
-        {
-            LeftEye.transform.localScale = new Vector3(-LeftEye.transform.localScale.x, 1, 1);
-            RightEye.transform.localScale = new Vector3(-RightEye.transform.localScale.x, 1, 1);
-
-            yield return new WaitForSeconds(Random.value * 8 + 4);
-        }
+        LeftEye.SetTrigger("returnToNormal");
+        RightEye.SetTrigger("returnToNormal");
+        Mouth.ChangeMouth(16);
     }
 }
