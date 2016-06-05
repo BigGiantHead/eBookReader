@@ -2,14 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
-public class MenuBook : MonoBehaviour
+public class MenuBook : MonoBehaviour, ISelectHandler, IPointerDownHandler
 {
-    private Quaternion startRot;
-
-    private Quaternion targetRot;
-
-    private Vector3 targetScale = Vector3.one;
+    private Vector3 startScale = Vector3.one;
 
     public Texture2D FrontCover = null;
 
@@ -25,11 +22,9 @@ public class MenuBook : MonoBehaviour
 
     public Transform BookModel = null;
 
-    public Text Title = null;
-
-    public Text Description = null;
-
     public string BookBundle = null;
+
+    public BookData.Book MyBook = null;
 
     // Use this for initialization
     void Start()
@@ -42,20 +37,28 @@ public class MenuBook : MonoBehaviour
 
         Side.color = BookColor;
 
-        startRot = targetRot = Quaternion.Euler(Random.Range(-20f, 20f), Random.Range(-20f, 20f), 0);
+        startScale = transform.localScale;
     }
 
-    void Update()
+    public void OnSelect(BaseEventData eventData)
     {
-        //BookModel.localRotation = Quaternion.Lerp(BookModel.localRotation, targetRot, Time.deltaTime * 20);
-        BookModel.Rotate(Vector3.up, Time.deltaTime * 20f);
+        Select();
     }
 
-    public void ReadBook()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        BookGenerator.Instance.LoadBookFromBundle(BookBundle);
+        Select();
+    }
 
-        PickBook.Instance.MyPanel.Hide();
-        CurrentProfileElement.Instance.MyPanel.Show();
+    public void Select()
+    {
+        PickBook.Instance.SelectedBook = this;
+
+        LeanTween.scale(gameObject, startScale * 1.5f, 0.15f);
+    }
+
+    public void Deselect()
+    {
+        LeanTween.scale(gameObject, startScale, 0.15f);
     }
 }

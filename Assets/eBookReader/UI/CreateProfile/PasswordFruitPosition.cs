@@ -8,6 +8,19 @@ public class PasswordFruitPosition : MonoBehaviour, IDropHandler
     [HideInInspector]
     public PasswordFruit MyItem = null;
 
+    public FruitType MyFruitType
+    {
+        get
+        {
+            if (MyItem == null)
+            {
+                return FruitType.None;
+            }
+
+            return MyItem.Type;
+        }
+    }
+
     public int Index = -1;
 
     public Action PasswordFruitPositionChanged = null;
@@ -21,13 +34,13 @@ public class PasswordFruitPosition : MonoBehaviour, IDropHandler
             MyItem.OnEndDrag(eventData);
         }
 
-        if (PasswordFruit.ItemBeingDragged != null)
+        if (PickPassword.Instance.ItemBeingDragged != null)
         {
-            PasswordFruit.ItemBeingDragged.transform.position = transform.position;
-            PasswordFruit.ItemBeingDragged.Index = Index;
+            PickPassword.Instance.ItemBeingDragged.transform.position = transform.position;
+            PickPassword.Instance.ItemBeingDragged.Index = Index;
         }
 
-        MyItem = PasswordFruit.ItemBeingDragged;
+        MyItem = PickPassword.Instance.ItemBeingDragged;
 
         if (PasswordFruitPositionChanged != null)
         {

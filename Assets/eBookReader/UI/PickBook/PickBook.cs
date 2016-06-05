@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using BookData;
 
 public class PickBook : MonoBehaviour
 {
@@ -15,6 +15,8 @@ public class PickBook : MonoBehaviour
         }
     }
 
+    private MenuBook selectedBook = null;
+
     private float targetScroll = 0;
 
     private float scrollDelta = 0;
@@ -23,83 +25,73 @@ public class PickBook : MonoBehaviour
 
     private List<RenderTexture> bookTextures = null;
 
-    public GameObject BookSample = null;
-
     public RectTransform Layout = null;
 
     public ModalPanel MyPanel = null;
 
-    public Pagination BooksPagination = null;
+    public List<MenuBook> MenuBooks = null;
 
-    public GameObject LeftArrow = null;
+    [Header("Book Display Elements")]
+    public RawImage DisplayImage = null;
 
-    public GameObject RightArrow = null;
+    public Text Description = null;
 
-    public UninteractableScrollRect Scroll = null;
+    public MenuBook SelectedBook
+    {
+        get
+        {
+            return selectedBook;
+        }
+        set
+        {
+            if (selectedBook != null)
+            {
+                selectedBook.Deselect();
+            }
+
+            selectedBook = value;
+            if (selectedBook != null)
+            {
+                DisplayImage.enabled = true;
+                Description.enabled = true;
+                Description.text = selectedBook.MyBook.Description;
+
+                float aspectSize = selectedBook.MyBook.width / selectedBook.MyBook.height;
+
+                DisplayImage.rectTransform.sizeDelta = new Vector2(DisplayImage.rectTransform.sizeDelta.y * aspectSize, DisplayImage.rectTransform.sizeDelta.y);
+
+                if (selectedBook.MyBook.startFromEnd)
+                {
+                    DisplayImage.texture = selectedBook.MyBook.backCoverImage2Tex;
+                }
+                else
+                {
+                    DisplayImage.texture = selectedBook.MyBook.frontCoverImage1Tex;
+                }
+            }
+            else
+            {
+                DisplayImage.enabled = false;
+                Description.enabled = false;
+            }
+        }
+    }
 
     void Awake()
     {
         instance = this;
-        BookSample.transform.SetParent(null);
 
+        MyPanel.OnShowStart = Start;
         MyPanel.OnShowEnd = PopulateBooks;
-        MyPanel.OnShowStart = OnShowStart;
     }
 
     void Start()
     {
-    }
-
-    void Update()
-    {
-        Scroll.horizontalNormalizedPosition = Mathf.Lerp(Scroll.horizontalNormalizedPosition, targetScroll, Time.deltaTime * 4);
-    }
-
-    public void PressLeftArrow()
-    {
-        BooksPagination.PreviousPage();
-
-        RightArrow.SetActive(true);
-        if (BooksPagination.CurrentPage == 1)
-        {
-            LeftArrow.SetActive(false);
-        }
-        else
-        {
-            LeftArrow.SetActive(true);
-        }
-
-        targetScroll = Mathf.Clamp01(targetScroll - scrollDelta);
-    }
-
-    public void PressRightArrow()
-    {
-        BooksPagination.NextPage();
-
-        LeftArrow.SetActive(true);
-        if (BooksPagination.CurrentPage == Books.Count)
-        {
-            RightArrow.SetActive(false);
-        }
-        else
-        {
-            RightArrow.SetActive(true);
-        }
-
-        targetScroll = Mathf.Clamp01(targetScroll + scrollDelta);
-    }
-
-    private void OnShowStart()
-    {
-        LeftArrow.SetActive(false);
-        RightArrow.SetActive(Books.Count > 1);
-        targetScroll = 0;
+        SelectedBook = null;
     }
 
     private void PopulateBooks()
     {
-        Layout.ClearChildren();
-
         StartCoroutine(DoPopulateBooks());        
     }
 
@@ -107,47 +99,57 @@ public class PickBook : MonoBehaviour
     {
         bookTextures = new List<RenderTexture>();
 
-        Vector2 size = Layout.sizeDelta;
-        size.x = (Books.Count) * 785 + (Books.Count - 1) * 50;
-        Layout.sizeDelta = size;
-
-        Vector3 position = Layout.localPosition;
-        position.x = size.x / 2f - 392;
-        Layout.localPosition = position;
-
-        BooksPagination.SetPages(Books.Count);
-
-        scrollDelta = 1f / (Books.Count - 1);
-
         for (int i = 0; i < Books.Count; ++i)
         {
-            BookLoader.Instance.LoadFromAssetBundle(Application.streamingAssetsPath + "/", Books[i]);
+            BookData.BookLoader.Instance.LoadFromAssetBundle(Application.streamingAssetsPath + "/", Books[i]);
 
-            while (BookLoader.Instance.loadingBook)
+            while (BookData.BookLoader.Instance.loadingBook)
             {
                 yield return null;
             }
 
-            BookData.Book loadedBook = BookLoader.Instance.book;
+            BookData.Book loadedBook = BookData.BookLoader.Instance.book;
 
-            GameObject book = Instantiate(BookSample) as GameObject;
+            GameObject book = MenuBooks[i].gameObject;
 
-            book.transform.SetParent(Layout);
+            book.SetActive(true);
 
-            book.transform.localScale = Vector3.one;
-            book.transform.localPosition = Vector3.zero;
-            book.transform.localRotation = Quaternion.identity;
+            MenuBook mBook = MenuBooks[i];
 
-            MenuBook mBook = book.GetComponent<MenuBook>();
-            mBook.Title.text = loadedBook.Title;
-            mBook.Description.text = loadedBook.Description;
-            mBook.FrontCover = loadedBook.frontCoverImage1Tex;
-            mBook.BackCover = loadedBook.backCoverImage2Tex;
+            if (loadedBook.startFromEnd)
+            {
+                mBook.FrontCover = loadedBook.backCoverImage2Tex;
+                mBook.BackCover = loadedBook.frontCoverImage1Tex;
+            }
+            else
+            {
+                mBook.FrontCover = loadedBook.frontCoverImage1Tex;
+                mBook.BackCover = loadedBook.backCoverImage2Tex;
+            }
+
             mBook.BookColor = loadedBook.coverColorC;
             mBook.BookModel.localScale = new Vector3(1.4f, 1.4f * ((float)loadedBook.height / loadedBook.width), 1.4f);
+
+            //Modify y position to accomodate for book height
+            Vector3 bookLocalPosition = mBook.BookModel.localPosition;
+            bookLocalPosition.y = 171 * (mBook.BookModel.localScale.y / 1.4f);
+            mBook.BookModel.localPosition = bookLocalPosition;
+
+            mBook.MyBook = loadedBook;
             mBook.BookBundle = Books[i];
         }        
 
         yield break;
+    }
+
+    public void ReadBook()
+    {
+        if (SelectedBook != null)
+        {
+            BookGenerator.Instance.LoadBookFromBundle(SelectedBook.BookBundle);
+        }
+
+        MyPanel.Hide();
+        CurrentProfileElement.Instance.MyPanel.Show();
     }
 }

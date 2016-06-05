@@ -14,7 +14,7 @@ public class CurrentProfileElement : MonoBehaviour
         }
     }
 
-    public Image Avatar = null;
+    public AvatarRenderingRequester Avatar = null;
 
     public ModalPanel MyPanel = null;
 
@@ -25,7 +25,8 @@ public class CurrentProfileElement : MonoBehaviour
     void Awake()
     {
         instance = this;
-        MyPanel.OnShowStart = OnShowStart;
+        MyPanel.OnShowStart = OnShowEnd;
+        MyPanel.OnHideEnd = OnHideEnd;
     }
 
     // Use this for initialization
@@ -34,30 +35,24 @@ public class CurrentProfileElement : MonoBehaviour
         MyPanel.Show();
     }
 
-    void OnShowStart()
+    void OnShowEnd()
     {
-        if (ProfilesManager.Instance.CurrentProfile == null)
+        if (ProfilesManager.Instance.CurrentProfile != null)
         {
-            Avatar.sprite = Resources.Load<Sprite>("Guest_Avatar");
+            Avatar.StartAvatar(ProfilesManager.Instance.CurrentProfile.Avatar);
         }
-        else
-        {
-            Avatar.sprite = Resources.Load<Sprite>("Avatars/" + ProfilesManager.Instance.CurrentProfile.Avatar);
-        }
+    }
+
+    void OnHideEnd()
+    {
+        Avatar.StopAvatar();
     }
 
     public void OnProfileClick()
     {
         MyPanel.Hide();
 
-        if (ProfilesManager.Instance.Profiles.Count == 0)
-        {
-            NewProfilePanel.Show();
-        }
-        else
-        {
-            ProfilesPanel.Show();
-        }
+        ProfilesPanel.Show();
     }
 
     public void OnPickBookClick()

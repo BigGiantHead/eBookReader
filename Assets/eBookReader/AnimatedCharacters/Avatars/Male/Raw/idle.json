@@ -1,0 +1,2189 @@
+{
+	"bones": [
+		{
+			"name": "root"
+		},
+		{
+			"name": "but",
+			"parent": "root",
+			"enabled": true,
+			"x": 981,
+			"y": -1842
+		},
+		{
+			"name": "but 2",
+			"parent": "root",
+			"enabled": true,
+			"x": 1124,
+			"y": -1844
+		},
+		{
+			"name": "crvena patika1",
+			"parent": "root",
+			"enabled": true,
+			"x": 987.5,
+			"y": -2471
+		},
+		{
+			"name": "crvena patika2",
+			"parent": "root",
+			"enabled": true,
+			"x": 1119.5,
+			"y": -2471
+		},
+		{
+			"name": "stapalo",
+			"parent": "root",
+			"enabled": true,
+			"x": 987.5,
+			"y": -2471
+		},
+		{
+			"name": "stapalo 2",
+			"parent": "root",
+			"enabled": true,
+			"x": 1119.5,
+			"y": -2471
+		},
+		{
+			"name": "telo",
+			"parent": "root",
+			"enabled": true,
+			"x": 1048.5,
+			"y": -1838
+		},
+		{
+			"name": "bluza crvena",
+			"parent": "telo",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "bluza zelena",
+			"parent": "telo",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "gol but",
+			"parent": "but",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "gol but2",
+			"parent": "but 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "kremasti pantaloni but",
+			"parent": "but",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "kremasti pantaloni but2",
+			"parent": "but 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "logo1 belo",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo1 boja",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo1 temno",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo2 belo",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo2 boja",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo2 temno",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo3 belo",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo3 boja",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo3 temno",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo4 boja",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo5 boja",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo6 boja",
+			"parent": "telo",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "plava patika1",
+			"parent": "stapalo",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "plava patika2",
+			"parent": "stapalo 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "potkoleno",
+			"parent": "but",
+			"enabled": true,
+			"x": 2,
+			"y": -303.5
+		},
+		{
+			"name": "potkoleno 2",
+			"parent": "but 2",
+			"enabled": true,
+			"x": -3,
+			"y": -300
+		},
+		{
+			"name": "ramo1",
+			"parent": "telo",
+			"enabled": true,
+			"x": -113,
+			"y": 447,
+			"rotation": 343
+		},
+		{
+			"name": "ramo2",
+			"parent": "telo",
+			"enabled": true,
+			"x": 103,
+			"y": 442,
+			"rotation": 18
+		},
+		{
+			"name": "vrat",
+			"parent": "telo",
+			"enabled": true,
+			"x": -6,
+			"y": 500
+		},
+		{
+			"name": "crven rakav ramo1",
+			"parent": "ramo1",
+			"enabled": true,
+			"x": 2.8421709430404e-14,
+			"y": -9.9475983006414e-14
+		},
+		{
+			"name": "crven rakav ramo2",
+			"parent": "ramo2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "glava",
+			"parent": "vrat",
+			"enabled": true,
+			"x": -18.5,
+			"y": 44
+		},
+		{
+			"name": "golo potkoleno",
+			"parent": "potkoleno",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "golo potkoleno2",
+			"parent": "potkoleno 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "golo ramo1",
+			"parent": "ramo1",
+			"enabled": true,
+			"x": 2.8421709430404e-14,
+			"y": -9.9475983006414e-14
+		},
+		{
+			"name": "golo ramo2",
+			"parent": "ramo2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "kafena kratka pantalona",
+			"parent": "gol but",
+			"enabled": true,
+			"x": 5,
+			"y": 10
+		},
+		{
+			"name": "kafena kratka pantalona2",
+			"parent": "gol but2",
+			"enabled": true,
+			"x": -4,
+			"y": 12
+		},
+		{
+			"name": "kremasti pantaloni potkoleno",
+			"parent": "potkoleno",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "kremasti pantaloni potkoleno2",
+			"parent": "potkoleno 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "podlaktica 2",
+			"parent": "ramo2",
+			"enabled": true,
+			"x": 3.5,
+			"y": -257.5,
+			"rotation": 350
+		},
+		{
+			"name": "podlaktica1",
+			"parent": "ramo1",
+			"enabled": true,
+			"x": 3.5,
+			"y": -257.5,
+			"rotation": 10
+		},
+		{
+			"name": "crven rakav podlaktica1",
+			"parent": "podlaktica1",
+			"enabled": true,
+			"x": -4.61852778244065e-14,
+			"y": -5.6843418860808e-14
+		},
+		{
+			"name": "crven rakav podlaktica2",
+			"parent": "podlaktica 2",
+			"enabled": true,
+			"x": -8.5265128291212e-14,
+			"y": 0
+		},
+		{
+			"name": "dlanka",
+			"parent": "podlaktica1",
+			"enabled": true,
+			"x": 3.53597051300062,
+			"y": -248.595937086357,
+			"rotation": 352
+		},
+		{
+			"name": "dlanka 2",
+			"parent": "podlaktica 2",
+			"enabled": true,
+			"x": 0.05626295278807,
+			"y": -256.33598306537,
+			"rotation": 357
+		},
+		{
+			"name": "gola podlaktica1",
+			"parent": "podlaktica1",
+			"enabled": true,
+			"x": -3.19744231092045e-14,
+			"y": 0
+		},
+		{
+			"name": "gola podlaktica2",
+			"parent": "podlaktica 2",
+			"enabled": true,
+			"x": -5.6843418860808e-14,
+			"y": 0
+		},
+		{
+			"name": "kosa",
+			"parent": "glava",
+			"enabled": true,
+			"x": -38.5,
+			"y": 615
+		},
+		{
+			"name": "nos",
+			"parent": "glava",
+			"enabled": true,
+			"x": -4,
+			"y": 318.5
+		},
+		{
+			"name": "zelen rakav1",
+			"parent": "golo ramo1",
+			"enabled": true,
+			"x": 3.63943835059354,
+			"y": 0.06699621056646,
+			"rotation": 17
+		},
+		{
+			"name": "zelen rakav2",
+			"parent": "golo ramo2",
+			"enabled": true,
+			"x": 2.06862429636294,
+			"y": -1.7235990022325,
+			"rotation": 342
+		},
+		{
+			"name": "crna kosa",
+			"parent": "kosa",
+			"enabled": true,
+			"x": 26.5,
+			"y": -3
+		},
+		{
+			"name": "dlanka otvorena",
+			"parent": "dlanka 2",
+			"enabled": true,
+			"x": -0.14086824771567,
+			"y": 10.5151341948127,
+			"rotation": 173
+		},
+		{
+			"name": "oci",
+			"parent": "nos",
+			"enabled": true,
+			"x": -4,
+			"y": 92.5
+		},
+		{
+			"name": "plava kosa",
+			"parent": "kosa",
+			"enabled": true,
+			"x": 18.5,
+			"y": 101
+		},
+		{
+			"name": "usta zatvorena",
+			"parent": "nos",
+			"enabled": true,
+			"x": -97,
+			"y": -162.5
+		},
+		{
+			"name": "kapaci",
+			"parent": "oci",
+			"enabled": true,
+			"x": 5.5,
+			"y": -14
+		},
+		{
+			"name": "usta nasmevka",
+			"parent": "usta zatvorena",
+			"enabled": true,
+			"x": -11.5,
+			"y": -0.5,
+			"rotation": 339
+		},
+		{
+			"name": "usta zacudena",
+			"parent": "usta zatvorena",
+			"enabled": true,
+			"x": 2.2368421052571,
+			"y": 0.5
+		},
+		{
+			"name": "vegi",
+			"parent": "oci",
+			"enabled": true,
+			"x": -157.5,
+			"y": 126
+		},
+		{
+			"name": "vegi2",
+			"parent": "oci",
+			"enabled": true,
+			"x": 161,
+			"y": 128
+		},
+		{
+			"name": "zenica1",
+			"parent": "oci",
+			"enabled": true,
+			"x": -137,
+			"y": 0
+		},
+		{
+			"name": "zenica2",
+			"parent": "oci",
+			"enabled": true,
+			"x": 140.5,
+			"y": -1
+		},
+		{
+			"name": "crna vega1",
+			"parent": "vegi",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "crna vega2",
+			"parent": "vegi2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "plava vega1",
+			"parent": "vegi",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "plava vega2",
+			"parent": "vegi2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		}
+	],
+	"slots": [
+		{
+			"name": "but",
+			"bone": "but",
+			"attachment": "idle-assets/plavi pantaloni but"
+		},
+		{
+			"name": "but 2",
+			"bone": "but 2",
+			"attachment": "idle-assets/plavi pantaloni but"
+		},
+		{
+			"name": "potkoleno",
+			"bone": "potkoleno",
+			"attachment": "idle-assets/plavi pantaloni potkoleno"
+		},
+		{
+			"name": "potkoleno 2",
+			"bone": "potkoleno 2",
+			"attachment": "idle-assets/plavi pantaloni potkoleno"
+		},
+		{
+			"name": "stapalo",
+			"bone": "stapalo",
+			"attachment": "idle-assets/crna kondura1"
+		},
+		{
+			"name": "stapalo 2",
+			"bone": "stapalo 2",
+			"attachment": "idle-assets/crna kondura2"
+		},
+		{
+			"name": "gol but",
+			"bone": "gol but",
+			"attachment": "idle-assets/gol but"
+		},
+		{
+			"name": "gol but2",
+			"bone": "gol but2",
+			"attachment": "idle-assets/gol but"
+		},
+		{
+			"name": "golo potkoleno",
+			"bone": "golo potkoleno",
+			"attachment": "idle-assets/golo potkoleno"
+		},
+		{
+			"name": "golo potkoleno2",
+			"bone": "golo potkoleno2",
+			"attachment": "idle-assets/golo potkoleno"
+		},
+		{
+			"name": "plava patika1",
+			"bone": "plava patika1",
+			"attachment": "idle-assets/plava patika1"
+		},
+		{
+			"name": "plava patika2",
+			"bone": "plava patika2",
+			"attachment": "idle-assets/plava patika2"
+		},
+		{
+			"name": "kafena kratka pantalona",
+			"bone": "kafena kratka pantalona",
+			"attachment": "idle-assets/kafena kratka pantalona"
+		},
+		{
+			"name": "kafena kratka pantalona2",
+			"bone": "kafena kratka pantalona2",
+			"attachment": "idle-assets/kafena kratka pantalona"
+		},
+		{
+			"name": "kremasti pantaloni but",
+			"bone": "kremasti pantaloni but",
+			"attachment": "idle-assets/kremasti pantaloni but"
+		},
+		{
+			"name": "kremasti pantaloni but2",
+			"bone": "kremasti pantaloni but2",
+			"attachment": "idle-assets/kremasti pantaloni but"
+		},
+		{
+			"name": "kremasti pantaloni potkoleno",
+			"bone": "kremasti pantaloni potkoleno",
+			"attachment": "idle-assets/kremasti pantaloni potkoleno"
+		},
+		{
+			"name": "kremasti pantaloni potkoleno2",
+			"bone": "kremasti pantaloni potkoleno2",
+			"attachment": "idle-assets/kremasti pantaloni potkoleno"
+		},
+		{
+			"name": "crvena patika1",
+			"bone": "crvena patika1",
+			"attachment": "idle-assets/crvena patika1"
+		},
+		{
+			"name": "crvena patika2",
+			"bone": "crvena patika2",
+			"attachment": "idle-assets/crvena patika2"
+		},
+		{
+			"name": "vrat",
+			"bone": "vrat",
+			"attachment": "idle-assets/vrat"
+		},
+		{
+			"name": "glava",
+			"bone": "glava",
+			"attachment": "idle-assets/glava"
+		},
+		{
+			"name": "usta zatvorena",
+			"bone": "usta zatvorena",
+			"attachment": "idle-assets/usta zatvorena"
+		},
+		{
+			"name": "usta zacudena",
+			"bone": "usta zacudena",
+			"attachment": "idle-assets/usta zacudena",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "usta nasmevka",
+			"bone": "usta nasmevka",
+			"attachment": "idle-assets/usta nasmevka",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "nos",
+			"bone": "nos",
+			"attachment": "idle-assets/nos"
+		},
+		{
+			"name": "oci",
+			"bone": "oci",
+			"attachment": "idle-assets/oci"
+		},
+		{
+			"name": "zenica2",
+			"bone": "zenica2",
+			"attachment": "idle-assets/zenica2"
+		},
+		{
+			"name": "zenica1",
+			"bone": "zenica1",
+			"attachment": "idle-assets/zenica1"
+		},
+		{
+			"name": "kapaci",
+			"bone": "kapaci",
+			"attachment": "idle-assets/kapaci",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "kosa",
+			"bone": "kosa",
+			"attachment": "idle-assets/kafena kosa"
+		},
+		{
+			"name": "vegi",
+			"bone": "vegi",
+			"attachment": "idle-assets/kafena vega1"
+		},
+		{
+			"name": "vegi2",
+			"bone": "vegi2",
+			"attachment": "idle-assets/kafena vega2"
+		},
+		{
+			"name": "podlaktica 2",
+			"bone": "podlaktica 2",
+			"attachment": "idle-assets/plav rakav podlaktica2"
+		},
+		{
+			"name": "ramo2",
+			"bone": "ramo2",
+			"attachment": "idle-assets/plav rakav ramo2"
+		},
+		{
+			"name": "podlaktica1",
+			"bone": "podlaktica1",
+			"attachment": "idle-assets/plav rakav podlaktica1"
+		},
+		{
+			"name": "ramo1",
+			"bone": "ramo1",
+			"attachment": "idle-assets/plav rakav ramo1"
+		},
+		{
+			"name": "telo",
+			"bone": "telo",
+			"attachment": "idle-assets/bluza plava"
+		},
+		{
+			"name": "plava kosa",
+			"bone": "plava kosa",
+			"attachment": "idle-assets/plava kosa"
+		},
+		{
+			"name": "plava vega1",
+			"bone": "plava vega1",
+			"attachment": "idle-assets/plava vega1"
+		},
+		{
+			"name": "plava vega2",
+			"bone": "plava vega2",
+			"attachment": "idle-assets/plava vega2"
+		},
+		{
+			"name": "gola podlaktica2",
+			"bone": "gola podlaktica2",
+			"attachment": "idle-assets/gola podlaktica2"
+		},
+		{
+			"name": "golo ramo2",
+			"bone": "golo ramo2",
+			"attachment": "idle-assets/golo ramo2"
+		},
+		{
+			"name": "gola podlaktica1",
+			"bone": "gola podlaktica1",
+			"attachment": "idle-assets/gola podlaktica1"
+		},
+		{
+			"name": "golo ramo1",
+			"bone": "golo ramo1",
+			"attachment": "idle-assets/golo ramo1"
+		},
+		{
+			"name": "zelen rakav2",
+			"bone": "zelen rakav2",
+			"attachment": "idle-assets/zelen rakav2"
+		},
+		{
+			"name": "zelen rakav1",
+			"bone": "zelen rakav1",
+			"attachment": "idle-assets/zelen rakav1"
+		},
+		{
+			"name": "bluza zelena",
+			"bone": "bluza zelena",
+			"attachment": "idle-assets/bluza zelena"
+		},
+		{
+			"name": "crna kosa",
+			"bone": "crna kosa",
+			"attachment": "idle-assets/crna kosa"
+		},
+		{
+			"name": "crna vega1",
+			"bone": "crna vega1",
+			"attachment": "idle-assets/crna vega1"
+		},
+		{
+			"name": "crna vega2",
+			"bone": "crna vega2",
+			"attachment": "idle-assets/crna vega2"
+		},
+		{
+			"name": "crven rakav podlaktica2",
+			"bone": "crven rakav podlaktica2",
+			"attachment": "idle-assets/crven rakav podlaktica2"
+		},
+		{
+			"name": "crven rakav ramo2",
+			"bone": "crven rakav ramo2",
+			"attachment": "idle-assets/crven rakav ramo2"
+		},
+		{
+			"name": "crven rakav podlaktica1",
+			"bone": "crven rakav podlaktica1",
+			"attachment": "idle-assets/crven rakav podlaktica1"
+		},
+		{
+			"name": "crven rakav ramo1",
+			"bone": "crven rakav ramo1",
+			"attachment": "idle-assets/crven rakav ramo1"
+		},
+		{
+			"name": "bluza crvena",
+			"bone": "bluza crvena",
+			"attachment": "idle-assets/bluza crvena"
+		},
+		{
+			"name": "dlanka 2",
+			"bone": "dlanka 2",
+			"attachment": "idle-assets/dlanka2"
+		},
+		{
+			"name": "dlanka otvorena",
+			"bone": "dlanka otvorena",
+			"attachment": "idle-assets/dlanka otvorena",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "dlanka",
+			"bone": "dlanka",
+			"attachment": "idle-assets/dlanka1"
+		},
+		{
+			"name": "logo1 belo",
+			"bone": "logo1 belo",
+			"attachment": "idle-assets/logo1 belo"
+		},
+		{
+			"name": "logo1 boja",
+			"bone": "logo1 boja",
+			"attachment": "idle-assets/logo1 boja"
+		},
+		{
+			"name": "logo1 temno",
+			"bone": "logo1 temno",
+			"attachment": "idle-assets/logo1 temno"
+		},
+		{
+			"name": "logo2 belo",
+			"bone": "logo2 belo",
+			"attachment": "idle-assets/logo2 belo"
+		},
+		{
+			"name": "logo2 boja",
+			"bone": "logo2 boja",
+			"attachment": "idle-assets/logo2 boja"
+		},
+		{
+			"name": "logo2 temno",
+			"bone": "logo2 temno",
+			"attachment": "idle-assets/logo2 temno"
+		},
+		{
+			"name": "logo3 belo",
+			"bone": "logo3 belo",
+			"attachment": "idle-assets/logo3 belo"
+		},
+		{
+			"name": "logo3 boja",
+			"bone": "logo3 boja",
+			"attachment": "idle-assets/logo3 boja"
+		},
+		{
+			"name": "logo3 temno",
+			"bone": "logo3 temno",
+			"attachment": "idle-assets/logo3 temno"
+		},
+		{
+			"name": "logo4 boja",
+			"bone": "logo4 boja",
+			"attachment": "idle-assets/logo4 boja"
+		},
+		{
+			"name": "logo5 boja",
+			"bone": "logo5 boja",
+			"attachment": "idle-assets/logo5 boja"
+		},
+		{
+			"name": "logo6 boja",
+			"bone": "logo6 boja",
+			"attachment": "idle-assets/logo6 boja"
+		}
+	],
+	"skins": {
+		"default": {
+			"but": {
+				"idle-assets/plavi pantaloni but": {
+					"x": 4,
+					"y": -156,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"but 2": {
+				"idle-assets/plavi pantaloni but": {
+					"x": 0,
+					"y": -154,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"potkoleno": {
+				"idle-assets/plavi pantaloni potkoleno": {
+					"x": 0,
+					"y": -150.5,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"potkoleno 2": {
+				"idle-assets/plavi pantaloni potkoleno": {
+					"x": 1,
+					"y": -152,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"stapalo": {
+				"idle-assets/crna kondura1": {
+					"x": -99,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"stapalo 2": {
+				"idle-assets/crna kondura2": {
+					"x": 109,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"gol but": {
+				"idle-assets/gol but": {
+					"x": 4,
+					"y": -156,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"gol but2": {
+				"idle-assets/gol but": {
+					"x": 0,
+					"y": -154,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"golo potkoleno": {
+				"idle-assets/golo potkoleno": {
+					"x": 0,
+					"y": -150.5,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"golo potkoleno2": {
+				"idle-assets/golo potkoleno": {
+					"x": 1,
+					"y": -152,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"plava patika1": {
+				"idle-assets/plava patika1": {
+					"x": -99,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"plava patika2": {
+				"idle-assets/plava patika2": {
+					"x": 109,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"kafena kratka pantalona": {
+				"idle-assets/kafena kratka pantalona": {
+					"x": 0,
+					"y": -113,
+					"width": 129,
+					"height": 283
+				}
+			},
+			"kafena kratka pantalona2": {
+				"idle-assets/kafena kratka pantalona": {
+					"x": 0,
+					"y": -113,
+					"width": 129,
+					"height": 283
+				}
+			},
+			"kremasti pantaloni but": {
+				"idle-assets/kremasti pantaloni but": {
+					"x": 4,
+					"y": -156,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"kremasti pantaloni but2": {
+				"idle-assets/kremasti pantaloni but": {
+					"x": 0,
+					"y": -154,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"kremasti pantaloni potkoleno": {
+				"idle-assets/kremasti pantaloni potkoleno": {
+					"x": 0,
+					"y": -150.5,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"kremasti pantaloni potkoleno2": {
+				"idle-assets/kremasti pantaloni potkoleno": {
+					"x": 1,
+					"y": -152,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"crvena patika1": {
+				"idle-assets/crvena patika1": {
+					"x": -99,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"crvena patika2": {
+				"idle-assets/crvena patika2": {
+					"x": 109,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"vrat": {
+				"idle-assets/vrat": {
+					"x": 0,
+					"y": 0,
+					"width": 121,
+					"height": 148
+				}
+			},
+			"glava": {
+				"idle-assets/glava": {
+					"x": 0,
+					"y": 356,
+					"width": 1028,
+					"height": 712
+				}
+			},
+			"usta zatvorena": {
+				"idle-assets/usta zatvorena": {
+					"x": 0,
+					"y": 0,
+					"width": 179,
+					"height": 93
+				}
+			},
+			"usta zacudena": {
+				"idle-assets/usta zacudena": {
+					"x": 0,
+					"y": 0,
+					"width": 63,
+					"height": 55
+				}
+			},
+			"usta nasmevka": {
+				"idle-assets/usta nasmevka": {
+					"x": 0,
+					"y": 0,
+					"width": 229,
+					"height": 105
+				}
+			},
+			"nos": {
+				"idle-assets/nos": {
+					"x": 0,
+					"y": 0,
+					"width": 607,
+					"height": 96
+				}
+			},
+			"oci": {
+				"idle-assets/oci": {
+					"x": 0,
+					"y": 0,
+					"width": 417,
+					"height": 183
+				}
+			},
+			"zenica2": {
+				"idle-assets/zenica2": {
+					"x": 0,
+					"y": 0,
+					"width": 76,
+					"height": 117
+				}
+			},
+			"zenica1": {
+				"idle-assets/zenica1": {
+					"x": 0,
+					"y": 0,
+					"width": 77,
+					"height": 119
+				}
+			},
+			"kapaci": {
+				"idle-assets/kapaci": {
+					"x": 0,
+					"y": 0,
+					"width": 436,
+					"height": 37
+				}
+			},
+			"kosa": {
+				"idle-assets/kafena kosa": {
+					"x": 0,
+					"y": 0,
+					"width": 1085,
+					"height": 702
+				}
+			},
+			"vegi": {
+				"idle-assets/kafena vega1": {
+					"x": 0,
+					"y": 0,
+					"width": 112,
+					"height": 62
+				}
+			},
+			"vegi2": {
+				"idle-assets/kafena vega2": {
+					"x": 0,
+					"y": 0,
+					"width": 108,
+					"height": 61
+				}
+			},
+			"podlaktica 2": {
+				"idle-assets/plav rakav podlaktica2": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"ramo2": {
+				"idle-assets/plav rakav ramo2": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"podlaktica1": {
+				"idle-assets/plav rakav podlaktica1": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"ramo1": {
+				"idle-assets/plav rakav ramo1": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"telo": {
+				"idle-assets/bluza plava": {
+					"x": 0,
+					"y": 212,
+					"width": 313,
+					"height": 540
+				}
+			},
+			"plava kosa": {
+				"idle-assets/plava kosa": {
+					"x": 0,
+					"y": 0,
+					"width": 860,
+					"height": 859
+				}
+			},
+			"plava vega1": {
+				"idle-assets/plava vega1": {
+					"x": 0,
+					"y": 0,
+					"width": 112,
+					"height": 62
+				}
+			},
+			"plava vega2": {
+				"idle-assets/plava vega2": {
+					"x": 0,
+					"y": 0,
+					"width": 108,
+					"height": 61
+				}
+			},
+			"gola podlaktica2": {
+				"idle-assets/gola podlaktica2": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"golo ramo2": {
+				"idle-assets/golo ramo2": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"gola podlaktica1": {
+				"idle-assets/gola podlaktica1": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"golo ramo1": {
+				"idle-assets/golo ramo1": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"zelen rakav2": {
+				"idle-assets/zelen rakav2": {
+					"x": 36,
+					"y": -71,
+					"width": 111,
+					"height": 167
+				}
+			},
+			"zelen rakav1": {
+				"idle-assets/zelen rakav1": {
+					"x": -32,
+					"y": -69,
+					"width": 111,
+					"height": 167
+				}
+			},
+			"bluza zelena": {
+				"idle-assets/bluza zelena": {
+					"x": 0,
+					"y": 212,
+					"width": 313,
+					"height": 540
+				}
+			},
+			"crna kosa": {
+				"idle-assets/crna kosa": {
+					"x": 0,
+					"y": 0,
+					"width": 837,
+					"height": 635
+				}
+			},
+			"crna vega1": {
+				"idle-assets/crna vega1": {
+					"x": 0,
+					"y": 0,
+					"width": 112,
+					"height": 62
+				}
+			},
+			"crna vega2": {
+				"idle-assets/crna vega2": {
+					"x": 0,
+					"y": 0,
+					"width": 108,
+					"height": 61
+				}
+			},
+			"crven rakav podlaktica2": {
+				"idle-assets/crven rakav podlaktica2": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"crven rakav ramo2": {
+				"idle-assets/crven rakav ramo2": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"crven rakav podlaktica1": {
+				"idle-assets/crven rakav podlaktica1": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"crven rakav ramo1": {
+				"idle-assets/crven rakav ramo1": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"bluza crvena": {
+				"idle-assets/bluza crvena": {
+					"x": 0,
+					"y": 212,
+					"width": 313,
+					"height": 540
+				}
+			},
+			"dlanka 2": {
+				"idle-assets/dlanka2": {
+					"x": -24.3364755152354,
+					"y": -71.2934596591723,
+					"width": 125,
+					"height": 155
+				}
+			},
+			"dlanka otvorena": {
+				"idle-assets/dlanka otvorena": {
+					"x": 0,
+					"y": 114.5,
+					"width": 235,
+					"height": 229
+				}
+			},
+			"dlanka": {
+				"idle-assets/dlanka1": {
+					"x": 25,
+					"y": -73,
+					"width": 125,
+					"height": 155
+				}
+			},
+			"logo1 belo": {
+				"idle-assets/logo1 belo": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 265
+				}
+			},
+			"logo1 boja": {
+				"idle-assets/logo1 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 265
+				}
+			},
+			"logo1 temno": {
+				"idle-assets/logo1 temno": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 265
+				}
+			},
+			"logo2 belo": {
+				"idle-assets/logo2 belo": {
+					"x": 0,
+					"y": 0,
+					"width": 249,
+					"height": 124
+				}
+			},
+			"logo2 boja": {
+				"idle-assets/logo2 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 249,
+					"height": 124
+				}
+			},
+			"logo2 temno": {
+				"idle-assets/logo2 temno": {
+					"x": 0,
+					"y": 0,
+					"width": 249,
+					"height": 124
+				}
+			},
+			"logo3 belo": {
+				"idle-assets/logo3 belo": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 75
+				}
+			},
+			"logo3 boja": {
+				"idle-assets/logo3 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 75
+				}
+			},
+			"logo3 temno": {
+				"idle-assets/logo3 temno": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 75
+				}
+			},
+			"logo4 boja": {
+				"idle-assets/logo4 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 76
+				}
+			},
+			"logo5 boja": {
+				"idle-assets/logo5 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 76
+				}
+			},
+			"logo6 boja": {
+				"idle-assets/logo6 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 263
+				}
+			}
+		}
+	},
+	"animations": {
+		"animation": {
+			"bones": {
+				"but": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": -3,
+							"angleinAEP": 3
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": -3,
+							"angleinAEP": 3
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						}
+					]
+				},
+				"but 2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 3,
+							"angle": 3,
+							"angleinAEP": -3
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 3,
+							"angle": 3,
+							"angleinAEP": -3
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						}
+					]
+				},
+				"potkoleno": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 6,
+							"angle": 6,
+							"angleinAEP": -6
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 6,
+							"angle": 6,
+							"angleinAEP": -6
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						}
+					]
+				},
+				"potkoleno 2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": -6,
+							"angle": -6,
+							"angleinAEP": 6
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": -6,
+							"angle": -6,
+							"angleinAEP": 6
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 0,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 0,
+							"angleinAEP": 0
+						}
+					]
+				},
+				"glava": {
+					"scale": [
+						{
+							"time": 1.43333333333333,
+							"x": 1,
+							"y": 1
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 1,
+							"y": 0.94
+						},
+						{
+							"time": 1.9,
+							"x": 1,
+							"y": 1
+						}
+					]
+				},
+				"usta zatvorena": {
+					"translate": [
+						{
+							"time": 0,
+							"x": -97,
+							"y": -162.5
+						},
+						{
+							"time": 1.43333333333333,
+							"x": -97,
+							"y": -162.5
+						},
+						{
+							"time": 1.66666666666667,
+							"x": -87.5,
+							"y": -153.819148936171
+						},
+						{
+							"time": 1.9,
+							"x": -97,
+							"y": -162.5
+						}
+					]
+				},
+				"nos": {
+					"translate": [
+						{
+							"time": 0,
+							"x": -4,
+							"y": 318.5
+						},
+						{
+							"time": 0.83333333333333,
+							"x": -4,
+							"y": 307.5
+						},
+						{
+							"time": 1.66666666666667,
+							"x": -4,
+							"y": 318.5
+						},
+						{
+							"time": 2.5,
+							"x": -4,
+							"y": 307.5
+						},
+						{
+							"time": 3.33333333333333,
+							"x": -4,
+							"y": 318.5
+						}
+					]
+				},
+				"vegi": {
+					"translate": [
+						{
+							"time": 0,
+							"x": -157.5,
+							"y": 126
+						},
+						{
+							"time": 1.43333333333333,
+							"x": -157.5,
+							"y": 126
+						},
+						{
+							"time": 1.66666666666667,
+							"x": -157.5,
+							"y": 87.7021276595719
+						},
+						{
+							"time": 1.9,
+							"x": -157.5,
+							"y": 126
+						}
+					]
+				},
+				"vegi2": {
+					"translate": [
+						{
+							"time": 0,
+							"x": 161,
+							"y": 128
+						},
+						{
+							"time": 1.43333333333333,
+							"x": 161,
+							"y": 128
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 161,
+							"y": 102.467688159755
+						},
+						{
+							"time": 1.9,
+							"x": 161,
+							"y": 128
+						}
+					]
+				},
+				"podlaktica 2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -10,
+							"angle": 0,
+							"angleinAEP": 10
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -2,
+							"angle": 8,
+							"angleinAEP": 2
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -10,
+							"angle": 0,
+							"angleinAEP": 10
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -2,
+							"angle": 8,
+							"angleinAEP": 2
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -10,
+							"angle": 0,
+							"angleinAEP": 10
+						}
+					]
+				},
+				"ramo2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 18,
+							"angle": 0,
+							"angleinAEP": -18
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 15,
+							"angle": -3,
+							"angleinAEP": -15
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 18,
+							"angle": 0,
+							"angleinAEP": -18
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 15,
+							"angle": -3,
+							"angleinAEP": -15
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 18,
+							"angle": 0,
+							"angleinAEP": -18
+						}
+					]
+				},
+				"podlaktica1": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 10,
+							"angle": 0,
+							"angleinAEP": -10
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 1,
+							"angle": -9,
+							"angleinAEP": -1
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 10,
+							"angle": 0,
+							"angleinAEP": -10
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 1,
+							"angle": -9,
+							"angleinAEP": -1
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 10,
+							"angle": 0,
+							"angleinAEP": -10
+						}
+					]
+				},
+				"ramo1": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -17,
+							"angle": 0,
+							"angleinAEP": 17
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -14,
+							"angle": 3,
+							"angleinAEP": 14
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -17,
+							"angle": 0,
+							"angleinAEP": 17
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -14,
+							"angle": 3,
+							"angleinAEP": 14
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -17,
+							"angle": 0,
+							"angleinAEP": 17
+						}
+					]
+				},
+				"telo": {
+					"translate": [
+						{
+							"time": 0,
+							"x": 1048.5,
+							"y": -1838
+						},
+						{
+							"time": 0.83333333333333,
+							"x": 1048.5,
+							"y": -1850
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 1048.5,
+							"y": -1838
+						},
+						{
+							"time": 2.5,
+							"x": 1048.5,
+							"y": -1850
+						},
+						{
+							"time": 3.33333333333333,
+							"x": 1048.5,
+							"y": -1838
+						}
+					],
+					"scale": [
+						{
+							"time": 0,
+							"x": 1,
+							"y": 1
+						},
+						{
+							"time": 0.83333333333333,
+							"x": 1,
+							"y": 0.98
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 1,
+							"y": 1
+						},
+						{
+							"time": 2.5,
+							"x": 1,
+							"y": 0.98
+						},
+						{
+							"time": 3.33333333333333,
+							"x": 1,
+							"y": 1
+						}
+					]
+				},
+				"dlanka 2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": 0,
+							"angleinAEP": 3
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 3,
+							"angleinAEP": 0
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": 0,
+							"angleinAEP": 3
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 3,
+							"angleinAEP": 0
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": 0,
+							"angleinAEP": 3
+						}
+					]
+				},
+				"dlanka": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -8,
+							"angle": 0,
+							"angleinAEP": 8
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -13,
+							"angle": -5,
+							"angleinAEP": 13
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -8,
+							"angle": 0,
+							"angleinAEP": 8
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -13,
+							"angle": -5,
+							"angleinAEP": 13
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -8,
+							"angle": 0,
+							"angleinAEP": 8
+						}
+					]
+				}
+			},
+			"slots": {
+				"oci": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFFff",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFF00"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFFff"
+						}
+					]
+				},
+				"zenica2": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFFff",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFF00"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFFff"
+						}
+					]
+				},
+				"zenica1": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFFff",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFF00"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFFff"
+						}
+					]
+				},
+				"kapaci": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFF00",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFFff"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFF00"
+						}
+					]
+				}
+			}
+		}
+	}
+}

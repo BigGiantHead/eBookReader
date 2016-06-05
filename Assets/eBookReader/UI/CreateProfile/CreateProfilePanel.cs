@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class CreateProfilePanel : MonoBehaviour
 {
+    private ProfileData localProfile = null;
+
     private CreateProfilePanelWindow currentWindow = CreateProfilePanelWindow.PickAvatar;
 
     private float targetScroll = 0;
@@ -20,15 +22,7 @@ public class CreateProfilePanel : MonoBehaviour
 
     public ModalPanel MyPanel = null;
 
-    public Image SelectedAvatarImage = null;
-
     public Sprite DefaultAvatar = null;
-
-    [HideInInspector]
-    public Sprite Avatar = null;
-
-    [HideInInspector]
-    public string Name = null;
 
     public GameObject LeftArrow = null;
 
@@ -38,18 +32,35 @@ public class CreateProfilePanel : MonoBehaviour
 
     public float ContentScrolStep = 1;
 
-    [HideInInspector]
-    public ProfileData NewProfile = null;
-
-    public PasswordFruitPosition[] Password = null;
-
+    [Header("Panels")]
     public ConfirmProfilePanel ConfirmProfilePanel = null;
+
+    public PickAvatar PickAvatarPanel = null;
+
+    public NamePanel NamePanel = null;
+
+    public PickPassword PasswordPanel = null;
+
+    [HideInInspector]
+    public ProfileData Profile = null;
+
+    public enum CreateProfilePanelWindow
+    {
+        PickAvatar = 0,
+
+        PickName = 1,
+
+        PickPassword = 2,
+
+        ConfirmProfile = 3
+    }
 
     void Awake()
     {
         instance = this;
         MyPanel.OnShowStart = OnShowStart;
         MyPanel.OnShowEnd = OnShowEnd;
+        MyPanel.OnHideEnd = OnHideEnd;
     }
 
     // Use this for initialization
@@ -74,20 +85,32 @@ public class CreateProfilePanel : MonoBehaviour
 
     private void OnShowStart()
     {
-        ResetPassword();
-        NewProfile = new ProfileData();
-        Avatar = null;
-        SelectedAvatarImage.overrideSprite = null;
-        Name = "";
+        if (Profile == null)
+        {
+            Profile = new ProfileData();
+        }
+
+        PasswordPanel.ResetPassword();
+
         currentWindow = CreateProfilePanelWindow.PickAvatar;
         targetScroll = 0;
         ContentScroll.horizontalNormalizedPosition = 0;
         LeftArrow.SetActive(false);
         RightArrow.SetActive(true);
+
     }
 
     private void OnShowEnd()
     {
+        PickAvatarPanel.RebindWithAvatar(Profile.Avatar);
+        NamePanel.UserName = Profile.UserName;
+    }
+
+    private void OnHideEnd()
+    {
+        Profile = null;
+        PickAvatarPanel.ClearWindow();
+        ConfirmProfilePanel.ClearWindow();
     }
 
     public void NextWindow()
@@ -96,29 +119,17 @@ public class CreateProfilePanel : MonoBehaviour
 
         switch (currentWindow)
         {
-            case CreateProfilePanelWindow.PickAvatar:
-                gotonext = !string.IsNullOrEmpty(NewProfile.Avatar);
-
+            case CreateProfilePanelWindow.PickName:
+                gotonext = NamePanel.UserName.Length >= 3;
+                if (gotonext)
+                {
+                    PasswordPanel.ResetPassword();
+                    PasswordPanel.Password = Profile.Password;
+                }
                 break;
 
             case CreateProfilePanelWindow.PickPassword:
-                
-                for (int i = 0; i < Password.Length; ++i)
-                {
-                    if (Password[i].MyItem == null)
-                    {
-                        gotonext = false;
-                        break;
-                    }
-                }
-
-                if (gotonext)
-                {
-                    NewProfile.Password.FirstFruit = Password[0].MyItem.Type;
-                    NewProfile.Password.SecondFruit = Password[1].MyItem.Type;
-                    NewProfile.Password.ThirdFruit = Password[2].MyItem.Type;
-                    NewProfile.Password.FourthFruit = Password[3].MyItem.Type;
-                }
+                gotonext = PasswordPanel.IsComplete;
 
                 break;
         }
@@ -126,7 +137,7 @@ public class CreateProfilePanel : MonoBehaviour
         if (gotonext)
         {
             targetScroll = Mathf.Clamp01(targetScroll + ContentScrolStep);
-            currentWindow = (CreateProfilePanelWindow)Mathf.Clamp((int)currentWindow + 1, 0, 2);
+            currentWindow = (CreateProfilePanelWindow)Mathf.Clamp((int)currentWindow + 1, 0, 3);
         }
 
         if (currentWindow == CreateProfilePanelWindow.ConfirmProfile)
@@ -152,7 +163,7 @@ public class CreateProfilePanel : MonoBehaviour
     public void PreviousWindow()
     {
         targetScroll = Mathf.Clamp01(targetScroll - ContentScrolStep);
-        currentWindow = (CreateProfilePanelWindow)Mathf.Clamp((int)currentWindow - 1, 0, 2);
+        currentWindow = (CreateProfilePanelWindow)Mathf.Clamp((int)currentWindow - 1, 0, 3);
                 
         if (!RightArrow.activeSelf)
         {
@@ -169,31 +180,16 @@ public class CreateProfilePanel : MonoBehaviour
         }
     }
 
-    public enum CreateProfilePanelWindow
-    {
-        PickAvatar = 0,
-
-        PickPassword = 1,
-
-        ConfirmProfile = 2
-    }
-
-    public void ResetPassword()
-    {
-        for (int i = 0; i < Password.Length; ++i)
-        {
-            if (Password[i].MyItem != null)
-            {
-                Password[i].ResetItem();
-            }
-        }
-    }
-
     public void CreateNewProfile()
     {
-        ProfilesManager.Instance.AddProfile(NewProfile);
-        ProfilesManager.Instance.CurrentProfile = NewProfile;
+        Profile.UserName = NamePanel.UserName;
+        Profile.Password = PasswordPanel.Password;
+
+        ProfilesManager.Instance.AddProfile(Profile);
+        ProfilesManager.Instance.CurrentProfile = Profile;
+
         MyPanel.Hide();
+
         CurrentProfileElement.Instance.MyPanel.Show();
     }
 }

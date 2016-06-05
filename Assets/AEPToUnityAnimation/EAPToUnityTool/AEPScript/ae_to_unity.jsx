@@ -1254,8 +1254,18 @@
 		if (sourceName == null) {
 			return null;
 		} else {
+			
 			var attachmentName = sourceName.replace(/([^\.]+).*/,"$1");
-			attachmentName = attachmentName
+			var extend_file = sourceName.substr(sourceName.lastIndexOf('.') + 1);
+			if(extend_file.toLowerCase()=="psd"||extend_file.toLowerCase()=="ai"){
+				var fixSub = attachmentName.split("/");
+				if(fixSub.length>=2){
+					attachmentName=fixSub[fixSub.length-1]+"/"+fixSub[fixSub.length-2];
+				}
+			}
+			//alert(attachmentName+","+sourceName+","+extend_file);
+		
+			//attachmentName = attachmentName
 				//.replace(/_L[0-9]+$/,'')
 				//.replace(/ /g,'_')
 				//.replace(/\.[A-Za-z\.]+$/,'');

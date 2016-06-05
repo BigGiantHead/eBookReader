@@ -9,7 +9,7 @@ public class ProfileData
 
     public string UserName;
 
-    public string Avatar;
+    public Avatar Avatar;
 
     public Fruitword Password;
 
@@ -19,7 +19,22 @@ public class ProfileData
     {
         ID = Guid.NewGuid();
         Password = new Fruitword();
+        Avatar = new Avatar();
     }
+}
+
+[Serializable]
+public class Avatar
+{
+    public PickAvatar.Gender Gender = PickAvatar.Gender.Male;
+
+    public int HairIndex = 0;
+
+    public int BlouseIndex = 0;
+
+    public int PantsIndex = 0;
+
+    public int ShoesIndex = 0;
 }
 
 [Serializable]
@@ -37,7 +52,7 @@ public class Fruitword
     {
         get
         {
-            switch(i)
+            switch (i)
             {
                 case 0:
                     return FirstFruit;

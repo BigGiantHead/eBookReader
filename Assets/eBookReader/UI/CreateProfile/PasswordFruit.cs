@@ -5,8 +5,6 @@ using System;
 
 public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public static PasswordFruit ItemBeingDragged;
-
     private Vector3 startPosition;
 
     private Transform startParent;
@@ -19,8 +17,8 @@ public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     #region IBeginDragHandler implementation
     public void OnBeginDrag(PointerEventData eventData)
     {
-        ItemBeingDragged = this;
-        startPosition = transform.position;
+        PickPassword.Instance.ItemBeingDragged = this;
+        startPosition = transform.localPosition;
 
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
@@ -36,14 +34,14 @@ public class PasswordFruit : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     #region IEndDragHandler implementation
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (ItemBeingDragged == this)
+        if (PickPassword.Instance.ItemBeingDragged == this)
         {
-            ItemBeingDragged = null;
+            PickPassword.Instance.ItemBeingDragged = null;
         }
 
         if (Index == -1)
         {
-            transform.position = startPosition;
+            transform.localPosition = startPosition;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
         }
     }

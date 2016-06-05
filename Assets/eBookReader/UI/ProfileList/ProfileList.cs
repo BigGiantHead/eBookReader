@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ProfileList : MonoBehaviour
@@ -19,7 +20,7 @@ public class ProfileList : MonoBehaviour
 
     public ModalPanel MyPanel = null;
 
-    public HorizontalLayoutGroup List = null;
+    //public GridLayoutGroup List = null;
 
     public Sprite CurrentBackground = null;
 
@@ -33,12 +34,11 @@ public class ProfileList : MonoBehaviour
     {        
         Layout.ClearChildren();
 
-        //Create Current Profile Button
-        ProfileElement pe = CreateProfileElement(ProfilesManager.Instance.CurrentProfile);
-        pe.Background.sprite = CurrentBackground;
-
-        //Create New Pfofile Button
-        CreateProfileElement(null, "New Profile +");
+        if (ProfilesManager.Instance.CurrentProfile != null)
+        {
+            ProfileElement pe = CreateProfileElement(ProfilesManager.Instance.CurrentProfile);
+            pe.Background.sprite = CurrentBackground;
+        }
 
         foreach (ProfileData data in ProfilesManager.Instance.Profiles)
         {
@@ -48,37 +48,14 @@ public class ProfileList : MonoBehaviour
             }
         }
 
-        LayoutElement profileSampleLayoutElement = ProfileSample.GetComponent<LayoutElement>();
-        Vector2 size = Layout.sizeDelta;
-        size.x = (ProfilesManager.Instance.Profiles.Count + 1) * profileSampleLayoutElement.preferredWidth + (ProfilesManager.Instance.Profiles.Count) * List.spacing;
-        Layout.sizeDelta = size;
-
-        Vector3 position = Layout.localPosition;
-        position.x = size.x / 2f;
-        Layout.localPosition = position;
+        CreateProfileElement(null);
     }
 
-    private ProfileElement CreateProfileElement(ProfileData data, string overrideUserName = null)
+    private ProfileElement CreateProfileElement(ProfileData data)
     {
-        //TODO: refactor avatar
         GameObject profile = Instantiate(ProfileSample) as GameObject;
         ProfileElement profileElement = profile.GetComponent<ProfileElement>();
-
-        if (data != null)
-        {
-            profileElement.Avatar.sprite = Resources.Load<Sprite>("Avatars/" + data.Avatar);
-            profileElement.Avatar.enabled = true;
-            profileElement.UserName.text = data.UserName;
-        }
-        if (string.IsNullOrEmpty(overrideUserName))
-        {
-            profileElement.UserName.text = overrideUserName;
-        }
-
-        profileElement.MyData = data;
-
-        Button profileButton = profile.GetComponent<Button>();
-        profileButton.onClick.AddListener(() =>
+        UnityAction profileAction = () =>
         {
             MyPanel.Hide();
             if (profileElement.MyData == null)
@@ -94,7 +71,24 @@ public class ProfileList : MonoBehaviour
                 EnterPassword.Instance.TargetData = profileElement.MyData;
                 EnterPassword.Instance.MyPanel.Show();
             }
-        });
+        };
+
+        if (data != null)
+        {
+            UnityAction editAction = () =>
+            {
+                MyPanel.Hide();
+
+                CreateProfilePanel.Instance.Profile = data;
+                CreateProfilePanel.Instance.MyPanel.Show();
+            };
+
+            profileElement.BindAsExistingProfile(data, profileAction, editAction);
+        }
+        else
+        {
+            profileElement.BindAsNewPofile(profileAction);
+        }
 
         profile.transform.SetParent(Layout);
 

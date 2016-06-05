@@ -1,0 +1,1964 @@
+{
+	"bones": [
+		{
+			"name": "root"
+		},
+		{
+			"name": "bluza violetova",
+			"parent": "root",
+			"enabled": true,
+			"x": 1048.5,
+			"y": -1838
+		},
+		{
+			"name": "but",
+			"parent": "root",
+			"enabled": true,
+			"x": 981,
+			"y": -1842
+		},
+		{
+			"name": "but 2",
+			"parent": "root",
+			"enabled": true,
+			"x": 1124,
+			"y": -1844
+		},
+		{
+			"name": "crvena patika1",
+			"parent": "root",
+			"enabled": true,
+			"x": 987.5,
+			"y": -2471
+		},
+		{
+			"name": "crvena patika2",
+			"parent": "root",
+			"enabled": true,
+			"x": 1119.5,
+			"y": -2471
+		},
+		{
+			"name": "violetova kondura1",
+			"parent": "root",
+			"enabled": true,
+			"x": 987.5,
+			"y": -2471
+		},
+		{
+			"name": "violetova kondura2",
+			"parent": "root",
+			"enabled": true,
+			"x": 1119.5,
+			"y": -2471
+		},
+		{
+			"name": "bluza bela",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "gol but",
+			"parent": "but",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "gol but2",
+			"parent": "but 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "logo1 belo",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo1 boja",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo1 temno",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo2 belo",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo2 boja",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo2 temno",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo3 belo",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo3 boja",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo3 temno",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo4 boja",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo5 boja",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "logo6 boja",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -2.5,
+			"y": 306
+		},
+		{
+			"name": "plava patika1",
+			"parent": "violetova kondura1",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "plava patika2",
+			"parent": "violetova kondura2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "potkoleno",
+			"parent": "but",
+			"enabled": true,
+			"x": 2,
+			"y": -303.5
+		},
+		{
+			"name": "potkoleno 2",
+			"parent": "but 2",
+			"enabled": true,
+			"x": -3,
+			"y": -300
+		},
+		{
+			"name": "ramo1",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -113,
+			"y": 447,
+			"rotation": 343
+		},
+		{
+			"name": "ramo2",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": 103,
+			"y": 442,
+			"rotation": 18
+		},
+		{
+			"name": "vrat",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": -6,
+			"y": 500
+		},
+		{
+			"name": "zolt fustan1",
+			"parent": "bluza violetova",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "glava zenska",
+			"parent": "vrat",
+			"enabled": true,
+			"x": 1.5,
+			"y": 44
+		},
+		{
+			"name": "golo potkoleno",
+			"parent": "potkoleno",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "golo potkoleno2",
+			"parent": "potkoleno 2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "golo ramo1",
+			"parent": "ramo1",
+			"enabled": true,
+			"x": 2.8421709430404e-14,
+			"y": -9.9475983006414e-14
+		},
+		{
+			"name": "golo ramo2",
+			"parent": "ramo2",
+			"enabled": true,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"name": "podlaktica1",
+			"parent": "ramo1",
+			"enabled": true,
+			"x": 3.5,
+			"y": -257.5,
+			"rotation": 10
+		},
+		{
+			"name": "podlaktica2",
+			"parent": "ramo2",
+			"enabled": true,
+			"x": 3.5,
+			"y": -257.5,
+			"rotation": 350
+		},
+		{
+			"name": "temna sukna",
+			"parent": "bluza bela",
+			"enabled": true,
+			"x": 9.5,
+			"y": -30
+		},
+		{
+			"name": "zolt fustan2",
+			"parent": "zolt fustan1",
+			"enabled": true,
+			"x": 17.5,
+			"y": 22
+		},
+		{
+			"name": "dlanka",
+			"parent": "podlaktica1",
+			"enabled": true,
+			"x": 3.53597051300062,
+			"y": -248.595937086357,
+			"rotation": 352
+		},
+		{
+			"name": "dlanka2",
+			"parent": "podlaktica2",
+			"enabled": true,
+			"x": 0.05626295278807,
+			"y": -256.33598306537,
+			"rotation": 357
+		},
+		{
+			"name": "gola podlaktica1",
+			"parent": "podlaktica1",
+			"enabled": true,
+			"x": -3.19744231092045e-14,
+			"y": 0
+		},
+		{
+			"name": "gola podlaktica2",
+			"parent": "podlaktica2",
+			"enabled": true,
+			"x": -5.6843418860808e-14,
+			"y": 0
+		},
+		{
+			"name": "kosa kafena dolga",
+			"parent": "glava zenska",
+			"enabled": true,
+			"x": -10,
+			"y": 690,
+			"rotation": 1
+		},
+		{
+			"name": "kosa kafena kratka",
+			"parent": "glava zenska",
+			"enabled": true,
+			"x": -2,
+			"y": 533
+		},
+		{
+			"name": "kosa temna pletenka",
+			"parent": "glava zenska",
+			"enabled": true,
+			"x": 160,
+			"y": 146,
+			"rotation": 3
+		},
+		{
+			"name": "nos zensko",
+			"parent": "glava zenska",
+			"enabled": true,
+			"x": 7.5,
+			"y": 298.5
+		},
+		{
+			"name": "temen rakav1",
+			"parent": "golo ramo1",
+			"enabled": true,
+			"x": 3.63943835059354,
+			"y": 0.06699621056646,
+			"rotation": 17
+		},
+		{
+			"name": "temen rakav2",
+			"parent": "golo ramo2",
+			"enabled": true,
+			"x": 2.06862429636294,
+			"y": -1.7235990022325,
+			"rotation": 342
+		},
+		{
+			"name": "dlanka otvorena",
+			"parent": "dlanka2",
+			"enabled": true,
+			"x": -0.14086824771567,
+			"y": 10.5151341948127,
+			"rotation": 173
+		},
+		{
+			"name": "kosa plava kratka",
+			"parent": "kosa kafena kratka",
+			"enabled": true,
+			"x": 1,
+			"y": -30
+		},
+		{
+			"name": "kosa temna kratka",
+			"parent": "kosa kafena kratka",
+			"enabled": true,
+			"x": -1,
+			"y": -108
+		},
+		{
+			"name": "oci zenski",
+			"parent": "nos zensko",
+			"enabled": true,
+			"x": -4,
+			"y": 104.5
+		},
+		{
+			"name": "usta zatvorena zensko",
+			"parent": "nos zensko",
+			"enabled": true,
+			"x": -97,
+			"y": -145.5
+		},
+		{
+			"name": "kafena vega1 zensko",
+			"parent": "oci zenski",
+			"enabled": true,
+			"x": -174,
+			"y": 135.5
+		},
+		{
+			"name": "kafena vega2 zensko",
+			"parent": "oci zenski",
+			"enabled": true,
+			"x": 144.5,
+			"y": 137.5
+		},
+		{
+			"name": "kapaci",
+			"parent": "oci zenski",
+			"enabled": true,
+			"x": -11,
+			"y": -4.5
+		},
+		{
+			"name": "kosa plava repce1",
+			"parent": "kosa plava kratka",
+			"enabled": true,
+			"x": -397.5,
+			"y": 2.5
+		},
+		{
+			"name": "kosa plava repce2",
+			"parent": "kosa plava kratka",
+			"enabled": true,
+			"x": 289.5,
+			"y": 236.5
+		},
+		{
+			"name": "usta nasmevka",
+			"parent": "usta zatvorena zensko",
+			"enabled": true,
+			"x": 17,
+			"y": -18,
+			"scaleX": 0.86,
+			"scaleY": 0.86,
+			"rotation": 339
+		},
+		{
+			"name": "usta zacudena",
+			"parent": "usta zatvorena zensko",
+			"enabled": true,
+			"x": -7.9768048704783,
+			"y": -2.03320160857174
+		},
+		{
+			"name": "zenica1",
+			"parent": "oci zenski",
+			"enabled": true,
+			"x": -138.5,
+			"y": 2.5
+		},
+		{
+			"name": "zenica2",
+			"parent": "oci zenski",
+			"enabled": true,
+			"x": 139,
+			"y": 1.5
+		},
+		{
+			"name": "plava vega1 zensko",
+			"parent": "kafena vega1 zensko",
+			"enabled": true,
+			"x": -9,
+			"y": -3.5
+		},
+		{
+			"name": "plava vega2 zensko",
+			"parent": "kafena vega2 zensko",
+			"enabled": true,
+			"x": -6,
+			"y": -1.5
+		},
+		{
+			"name": "temna vega1 zensko",
+			"parent": "kafena vega1 zensko",
+			"enabled": true,
+			"x": -9,
+			"y": -3.5
+		},
+		{
+			"name": "temna vega2 zensko",
+			"parent": "kafena vega2 zensko",
+			"enabled": true,
+			"x": -6,
+			"y": -1.5
+		}
+	],
+	"slots": [
+		{
+			"name": "but",
+			"bone": "but",
+			"attachment": "idle-assets/violetova pantaloni but"
+		},
+		{
+			"name": "but 2",
+			"bone": "but 2",
+			"attachment": "idle-assets/violetova pantaloni but"
+		},
+		{
+			"name": "potkoleno",
+			"bone": "potkoleno",
+			"attachment": "idle-assets/violetova pantaloni potkoleno"
+		},
+		{
+			"name": "potkoleno 2",
+			"bone": "potkoleno 2",
+			"attachment": "idle-assets/violetova pantaloni potkoleno"
+		},
+		{
+			"name": "plava patika1",
+			"bone": "plava patika1",
+			"attachment": "idle-assets/plava patika1"
+		},
+		{
+			"name": "plava patika2",
+			"bone": "plava patika2",
+			"attachment": "idle-assets/plava patika2"
+		},
+		{
+			"name": "kosa kafena dolga",
+			"bone": "kosa kafena dolga",
+			"attachment": "idle-assets/kosa kafena dolga"
+		},
+		{
+			"name": "gol but",
+			"bone": "gol but",
+			"attachment": "idle-assets/gol but"
+		},
+		{
+			"name": "gol but2",
+			"bone": "gol but2",
+			"attachment": "idle-assets/gol but"
+		},
+		{
+			"name": "golo potkoleno",
+			"bone": "golo potkoleno",
+			"attachment": "idle-assets/golo potkoleno"
+		},
+		{
+			"name": "golo potkoleno2",
+			"bone": "golo potkoleno2",
+			"attachment": "idle-assets/golo potkoleno"
+		},
+		{
+			"name": "crvena patika1",
+			"bone": "crvena patika1",
+			"attachment": "idle-assets/crvena patika1"
+		},
+		{
+			"name": "crvena patika2",
+			"bone": "crvena patika2",
+			"attachment": "idle-assets/crvena patika2"
+		},
+		{
+			"name": "violetova kondura1",
+			"bone": "violetova kondura1",
+			"attachment": "idle-assets/violetova kondura1"
+		},
+		{
+			"name": "violetova kondura2",
+			"bone": "violetova kondura2",
+			"attachment": "idle-assets/violetova kondura2"
+		},
+		{
+			"name": "kosa temna pletenka",
+			"bone": "kosa temna pletenka",
+			"attachment": "idle-assets/kosa temna pletenka"
+		},
+		{
+			"name": "vrat",
+			"bone": "vrat",
+			"attachment": "idle-assets/vrat"
+		},
+		{
+			"name": "glava zenska",
+			"bone": "glava zenska",
+			"attachment": "idle-assets/glava zenska"
+		},
+		{
+			"name": "usta zatvorena zensko",
+			"bone": "usta zatvorena zensko",
+			"attachment": "idle-assets/usta zatvorena zensko"
+		},
+		{
+			"name": "usta zacudena",
+			"bone": "usta zacudena",
+			"attachment": "idle-assets/usta zacudena",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "usta nasmevka",
+			"bone": "usta nasmevka",
+			"attachment": "idle-assets/usta nasmevka",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "nos zensko",
+			"bone": "nos zensko",
+			"attachment": "idle-assets/nos zensko"
+		},
+		{
+			"name": "oci zenski",
+			"bone": "oci zenski",
+			"attachment": "idle-assets/oci zenski"
+		},
+		{
+			"name": "zenica2",
+			"bone": "zenica2",
+			"attachment": "idle-assets/zenica2"
+		},
+		{
+			"name": "zenica1",
+			"bone": "zenica1",
+			"attachment": "idle-assets/zenica1"
+		},
+		{
+			"name": "kapaci",
+			"bone": "kapaci",
+			"attachment": "idle-assets/kapaci",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "kosa kafena kratka",
+			"bone": "kosa kafena kratka",
+			"attachment": "idle-assets/kosa kafena kratka"
+		},
+		{
+			"name": "kafena vega1 zensko",
+			"bone": "kafena vega1 zensko",
+			"attachment": "idle-assets/kafena vega1 zensko"
+		},
+		{
+			"name": "kafena vega2 zensko",
+			"bone": "kafena vega2 zensko",
+			"attachment": "idle-assets/kafena vega2 zensko"
+		},
+		{
+			"name": "podlaktica2",
+			"bone": "podlaktica2",
+			"attachment": "idle-assets/violetov rakav podlaktica2"
+		},
+		{
+			"name": "ramo2",
+			"bone": "ramo2",
+			"attachment": "idle-assets/violetov rakav ramo2"
+		},
+		{
+			"name": "podlaktica1",
+			"bone": "podlaktica1",
+			"attachment": "idle-assets/violetov rakav podlaktica1"
+		},
+		{
+			"name": "ramo1",
+			"bone": "ramo1",
+			"attachment": "idle-assets/violetov rakav ramo1"
+		},
+		{
+			"name": "bluza violetova",
+			"bone": "bluza violetova",
+			"attachment": "idle-assets/bluza violetova"
+		},
+		{
+			"name": "kosa plava repce2",
+			"bone": "kosa plava repce2",
+			"attachment": "idle-assets/kosa plava repce2"
+		},
+		{
+			"name": "kosa plava repce1",
+			"bone": "kosa plava repce1",
+			"attachment": "idle-assets/kosa plava repce1"
+		},
+		{
+			"name": "kosa plava kratka",
+			"bone": "kosa plava kratka",
+			"attachment": "idle-assets/kosa plava kratka"
+		},
+		{
+			"name": "plava vega1 zensko",
+			"bone": "plava vega1 zensko",
+			"attachment": "idle-assets/plava vega1 zensko"
+		},
+		{
+			"name": "plava vega2 zensko",
+			"bone": "plava vega2 zensko",
+			"attachment": "idle-assets/plava vega2 zensko"
+		},
+		{
+			"name": "gola podlaktica2",
+			"bone": "gola podlaktica2",
+			"attachment": "idle-assets/gola podlaktica2"
+		},
+		{
+			"name": "golo ramo2",
+			"bone": "golo ramo2",
+			"attachment": "idle-assets/golo ramo2"
+		},
+		{
+			"name": "gola podlaktica1",
+			"bone": "gola podlaktica1",
+			"attachment": "idle-assets/gola podlaktica1"
+		},
+		{
+			"name": "golo ramo1",
+			"bone": "golo ramo1",
+			"attachment": "idle-assets/golo ramo1"
+		},
+		{
+			"name": "temen rakav2",
+			"bone": "temen rakav2",
+			"attachment": "idle-assets/temen rakav2"
+		},
+		{
+			"name": "temen rakav1",
+			"bone": "temen rakav1",
+			"attachment": "idle-assets/temen rakav1"
+		},
+		{
+			"name": "temna sukna",
+			"bone": "temna sukna",
+			"attachment": "idle-assets/temna sukna"
+		},
+		{
+			"name": "bluza bela",
+			"bone": "bluza bela",
+			"attachment": "idle-assets/bluza bela"
+		},
+		{
+			"name": "kosa temna kratka",
+			"bone": "kosa temna kratka",
+			"attachment": "idle-assets/kosa temna kratka"
+		},
+		{
+			"name": "temna vega1 zensko",
+			"bone": "temna vega1 zensko",
+			"attachment": "idle-assets/temna vega1 zensko"
+		},
+		{
+			"name": "temna vega2 zensko",
+			"bone": "temna vega2 zensko",
+			"attachment": "idle-assets/temna vega2 zensko"
+		},
+		{
+			"name": "zolt fustan2",
+			"bone": "zolt fustan2",
+			"attachment": "idle-assets/zolt fustan2"
+		},
+		{
+			"name": "zolt fustan1",
+			"bone": "zolt fustan1",
+			"attachment": "idle-assets/zolt fustan1"
+		},
+		{
+			"name": "dlanka2",
+			"bone": "dlanka2",
+			"attachment": "idle-assets/dlanka2"
+		},
+		{
+			"name": "dlanka otvorena",
+			"bone": "dlanka otvorena",
+			"attachment": "idle-assets/dlanka otvorena",
+			"color": "FFFFFF00"
+		},
+		{
+			"name": "dlanka",
+			"bone": "dlanka",
+			"attachment": "idle-assets/dlanka1"
+		},
+		{
+			"name": "logo1 belo",
+			"bone": "logo1 belo",
+			"attachment": "idle-assets/logo1 belo"
+		},
+		{
+			"name": "logo1 boja",
+			"bone": "logo1 boja",
+			"attachment": "idle-assets/logo1 boja"
+		},
+		{
+			"name": "logo1 temno",
+			"bone": "logo1 temno",
+			"attachment": "idle-assets/logo1 temno"
+		},
+		{
+			"name": "logo2 belo",
+			"bone": "logo2 belo",
+			"attachment": "idle-assets/logo2 belo"
+		},
+		{
+			"name": "logo2 boja",
+			"bone": "logo2 boja",
+			"attachment": "idle-assets/logo2 boja"
+		},
+		{
+			"name": "logo2 temno",
+			"bone": "logo2 temno",
+			"attachment": "idle-assets/logo2 temno"
+		},
+		{
+			"name": "logo3 belo",
+			"bone": "logo3 belo",
+			"attachment": "idle-assets/logo3 belo"
+		},
+		{
+			"name": "logo3 boja",
+			"bone": "logo3 boja",
+			"attachment": "idle-assets/logo3 boja"
+		},
+		{
+			"name": "logo3 temno",
+			"bone": "logo3 temno",
+			"attachment": "idle-assets/logo3 temno"
+		},
+		{
+			"name": "logo4 boja",
+			"bone": "logo4 boja",
+			"attachment": "idle-assets/logo4 boja"
+		},
+		{
+			"name": "logo5 boja",
+			"bone": "logo5 boja",
+			"attachment": "idle-assets/logo5 boja"
+		},
+		{
+			"name": "logo6 boja",
+			"bone": "logo6 boja",
+			"attachment": "idle-assets/logo6 boja"
+		}
+	],
+	"skins": {
+		"default": {
+			"but": {
+				"idle-assets/violetova pantaloni but": {
+					"x": 4,
+					"y": -156,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"but 2": {
+				"idle-assets/violetova pantaloni but": {
+					"x": 0,
+					"y": -154,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"potkoleno": {
+				"idle-assets/violetova pantaloni potkoleno": {
+					"x": 0,
+					"y": -150.5,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"potkoleno 2": {
+				"idle-assets/violetova pantaloni potkoleno": {
+					"x": 1,
+					"y": -152,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"plava patika1": {
+				"idle-assets/plava patika1": {
+					"x": -99,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"plava patika2": {
+				"idle-assets/plava patika2": {
+					"x": 109,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"kosa kafena dolga": {
+				"idle-assets/kosa kafena dolga": {
+					"x": 50,
+					"y": -468,
+					"width": 893,
+					"height": 1124
+				}
+			},
+			"gol but": {
+				"idle-assets/gol but": {
+					"x": 4,
+					"y": -156,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"gol but2": {
+				"idle-assets/gol but": {
+					"x": 0,
+					"y": -154,
+					"width": 83,
+					"height": 379
+				}
+			},
+			"golo potkoleno": {
+				"idle-assets/golo potkoleno": {
+					"x": 0,
+					"y": -150.5,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"golo potkoleno2": {
+				"idle-assets/golo potkoleno": {
+					"x": 1,
+					"y": -152,
+					"width": 86,
+					"height": 382
+				}
+			},
+			"crvena patika1": {
+				"idle-assets/crvena patika1": {
+					"x": -99,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"crvena patika2": {
+				"idle-assets/crvena patika2": {
+					"x": 109,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"violetova kondura1": {
+				"idle-assets/violetova kondura1": {
+					"x": -99,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"violetova kondura2": {
+				"idle-assets/violetova kondura2": {
+					"x": 109,
+					"y": 6,
+					"width": 333,
+					"height": 182
+				}
+			},
+			"kosa temna pletenka": {
+				"idle-assets/kosa temna pletenka": {
+					"x": 40,
+					"y": -240,
+					"width": 212,
+					"height": 614
+				}
+			},
+			"vrat": {
+				"idle-assets/vrat": {
+					"x": 0,
+					"y": 0,
+					"width": 121,
+					"height": 148
+				}
+			},
+			"glava zenska": {
+				"idle-assets/glava zenska": {
+					"x": 0,
+					"y": 353,
+					"width": 915,
+					"height": 706
+				}
+			},
+			"usta zatvorena zensko": {
+				"idle-assets/usta zatvorena zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 122,
+					"height": 58
+				}
+			},
+			"usta zacudena": {
+				"idle-assets/usta zacudena": {
+					"x": 0,
+					"y": 0,
+					"width": 63,
+					"height": 55
+				}
+			},
+			"usta nasmevka": {
+				"idle-assets/usta nasmevka": {
+					"x": 0,
+					"y": 0,
+					"width": 229,
+					"height": 105
+				}
+			},
+			"nos zensko": {
+				"idle-assets/nos zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 607,
+					"height": 72
+				}
+			},
+			"oci zenski": {
+				"idle-assets/oci zenski": {
+					"x": 0,
+					"y": 0,
+					"width": 450,
+					"height": 202
+				}
+			},
+			"zenica2": {
+				"idle-assets/zenica2": {
+					"x": 0,
+					"y": 0,
+					"width": 76,
+					"height": 117
+				}
+			},
+			"zenica1": {
+				"idle-assets/zenica1": {
+					"x": 0,
+					"y": 0,
+					"width": 77,
+					"height": 119
+				}
+			},
+			"kapaci": {
+				"idle-assets/kapaci": {
+					"x": 0,
+					"y": 0,
+					"width": 436,
+					"height": 37
+				}
+			},
+			"kosa kafena kratka": {
+				"idle-assets/kosa kafena kratka": {
+					"x": 0,
+					"y": 0,
+					"width": 836,
+					"height": 644
+				}
+			},
+			"kafena vega1 zensko": {
+				"idle-assets/kafena vega1 zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 130,
+					"height": 55
+				}
+			},
+			"kafena vega2 zensko": {
+				"idle-assets/kafena vega2 zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 120,
+					"height": 58
+				}
+			},
+			"podlaktica2": {
+				"idle-assets/violetov rakav podlaktica2": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"ramo2": {
+				"idle-assets/violetov rakav ramo2": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"podlaktica1": {
+				"idle-assets/violetov rakav podlaktica1": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"ramo1": {
+				"idle-assets/violetov rakav ramo1": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"bluza violetova": {
+				"idle-assets/bluza violetova": {
+					"x": 0,
+					"y": 212,
+					"width": 313,
+					"height": 540
+				}
+			},
+			"kosa plava repce2": {
+				"idle-assets/kosa plava repce2": {
+					"x": 153,
+					"y": 87,
+					"width": 362,
+					"height": 269
+				}
+			},
+			"kosa plava repce1": {
+				"idle-assets/kosa plava repce1": {
+					"x": -182,
+					"y": -69,
+					"width": 398,
+					"height": 363
+				}
+			},
+			"kosa plava kratka": {
+				"idle-assets/kosa plava kratka": {
+					"x": 0,
+					"y": 0,
+					"width": 930,
+					"height": 711
+				}
+			},
+			"plava vega1 zensko": {
+				"idle-assets/plava vega1 zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 130,
+					"height": 55
+				}
+			},
+			"plava vega2 zensko": {
+				"idle-assets/plava vega2 zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 120,
+					"height": 58
+				}
+			},
+			"gola podlaktica2": {
+				"idle-assets/gola podlaktica2": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"golo ramo2": {
+				"idle-assets/golo ramo2": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"gola podlaktica1": {
+				"idle-assets/gola podlaktica1": {
+					"x": 0.5,
+					"y": -124,
+					"width": 46,
+					"height": 292
+				}
+			},
+			"golo ramo1": {
+				"idle-assets/golo ramo1": {
+					"x": 4.5,
+					"y": -130,
+					"width": 45,
+					"height": 291
+				}
+			},
+			"temen rakav2": {
+				"idle-assets/temen rakav2": {
+					"x": 36,
+					"y": -71,
+					"width": 111,
+					"height": 167
+				}
+			},
+			"temen rakav1": {
+				"idle-assets/temen rakav1": {
+					"x": -32,
+					"y": -69,
+					"width": 111,
+					"height": 167
+				}
+			},
+			"temna sukna": {
+				"idle-assets/temna sukna": {
+					"x": 8,
+					"y": -122,
+					"width": 356,
+					"height": 358
+				}
+			},
+			"bluza bela": {
+				"idle-assets/bluza bela": {
+					"x": 0,
+					"y": 212,
+					"width": 313,
+					"height": 540
+				}
+			},
+			"kosa temna kratka": {
+				"idle-assets/kosa temna kratka": {
+					"x": 0,
+					"y": 0,
+					"width": 838,
+					"height": 845
+				}
+			},
+			"temna vega1 zensko": {
+				"idle-assets/temna vega1 zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 130,
+					"height": 55
+				}
+			},
+			"temna vega2 zensko": {
+				"idle-assets/temna vega2 zensko": {
+					"x": 0,
+					"y": 0,
+					"width": 120,
+					"height": 58
+				}
+			},
+			"zolt fustan2": {
+				"idle-assets/zolt fustan2": {
+					"x": 0,
+					"y": -179,
+					"width": 356,
+					"height": 358
+				}
+			},
+			"zolt fustan1": {
+				"idle-assets/zolt fustan1": {
+					"x": 0,
+					"y": 212,
+					"width": 313,
+					"height": 540
+				}
+			},
+			"dlanka2": {
+				"idle-assets/dlanka2": {
+					"x": -24.3364755152354,
+					"y": -71.2934596591723,
+					"width": 125,
+					"height": 155
+				}
+			},
+			"dlanka otvorena": {
+				"idle-assets/dlanka otvorena": {
+					"x": 0,
+					"y": 114.5,
+					"width": 235,
+					"height": 229
+				}
+			},
+			"dlanka": {
+				"idle-assets/dlanka1": {
+					"x": 25,
+					"y": -73,
+					"width": 125,
+					"height": 155
+				}
+			},
+			"logo1 belo": {
+				"idle-assets/logo1 belo": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 265
+				}
+			},
+			"logo1 boja": {
+				"idle-assets/logo1 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 265
+				}
+			},
+			"logo1 temno": {
+				"idle-assets/logo1 temno": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 265
+				}
+			},
+			"logo2 belo": {
+				"idle-assets/logo2 belo": {
+					"x": 0,
+					"y": 0,
+					"width": 249,
+					"height": 124
+				}
+			},
+			"logo2 boja": {
+				"idle-assets/logo2 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 249,
+					"height": 124
+				}
+			},
+			"logo2 temno": {
+				"idle-assets/logo2 temno": {
+					"x": 0,
+					"y": 0,
+					"width": 249,
+					"height": 124
+				}
+			},
+			"logo3 belo": {
+				"idle-assets/logo3 belo": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 75
+				}
+			},
+			"logo3 boja": {
+				"idle-assets/logo3 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 75
+				}
+			},
+			"logo3 temno": {
+				"idle-assets/logo3 temno": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 75
+				}
+			},
+			"logo4 boja": {
+				"idle-assets/logo4 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 76
+				}
+			},
+			"logo5 boja": {
+				"idle-assets/logo5 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 270,
+					"height": 76
+				}
+			},
+			"logo6 boja": {
+				"idle-assets/logo6 boja": {
+					"x": 0,
+					"y": 0,
+					"width": 269,
+					"height": 263
+				}
+			}
+		}
+	},
+	"animations": {
+		"animation": {
+			"bones": {
+				"kosa kafena dolga": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 1,
+							"tangentType": "linear",
+							"angleExactly": 1,
+							"angle": 0,
+							"angleinAEP": -1
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 1,
+							"tangentType": "linear",
+							"angleExactly": -1,
+							"angle": -2,
+							"angleinAEP": 1
+						},
+						{
+							"time": 3.3,
+							"test0": 0,
+							"test1": 1,
+							"tangentType": "linear",
+							"angleExactly": 1,
+							"angle": 0,
+							"angleinAEP": -1
+						}
+					]
+				},
+				"kosa temna pletenka": {
+					"rotate": [
+						{
+							"time": 0.16666666666667,
+							"test0": 0,
+							"test1": 3,
+							"tangentType": "linear",
+							"angleExactly": 3,
+							"angle": 0,
+							"angleinAEP": -3
+						},
+						{
+							"time": 1,
+							"test0": 0,
+							"test1": 3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": -6,
+							"angleinAEP": 3
+						},
+						{
+							"time": 1.83333333333333,
+							"test0": 0,
+							"test1": 3,
+							"tangentType": "linear",
+							"angleExactly": 3,
+							"angle": 0,
+							"angleinAEP": -3
+						}
+					]
+				},
+				"glava zenska": {
+					"scale": [
+						{
+							"time": 1.43333333333333,
+							"x": 1,
+							"y": 1
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 1,
+							"y": 0.94
+						},
+						{
+							"time": 1.9,
+							"x": 1,
+							"y": 1
+						}
+					]
+				},
+				"usta zatvorena zensko": {
+					"translate": [
+						{
+							"time": 1.43333333333333,
+							"x": -97,
+							"y": -145.5
+						},
+						{
+							"time": 1.66666666666667,
+							"x": -87.5,
+							"y": -136.819148936171
+						},
+						{
+							"time": 1.9,
+							"x": -97,
+							"y": -145.5
+						}
+					]
+				},
+				"nos zensko": {
+					"translate": [
+						{
+							"time": 0,
+							"x": 7.5,
+							"y": 298.5
+						},
+						{
+							"time": 0.83333333333333,
+							"x": 7.5,
+							"y": 287.5
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 7.5,
+							"y": 298.5
+						},
+						{
+							"time": 2.5,
+							"x": 7.5,
+							"y": 287.5
+						},
+						{
+							"time": 3.33333333333333,
+							"x": 7.5,
+							"y": 298.5
+						}
+					]
+				},
+				"kafena vega1 zensko": {
+					"translate": [
+						{
+							"time": 1.43333333333333,
+							"x": -174,
+							"y": 135.5
+						},
+						{
+							"time": 1.66666666666667,
+							"x": -174,
+							"y": 97.2021276595719
+						},
+						{
+							"time": 1.9,
+							"x": -174,
+							"y": 135.5
+						}
+					]
+				},
+				"kafena vega2 zensko": {
+					"translate": [
+						{
+							"time": 1.43333333333333,
+							"x": 144.5,
+							"y": 137.5
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 144.5,
+							"y": 111.967688159755
+						},
+						{
+							"time": 1.9,
+							"x": 144.5,
+							"y": 137.5
+						}
+					]
+				},
+				"podlaktica2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -10,
+							"angle": 0,
+							"angleinAEP": 10
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -2,
+							"angle": 8,
+							"angleinAEP": 2
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -10,
+							"angle": 0,
+							"angleinAEP": 10
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -2,
+							"angle": 8,
+							"angleinAEP": 2
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -10,
+							"tangentType": "linear",
+							"angleExactly": -10,
+							"angle": 0,
+							"angleinAEP": 10
+						}
+					]
+				},
+				"ramo2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 18,
+							"angle": 0,
+							"angleinAEP": -18
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 15,
+							"angle": -3,
+							"angleinAEP": -15
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 18,
+							"angle": 0,
+							"angleinAEP": -18
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 15,
+							"angle": -3,
+							"angleinAEP": -15
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 18,
+							"tangentType": "linear",
+							"angleExactly": 18,
+							"angle": 0,
+							"angleinAEP": -18
+						}
+					]
+				},
+				"podlaktica1": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 10,
+							"angle": 0,
+							"angleinAEP": -10
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 1,
+							"angle": -9,
+							"angleinAEP": -1
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 10,
+							"angle": 0,
+							"angleinAEP": -10
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 1,
+							"angle": -9,
+							"angleinAEP": -1
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": 10,
+							"tangentType": "linear",
+							"angleExactly": 10,
+							"angle": 0,
+							"angleinAEP": -10
+						}
+					]
+				},
+				"ramo1": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -17,
+							"angle": 0,
+							"angleinAEP": 17
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -14,
+							"angle": 3,
+							"angleinAEP": 14
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -17,
+							"angle": 0,
+							"angleinAEP": 17
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -14,
+							"angle": 3,
+							"angleinAEP": 14
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -17,
+							"tangentType": "linear",
+							"angleExactly": -17,
+							"angle": 0,
+							"angleinAEP": 17
+						}
+					]
+				},
+				"bluza violetova": {
+					"translate": [
+						{
+							"time": 0,
+							"x": 1048.5,
+							"y": -1838
+						},
+						{
+							"time": 0.83333333333333,
+							"x": 1048.5,
+							"y": -1850
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 1048.5,
+							"y": -1838
+						},
+						{
+							"time": 2.5,
+							"x": 1048.5,
+							"y": -1850
+						},
+						{
+							"time": 3.33333333333333,
+							"x": 1048.5,
+							"y": -1838
+						}
+					],
+					"scale": [
+						{
+							"time": 0,
+							"x": 1,
+							"y": 1
+						},
+						{
+							"time": 0.83333333333333,
+							"x": 1,
+							"y": 0.98
+						},
+						{
+							"time": 1.66666666666667,
+							"x": 1,
+							"y": 1
+						},
+						{
+							"time": 2.5,
+							"x": 1,
+							"y": 0.98
+						},
+						{
+							"time": 3.33333333333333,
+							"x": 1,
+							"y": 1
+						}
+					]
+				},
+				"dlanka2": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": 0,
+							"angleinAEP": 3
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 3,
+							"angleinAEP": 0
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": 0,
+							"angleinAEP": 3
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": 0,
+							"angle": 3,
+							"angleinAEP": 0
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -3,
+							"tangentType": "linear",
+							"angleExactly": -3,
+							"angle": 0,
+							"angleinAEP": 3
+						}
+					]
+				},
+				"dlanka": {
+					"rotate": [
+						{
+							"time": 0,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -8,
+							"angle": 0,
+							"angleinAEP": 8
+						},
+						{
+							"time": 0.83333333333333,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -13,
+							"angle": -5,
+							"angleinAEP": 13
+						},
+						{
+							"time": 1.66666666666667,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -8,
+							"angle": 0,
+							"angleinAEP": 8
+						},
+						{
+							"time": 2.5,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -13,
+							"angle": -5,
+							"angleinAEP": 13
+						},
+						{
+							"time": 3.33333333333333,
+							"test0": 0,
+							"test1": -8,
+							"tangentType": "linear",
+							"angleExactly": -8,
+							"angle": 0,
+							"angleinAEP": 8
+						}
+					]
+				}
+			},
+			"slots": {
+				"oci zenski": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFFff",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFF00"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFFff"
+						}
+					]
+				},
+				"zenica2": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFFff",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFF00"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFFff"
+						}
+					]
+				},
+				"zenica1": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFFff",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFF00"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFFff"
+						}
+					]
+				},
+				"kapaci": {
+					"color": [
+						{
+							"time": 0,
+							"color": "FFFFFF00",
+							"curve": "stepped"
+						},
+						{
+							"time": 1.6,
+							"color": "FFFFFFff"
+						},
+						{
+							"time": 1.73333333333333,
+							"color": "FFFFFF00"
+						}
+					]
+				}
+			}
+		}
+	}
+}
