@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3239586527
+CRC: 379187406
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 58b28ccf03a76fe15c6a23e753f30860
+    Hash: 50a9755281cf3d81abdfc66b7adf3b0e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3df2cff849b4382089f86a240bef87d5
+    Hash: 3ed4f215a0953aeaaef9c42ac20ebb65
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -48,8 +48,6 @@ ClassTypes:
 - Class: 115
   Script: {instanceID: 0}
 - Class: 137
-  Script: {instanceID: 0}
-- Class: 153
   Script: {instanceID: 0}
 Assets:
 - Assets/eBookReader/Resources/Searching-for-the-Spirit-of-Spring/images/Page13.jpg
